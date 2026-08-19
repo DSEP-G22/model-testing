@@ -1,0 +1,11 @@
+task,family,best_model,macro_f1,train_s,infer_ms,wer
+intent_classification,deep,minilm_finetuned,0.9966,59.38470740000048,8.281799997348571,
+intent_classification,embedding,minilm+linsvc,0.9946,11.950932199993986,9.851449997565942,
+intent_classification,traditional,tfidf_word+char+linsvc,0.9991,8.887370100004773,1.4377499974216335,
+intent_robustness_shift,deep,distilbert_finetuned,0.9582,45.39810579999903,,
+intent_robustness_shift,embedding,minilm+logreg,0.9779,0.4790846999967471,,
+intent_robustness_shift,traditional,tfidf_word+char+linsvc,0.9943,2.7337439999973867,,
+router_image_classification,deep,efficientnet_b0_finetuned,0.9728,429.0565588000027,14.254649999202229,
+router_image_classification,embedding,efficientnet_b0_frozen+logreg,0.9774,2.761737200002244,,
+router_image_classification,traditional,colourhist+randomforest,0.7723,1.3299899999983609,102.03905000525992,
+voice_asr,asr,faster_whisper_small,,,,0.3897

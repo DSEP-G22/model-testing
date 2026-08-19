@@ -1,0 +1,162 @@
+[
+  {
+    "task": "voice_asr",
+    "model": "whisper_tiny",
+    "family": "asr",
+    "metrics": {
+      "wer": 0.7605064649911285,
+      "wer_median": 0.8690476190476191,
+      "cer": 0.5907683418285081,
+      "cer_median": 0.6675018792282635,
+      "mer": 0.7347045587378448,
+      "mer_median": 0.8384332925336597,
+      "wil": 0.8452270534592599,
+      "wil_median": 0.9583998599439776,
+      "embed_cos": 0.7183984654492572,
+      "embed_cos_median": 0.7842597365379333,
+      "len_ratio": 0.6965119271814219,
+      "len_ratio_median": 0.7568922305764411,
+      "rtf": 0.09111092323406204,
+      "lang_id_acc": 1.0,
+      "n_calls": 11
+    },
+    "params": {
+      "impl": "openai-whisper",
+      "fp16": true,
+      "task": "transcribe"
+    },
+    "train_seconds": null,
+    "infer_ms_per_item": null,
+    "model_size_mb": null,
+    "n_params": null,
+    "notes": "duration-weighted; references are cleaned, not verbatim"
+  },
+  {
+    "task": "voice_asr",
+    "model": "whisper_base",
+    "family": "asr",
+    "metrics": {
+      "wer": 0.5973895741605423,
+      "wer_median": 0.6509528585757272,
+      "cer": 0.3874097427709008,
+      "cer_median": 0.41625207296849087,
+      "mer": 0.5407676528219647,
+      "mer_median": 0.5952848722986247,
+      "wil": 0.7133822434419881,
+      "wil_median": 0.8004887996388487,
+      "embed_cos": 0.7800218383887938,
+      "embed_cos_median": 0.7896091341972351,
+      "len_ratio": 1.0021399475866906,
+      "len_ratio_median": 1.0087719298245614,
+      "rtf": 0.10273799672772999,
+      "lang_id_acc": 1.0,
+      "n_calls": 11
+    },
+    "params": {
+      "impl": "openai-whisper",
+      "fp16": true,
+      "task": "transcribe"
+    },
+    "train_seconds": null,
+    "infer_ms_per_item": null,
+    "model_size_mb": null,
+    "n_params": null,
+    "notes": "duration-weighted; references are cleaned, not verbatim"
+  },
+  {
+    "task": "voice_asr",
+    "model": "whisper_small",
+    "family": "asr",
+    "metrics": {
+      "wer": 0.42991922999405907,
+      "wer_median": 0.4649184975194897,
+      "cer": 0.2930617296297107,
+      "cer_median": 0.29748127978216476,
+      "mer": 0.3995452723361328,
+      "mer_median": 0.43157894736842106,
+      "wil": 0.5381208967203327,
+      "wil_median": 0.6025134701532076,
+      "embed_cos": 0.8449782315424862,
+      "embed_cos_median": 0.8674705028533936,
+      "len_ratio": 0.9517564970424003,
+      "len_ratio_median": 0.9548361310951239,
+      "rtf": 0.12989073990183297,
+      "lang_id_acc": 1.0,
+      "n_calls": 11
+    },
+    "params": {
+      "impl": "openai-whisper",
+      "fp16": true,
+      "task": "transcribe"
+    },
+    "train_seconds": null,
+    "infer_ms_per_item": null,
+    "model_size_mb": null,
+    "n_params": null,
+    "notes": "duration-weighted; references are cleaned, not verbatim"
+  },
+  {
+    "task": "voice_asr",
+    "model": "faster_whisper_small",
+    "family": "asr",
+    "metrics": {
+      "wer": 0.3896609922996395,
+      "wer_median": 0.3975609756097561,
+      "cer": 0.26739796438911373,
+      "cer_median": 0.24378171018438313,
+      "mer": 0.36825860175354286,
+      "mer_median": 0.3668417104276069,
+      "wil": 0.49668649714049573,
+      "wil_median": 0.5140959334753068,
+      "embed_cos": 0.8621128922044521,
+      "embed_cos_median": 0.8651142716407776,
+      "len_ratio": 0.9341133482125127,
+      "len_ratio_median": 0.9404476418864908,
+      "rtf": 0.08764815756704457,
+      "lang_id_acc": 1.0,
+      "n_calls": 11
+    },
+    "params": {
+      "impl": "faster-whisper/CTranslate2",
+      "beam_size": 5,
+      "vad_filter": true,
+      "backend": "cached"
+    },
+    "train_seconds": null,
+    "infer_ms_per_item": null,
+    "model_size_mb": null,
+    "n_params": null,
+    "notes": "quantised runtime + VAD silence skipping, same Whisper weights; ran on cached"
+  },
+  {
+    "task": "voice_asr",
+    "model": "whisper_small_translate_en",
+    "family": "asr",
+    "metrics": {
+      "wer": 0.7031979350477625,
+      "wer_median": 0.6998820754716981,
+      "cer": 0.5441897713018484,
+      "cer_median": 0.5360226992351345,
+      "mer": 0.651534418926651,
+      "mer_median": 0.6358234295415959,
+      "wil": 0.8315001812343039,
+      "wil_median": 0.8240471983846542,
+      "embed_cos": 0.663188426330362,
+      "embed_cos_median": 0.6845347285270691,
+      "len_ratio": 0.8999292735306202,
+      "len_ratio_median": 0.9122137404580153,
+      "rtf": 0.16194214691153275,
+      "n_calls": 9,
+      "chrf2": 50.658684799563325,
+      "bleu": 23.59914324826494
+    },
+    "params": {
+      "task": "translate"
+    },
+    "train_seconds": null,
+    "infer_ms_per_item": null,
+    "model_size_mb": null,
+    "n_params": null,
+    "notes": "chrF++/BLEU vs the EN section of the .docx"
+  }
+]

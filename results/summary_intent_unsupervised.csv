@@ -1,0 +1,7 @@
+task,model,family,accuracy,balanced_acc,macro_f1,weighted_f1,macro_precision,macro_recall,train_s,infer_ms,size_mb,n_params,notes,top3_accuracy,ARI,NMI,V_measure,purity,hungarian_acc,n_clusters,noise_frac,silhouette
+intent_classification,agglomerative_ward_minilm,unsupervised,,,,,,,,,,,k = true number of intents,,0.6709033417482472,0.8375137891776728,0.8375137891776728,0.743875,0.71025,27.0,0.0,0.1699584424495697
+intent_classification,kmeans_minilm,unsupervised,,,,,,,,,,,k = true number of intents,,0.6670711523795226,0.8368288096832406,0.8368288096832406,0.739,0.70325,27.0,0.0,0.17287008464336395
+intent_classification,gmm_minilm,unsupervised,,,,,,,,,,,k = true number of intents,,0.6586735658398762,0.8264086371543884,0.8264086371543883,0.72375,0.6955,27.0,0.0,0.1573982834815979
+intent_classification,lda_topics_tfidf,unsupervised,,,,,,,,,,,topic with highest weight = cluster,,0.26315077194704534,0.502677771412949,0.502677771412949,0.42025,0.398375,27.0,0.0,-0.04314436585456145
+intent_classification,kmeans_tfidf_svd200,unsupervised,,,,,,,,,,,k = true number of intents,,0.24232352068181823,0.5525200457530621,0.552520045753062,0.44125,0.376625,27.0,0.0,0.06766947969758126
+intent_classification,hdbscan_minilm,unsupervised,,,,,,,,,,,k discovered by the algorithm,,0.20581463353355994,0.6749773164141077,0.6749773164141077,0.592625,0.50625,37.0,0.338,0.2727159857749939

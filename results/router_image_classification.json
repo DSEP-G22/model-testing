@@ -1,0 +1,315 @@
+[
+  {
+    "task": "router_image_classification",
+    "model": "dummy_most_frequent",
+    "family": "traditional",
+    "metrics": {
+      "accuracy": 0.2814814814814815,
+      "balanced_acc": 0.08333333333333333,
+      "macro_f1": 0.036608863198458574,
+      "weighted_f1": 0.12365660458146008,
+      "macro_precision": 0.02345679012345679,
+      "macro_recall": 0.08333333333333333
+    },
+    "params": {},
+    "train_seconds": null,
+    "infer_ms_per_item": null,
+    "model_size_mb": null,
+    "n_params": null,
+    "notes": "baseline floor"
+  },
+  {
+    "task": "router_image_classification",
+    "model": "hog+linsvc",
+    "family": "traditional",
+    "metrics": {
+      "accuracy": 0.7481481481481481,
+      "balanced_acc": 0.7241201333209847,
+      "macro_f1": 0.6365837319229432,
+      "weighted_f1": 0.7442180109914663,
+      "macro_precision": 0.6142239691575555,
+      "macro_recall": 0.7241201333209847
+    },
+    "params": {},
+    "train_seconds": 175.15635109999857,
+    "infer_ms_per_item": 0.3108000018983148,
+    "model_size_mb": 0.51,
+    "n_params": null,
+    "notes": "latency excludes feature extraction"
+  },
+  {
+    "task": "router_image_classification",
+    "model": "hog+logreg",
+    "family": "traditional",
+    "metrics": {
+      "accuracy": 0.7703703703703704,
+      "balanced_acc": 0.7379304651460225,
+      "macro_f1": 0.640895316910686,
+      "weighted_f1": 0.776070551552972,
+      "macro_precision": 0.6334304584304585,
+      "macro_recall": 0.681166583211713,
+      "top3_accuracy": 0.9111111111111111
+    },
+    "params": {},
+    "train_seconds": 4.402857200002472,
+    "infer_ms_per_item": 0.3068000005441718,
+    "model_size_mb": 0.3,
+    "n_params": null,
+    "notes": "latency excludes feature extraction"
+  },
+  {
+    "task": "router_image_classification",
+    "model": "colourhist+randomforest",
+    "family": "traditional",
+    "metrics": {
+      "accuracy": 0.8666666666666667,
+      "balanced_acc": 0.8113532046871831,
+      "macro_f1": 0.772268848914572,
+      "weighted_f1": 0.8605105712124572,
+      "macro_precision": 0.7683366402116403,
+      "macro_recall": 0.8113532046871831,
+      "top3_accuracy": 0.9777777777777777
+    },
+    "params": {},
+    "train_seconds": 1.3299899999983609,
+    "infer_ms_per_item": 102.03905000525992,
+    "model_size_mb": 9.11,
+    "n_params": null,
+    "notes": "latency excludes feature extraction"
+  },
+  {
+    "task": "router_image_classification",
+    "model": "pixels32+pca128+logreg",
+    "family": "traditional",
+    "metrics": {
+      "accuracy": 0.7555555555555555,
+      "balanced_acc": 0.7173752238187223,
+      "macro_f1": 0.6578501699202668,
+      "weighted_f1": 0.7515629453850539,
+      "macro_precision": 0.6672315257841573,
+      "macro_recall": 0.7173752238187223,
+      "top3_accuracy": 0.9259259259259259
+    },
+    "params": {},
+    "train_seconds": 78.45335250000062,
+    "infer_ms_per_item": 0.4081999977643136,
+    "model_size_mb": 1.41,
+    "n_params": null,
+    "notes": "latency excludes feature extraction"
+  },
+  {
+    "task": "router_image_classification",
+    "model": "hog+colour+pca200+histgb",
+    "family": "traditional",
+    "metrics": {
+      "accuracy": 0.8518518518518519,
+      "balanced_acc": 0.8117749320825945,
+      "macro_f1": 0.7315495335237477,
+      "weighted_f1": 0.8546216118783044,
+      "macro_precision": 0.717323502520871,
+      "macro_recall": 0.8117749320825945,
+      "top3_accuracy": 0.9481481481481482
+    },
+    "params": {},
+    "train_seconds": 24.105216000003566,
+    "infer_ms_per_item": 38.73990000283811,
+    "model_size_mb": 4.81,
+    "n_params": null,
+    "notes": "latency excludes feature extraction"
+  },
+  {
+    "task": "router_image_classification",
+    "model": "resnet18_frozen+logreg",
+    "family": "embedding",
+    "metrics": {
+      "accuracy": 0.9481481481481482,
+      "balanced_acc": 0.9565240401153714,
+      "macro_f1": 0.9566866661603504,
+      "weighted_f1": 0.9468139259484288,
+      "macro_precision": 0.9633484324660796,
+      "macro_recall": 0.9565240401153714,
+      "top3_accuracy": 0.9851851851851852
+    },
+    "params": {},
+    "train_seconds": 8.109810000001744,
+    "infer_ms_per_item": null,
+    "model_size_mb": 0.04,
+    "n_params": null,
+    "notes": "ImageNet weights frozen; train time includes feature extraction"
+  },
+  {
+    "task": "router_image_classification",
+    "model": "mobilenet_v3_small_frozen+logreg",
+    "family": "embedding",
+    "metrics": {
+      "accuracy": 0.9555555555555556,
+      "balanced_acc": 0.9738851512264826,
+      "macro_f1": 0.9455984350721193,
+      "weighted_f1": 0.9584715633838441,
+      "macro_precision": 0.9333333333333332,
+      "macro_recall": 0.9738851512264826,
+      "top3_accuracy": 0.9777777777777777
+    },
+    "params": {},
+    "train_seconds": 3.522776600002544,
+    "infer_ms_per_item": null,
+    "model_size_mb": 0.07,
+    "n_params": null,
+    "notes": "ImageNet weights frozen; train time includes feature extraction"
+  },
+  {
+    "task": "router_image_classification",
+    "model": "efficientnet_b0_frozen+logreg",
+    "family": "embedding",
+    "metrics": {
+      "accuracy": 0.9703703703703703,
+      "balanced_acc": 0.9812864670159561,
+      "macro_f1": 0.977384737503583,
+      "weighted_f1": 0.9713424127278116,
+      "macro_precision": 0.975,
+      "macro_recall": 0.9812864670159561,
+      "top3_accuracy": 0.9851851851851852
+    },
+    "params": {},
+    "train_seconds": 2.761737200002244,
+    "infer_ms_per_item": null,
+    "model_size_mb": 0.09,
+    "n_params": null,
+    "notes": "ImageNet weights frozen; train time includes feature extraction"
+  },
+  {
+    "task": "router_image_classification",
+    "model": "resnet18_finetuned",
+    "family": "deep",
+    "metrics": {
+      "accuracy": 0.9629629629629629,
+      "balanced_acc": 0.9821088354370088,
+      "macro_f1": 0.8999073689883961,
+      "weighted_f1": 0.9666640426073254,
+      "macro_precision": 0.8947821409359871,
+      "macro_recall": 0.9065620019418543,
+      "top3_accuracy": 0.9851851851851852
+    },
+    "params": {
+      "epochs": 12,
+      "lr": 0.0003,
+      "class_weighted": true
+    },
+    "train_seconds": 377.2281585000019,
+    "infer_ms_per_item": 5.386450000514742,
+    "model_size_mb": 42.74,
+    "n_params": 11183181,
+    "notes": "augmented, class-weighted loss, best-val-macroF1 checkpoint"
+  },
+  {
+    "task": "router_image_classification",
+    "model": "mobilenet_v3_small_finetuned",
+    "family": "deep",
+    "metrics": {
+      "accuracy": 0.9629629629629629,
+      "balanced_acc": 0.979259832588006,
+      "macro_f1": 0.948781407754983,
+      "weighted_f1": 0.964736603620707,
+      "macro_precision": 0.9351325757575757,
+      "macro_recall": 0.979259832588006,
+      "top3_accuracy": 0.9851851851851852
+    },
+    "params": {
+      "epochs": 12,
+      "lr": 0.0003,
+      "class_weighted": true
+    },
+    "train_seconds": 363.32966849999866,
+    "infer_ms_per_item": 9.429250001630862,
+    "model_size_mb": 5.98,
+    "n_params": 1531181,
+    "notes": "augmented, class-weighted loss, best-val-macroF1 checkpoint"
+  },
+  {
+    "task": "router_image_classification",
+    "model": "efficientnet_b0_finetuned",
+    "family": "deep",
+    "metrics": {
+      "accuracy": 0.9629629629629629,
+      "balanced_acc": 0.9821088354370088,
+      "macro_f1": 0.9728291081932032,
+      "weighted_f1": 0.9636739635938547,
+      "macro_precision": 0.9658730158730159,
+      "macro_recall": 0.9821088354370088,
+      "top3_accuracy": 0.9777777777777777
+    },
+    "params": {
+      "epochs": 12,
+      "lr": 0.0003,
+      "class_weighted": true
+    },
+    "train_seconds": 429.0565588000027,
+    "infer_ms_per_item": 14.254649999202229,
+    "model_size_mb": 15.65,
+    "n_params": 4024201,
+    "notes": "augmented, class-weighted loss, best-val-macroF1 checkpoint"
+  },
+  {
+    "task": "router_image_classification",
+    "model": "kmeans_resnet18_feats",
+    "family": "unsupervised",
+    "metrics": {
+      "ARI": 0.3968173153277782,
+      "NMI": 0.6095231744303874,
+      "V_measure": 0.6095231744303875,
+      "purity": 0.7145820983995258,
+      "hungarian_acc": 0.525489033787789,
+      "n_clusters": 13,
+      "noise_frac": 0.0,
+      "silhouette": 0.08195541054010391
+    },
+    "params": {},
+    "train_seconds": 1.0015386000013677,
+    "infer_ms_per_item": null,
+    "model_size_mb": null,
+    "n_params": null,
+    "notes": "k = true class count"
+  },
+  {
+    "task": "router_image_classification",
+    "model": "agglomerative_resnet18_feats",
+    "family": "unsupervised",
+    "metrics": {
+      "ARI": 0.7236869453942107,
+      "NMI": 0.7529396585206514,
+      "V_measure": 0.7529396585206513,
+      "purity": 0.8242442205097806,
+      "hungarian_acc": 0.7276229994072317,
+      "n_clusters": 13,
+      "noise_frac": 0.0,
+      "silhouette": 0.07642828673124313
+    },
+    "params": {},
+    "train_seconds": 1.370319899993774,
+    "infer_ms_per_item": null,
+    "model_size_mb": null,
+    "n_params": null,
+    "notes": "k = true class count"
+  },
+  {
+    "task": "router_image_classification",
+    "model": "hdbscan_resnet18_feats",
+    "family": "unsupervised",
+    "metrics": {
+      "ARI": 0.05227907274682207,
+      "NMI": 0.10543484848604619,
+      "V_measure": 0.10543484848604619,
+      "purity": 0.27919383521043273,
+      "hungarian_acc": 0.27860106698280973,
+      "n_clusters": 2,
+      "noise_frac": 0.31920569057498516,
+      "silhouette": 0.09288497269153595
+    },
+    "params": {},
+    "train_seconds": 9.72019910000381,
+    "infer_ms_per_item": null,
+    "model_size_mb": null,
+    "n_params": null,
+    "notes": "k discovered"
+  }
+]

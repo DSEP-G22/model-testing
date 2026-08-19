@@ -1,0 +1,568 @@
+[
+  {
+    "task": "intent_classification",
+    "model": "dummy_most_frequent",
+    "family": "traditional",
+    "metrics": {
+      "accuracy": 0.041620421753607105,
+      "balanced_acc": 0.037037037037037035,
+      "macro_f1": 0.00295980583673711,
+      "weighted_f1": 0.003326085915312235,
+      "macro_precision": 0.0015414971019854483,
+      "macro_recall": 0.037037037037037035
+    },
+    "params": {},
+    "train_seconds": null,
+    "infer_ms_per_item": null,
+    "model_size_mb": null,
+    "n_params": null,
+    "notes": "baseline floor"
+  },
+  {
+    "task": "intent_classification",
+    "model": "dummy_stratified",
+    "family": "traditional",
+    "metrics": {
+      "accuracy": 0.036903440621531634,
+      "balanced_acc": 0.034959733731999766,
+      "macro_f1": 0.034944008719881604,
+      "weighted_f1": 0.0368256169136356,
+      "macro_precision": 0.035084765638733355,
+      "macro_recall": 0.034959733731999766
+    },
+    "params": {},
+    "train_seconds": null,
+    "infer_ms_per_item": null,
+    "model_size_mb": null,
+    "n_params": null,
+    "notes": "baseline floor"
+  },
+  {
+    "task": "intent_classification",
+    "model": "tfidf_word+logreg",
+    "family": "traditional",
+    "metrics": {
+      "accuracy": 0.9922308546059934,
+      "balanced_acc": 0.9905345835868593,
+      "macro_f1": 0.9912481868280089,
+      "weighted_f1": 0.9922104604548108,
+      "macro_precision": 0.9921516377381364,
+      "macro_recall": 0.9905345835868593,
+      "top3_accuracy": 0.9997225305216426
+    },
+    "params": {},
+    "train_seconds": 1.148834200001147,
+    "infer_ms_per_item": 0.5548000044655055,
+    "model_size_mb": 0.92,
+    "n_params": null,
+    "notes": ""
+  },
+  {
+    "task": "intent_classification",
+    "model": "tfidf_word+char+linsvc",
+    "family": "traditional",
+    "metrics": {
+      "accuracy": 0.9991675915649278,
+      "balanced_acc": 0.9991183009902345,
+      "macro_f1": 0.9991356010536309,
+      "weighted_f1": 0.9991675178223423,
+      "macro_precision": 0.9991573635368924,
+      "macro_recall": 0.9991183009902345
+    },
+    "params": {},
+    "train_seconds": 8.887370100004773,
+    "infer_ms_per_item": 1.4377499974216335,
+    "model_size_mb": 1.96,
+    "n_params": null,
+    "notes": ""
+  },
+  {
+    "task": "intent_classification",
+    "model": "tfidf_word+complementNB",
+    "family": "traditional",
+    "metrics": {
+      "accuracy": 0.9797447280799112,
+      "balanced_acc": 0.9774260784251979,
+      "macro_f1": 0.9780669089148197,
+      "weighted_f1": 0.9796550717487036,
+      "macro_precision": 0.9794253929090638,
+      "macro_recall": 0.9774260784251979,
+      "top3_accuracy": 0.9980577136514983
+    },
+    "params": {},
+    "train_seconds": 0.2746776999993017,
+    "infer_ms_per_item": 0.6196999966050498,
+    "model_size_mb": 1.0,
+    "n_params": null,
+    "notes": ""
+  },
+  {
+    "task": "intent_classification",
+    "model": "tfidf_word+sgd_hinge",
+    "family": "traditional",
+    "metrics": {
+      "accuracy": 0.9897336293007769,
+      "balanced_acc": 0.9879660156106874,
+      "macro_f1": 0.9884795252726036,
+      "weighted_f1": 0.9897208484324458,
+      "macro_precision": 0.9890946613554802,
+      "macro_recall": 0.9879660156106874,
+      "top3_accuracy": 0.994173140954495
+    },
+    "params": {},
+    "train_seconds": 0.6914116999978432,
+    "infer_ms_per_item": 0.8818499991321005,
+    "model_size_mb": 0.2,
+    "n_params": null,
+    "notes": ""
+  },
+  {
+    "task": "intent_classification",
+    "model": "tfidf_word+randomforest",
+    "family": "traditional",
+    "metrics": {
+      "accuracy": 0.9786348501664817,
+      "balanced_acc": 0.9762206286965537,
+      "macro_f1": 0.9764175409929094,
+      "weighted_f1": 0.9786674709683822,
+      "macro_precision": 0.9768039041825569,
+      "macro_recall": 0.9762206286965537,
+      "top3_accuracy": 0.9986126526082131
+    },
+    "params": {},
+    "train_seconds": 3.8598322000034386,
+    "infer_ms_per_item": 83.91669999764417,
+    "model_size_mb": 55.97,
+    "n_params": null,
+    "notes": ""
+  },
+  {
+    "task": "intent_classification",
+    "model": "tfidf_svd300+histgb",
+    "family": "traditional",
+    "metrics": {
+      "accuracy": 0.9797447280799112,
+      "balanced_acc": 0.9777969120641309,
+      "macro_f1": 0.9784174348767364,
+      "weighted_f1": 0.9797742313647999,
+      "macro_precision": 0.9792546747863697,
+      "macro_recall": 0.9777969120641309,
+      "top3_accuracy": 0.9955604883462819
+    },
+    "params": {},
+    "train_seconds": 87.75574969999434,
+    "infer_ms_per_item": 38.745650002965704,
+    "model_size_mb": 13.13,
+    "n_params": null,
+    "notes": ""
+  },
+  {
+    "task": "intent_classification",
+    "model": "minilm+logreg",
+    "family": "embedding",
+    "metrics": {
+      "accuracy": 0.9930632630410655,
+      "balanced_acc": 0.9921897280869444,
+      "macro_f1": 0.9922681600837242,
+      "weighted_f1": 0.9930655909416006,
+      "macro_precision": 0.992382107227177,
+      "macro_recall": 0.9921897280869444,
+      "top3_accuracy": 0.9994450610432852
+    },
+    "params": {},
+    "train_seconds": 34.183043400000315,
+    "infer_ms_per_item": 9.851449997565942,
+    "model_size_mb": 0.04,
+    "n_params": null,
+    "notes": "frozen MiniLM encoder; latency includes encoding"
+  },
+  {
+    "task": "intent_classification",
+    "model": "minilm+knn5_cosine",
+    "family": "embedding",
+    "metrics": {
+      "accuracy": 0.9891786903440621,
+      "balanced_acc": 0.9879837607422582,
+      "macro_f1": 0.988308716812665,
+      "weighted_f1": 0.9891751224800021,
+      "macro_precision": 0.9887629017328243,
+      "macro_recall": 0.9879837607422582,
+      "top3_accuracy": 0.9977802441731409
+    },
+    "params": {},
+    "train_seconds": 0.03864880000037374,
+    "infer_ms_per_item": 9.851449997565942,
+    "model_size_mb": 22.93,
+    "n_params": null,
+    "notes": "frozen MiniLM encoder; latency includes encoding"
+  },
+  {
+    "task": "intent_classification",
+    "model": "minilm+linsvc",
+    "family": "embedding",
+    "metrics": {
+      "accuracy": 0.9952830188679245,
+      "balanced_acc": 0.9946596401560801,
+      "macro_f1": 0.994591280129307,
+      "weighted_f1": 0.9952816813281593,
+      "macro_precision": 0.9945631436727814,
+      "macro_recall": 0.9946596401560801
+    },
+    "params": {},
+    "train_seconds": 11.950932199993986,
+    "infer_ms_per_item": 9.851449997565942,
+    "model_size_mb": 0.08,
+    "n_params": null,
+    "notes": "frozen MiniLM encoder; latency includes encoding"
+  },
+  {
+    "task": "intent_classification",
+    "model": "minilm+mlp256",
+    "family": "embedding",
+    "metrics": {
+      "accuracy": 0.9938956714761377,
+      "balanced_acc": 0.9932502423720352,
+      "macro_f1": 0.9932954426389224,
+      "weighted_f1": 0.9938954623752392,
+      "macro_precision": 0.9933625743105607,
+      "macro_recall": 0.9932502423720352,
+      "top3_accuracy": 0.9991675915649278
+    },
+    "params": {},
+    "train_seconds": 6.698777500001597,
+    "infer_ms_per_item": 9.851449997565942,
+    "model_size_mb": 1.12,
+    "n_params": null,
+    "notes": "frozen MiniLM encoder; latency includes encoding"
+  },
+  {
+    "task": "intent_classification",
+    "model": "minilm_zeroshot_label_match",
+    "family": "embedding",
+    "metrics": {
+      "accuracy": 0.7386237513873474,
+      "balanced_acc": 0.7318589103563402,
+      "macro_f1": 0.7280714724677557,
+      "weighted_f1": 0.7338603605644519,
+      "macro_precision": 0.7472683854672343,
+      "macro_recall": 0.7318589103563402,
+      "top3_accuracy": 0.9497780244173141
+    },
+    "params": {},
+    "train_seconds": 0.0,
+    "infer_ms_per_item": 9.751449997565942,
+    "model_size_mb": null,
+    "n_params": null,
+    "notes": "no training labels used; cosine vs auto-generated intent descriptions"
+  },
+  {
+    "task": "intent_classification",
+    "model": "minilm_prototype_k1",
+    "family": "embedding",
+    "metrics": {
+      "accuracy": 0.704772475027747,
+      "balanced_acc": 0.7050643705197297,
+      "macro_f1": 0.6835920039118437,
+      "weighted_f1": 0.6949733224412126,
+      "macro_precision": 0.7285702118158163,
+      "macro_recall": 0.7050643705197297
+    },
+    "params": {},
+    "train_seconds": 0.0,
+    "infer_ms_per_item": 9.751449997565942,
+    "model_size_mb": null,
+    "n_params": null,
+    "notes": "nearest class centroid, 1 shots/class"
+  },
+  {
+    "task": "intent_classification",
+    "model": "minilm_prototype_k5",
+    "family": "embedding",
+    "metrics": {
+      "accuracy": 0.876803551609323,
+      "balanced_acc": 0.8714592755960476,
+      "macro_f1": 0.8662239302768671,
+      "weighted_f1": 0.8744392335698401,
+      "macro_precision": 0.8752084883357821,
+      "macro_recall": 0.8714592755960476
+    },
+    "params": {},
+    "train_seconds": 0.0,
+    "infer_ms_per_item": 9.751449997565942,
+    "model_size_mb": null,
+    "n_params": null,
+    "notes": "nearest class centroid, 5 shots/class"
+  },
+  {
+    "task": "intent_classification",
+    "model": "minilm_prototype_k10",
+    "family": "embedding",
+    "metrics": {
+      "accuracy": 0.9195338512763596,
+      "balanced_acc": 0.9112695463720777,
+      "macro_f1": 0.9105542476059455,
+      "weighted_f1": 0.9193828158542483,
+      "macro_precision": 0.9126533035726256,
+      "macro_recall": 0.9112695463720777
+    },
+    "params": {},
+    "train_seconds": 0.0,
+    "infer_ms_per_item": 9.751449997565942,
+    "model_size_mb": null,
+    "n_params": null,
+    "notes": "nearest class centroid, 10 shots/class"
+  },
+  {
+    "task": "intent_classification",
+    "model": "minilm_prototype_k25",
+    "family": "embedding",
+    "metrics": {
+      "accuracy": 0.9553274139844617,
+      "balanced_acc": 0.9493944188338824,
+      "macro_f1": 0.9507706509164606,
+      "weighted_f1": 0.9554297511508757,
+      "macro_precision": 0.9547340159810006,
+      "macro_recall": 0.9493944188338824
+    },
+    "params": {},
+    "train_seconds": 0.0,
+    "infer_ms_per_item": 9.751449997565942,
+    "model_size_mb": null,
+    "n_params": null,
+    "notes": "nearest class centroid, 25 shots/class"
+  },
+  {
+    "task": "intent_classification",
+    "model": "minilm_prototype_k50",
+    "family": "embedding",
+    "metrics": {
+      "accuracy": 0.9558823529411765,
+      "balanced_acc": 0.9494709642515069,
+      "macro_f1": 0.9506487152905799,
+      "weighted_f1": 0.9558170923033354,
+      "macro_precision": 0.9544534376913069,
+      "macro_recall": 0.9494709642515069
+    },
+    "params": {},
+    "train_seconds": 0.0,
+    "infer_ms_per_item": 9.751449997565942,
+    "model_size_mb": null,
+    "n_params": null,
+    "notes": "nearest class centroid, 50 shots/class"
+  },
+  {
+    "task": "intent_classification",
+    "model": "minilm_prototype_all",
+    "family": "embedding",
+    "metrics": {
+      "accuracy": 0.9600443951165372,
+      "balanced_acc": 0.9537627687507053,
+      "macro_f1": 0.955317061010615,
+      "weighted_f1": 0.9600436042670841,
+      "macro_precision": 0.959606760953597,
+      "macro_recall": 0.9537627687507053
+    },
+    "params": {},
+    "train_seconds": 0.0,
+    "infer_ms_per_item": 9.751449997565942,
+    "model_size_mb": null,
+    "n_params": null,
+    "notes": "nearest class centroid, all shots/class"
+  },
+  {
+    "task": "intent_classification",
+    "model": "textcnn_scratch",
+    "family": "deep",
+    "metrics": {
+      "accuracy": 0.9911209766925638,
+      "balanced_acc": 0.9897767932404018,
+      "macro_f1": 0.9901916040056464,
+      "weighted_f1": 0.9911209154545889,
+      "macro_precision": 0.9906832246690276,
+      "macro_recall": 0.9897767932404018,
+      "top3_accuracy": 0.9991675915649278
+    },
+    "params": {},
+    "train_seconds": 22.6477076999945,
+    "infer_ms_per_item": 2.135999999154592,
+    "model_size_mb": 1.4,
+    "n_params": 360475,
+    "notes": "no pretraining, 12 epochs, best-val checkpoint"
+  },
+  {
+    "task": "intent_classification",
+    "model": "minilm_finetuned",
+    "family": "deep",
+    "metrics": {
+      "accuracy": 0.9969478357380688,
+      "balanced_acc": 0.996819464580629,
+      "macro_f1": 0.9966418554294243,
+      "weighted_f1": 0.9969480298245142,
+      "macro_precision": 0.9965154197863486,
+      "macro_recall": 0.996819464580629,
+      "top3_accuracy": 0.9994450610432852
+    },
+    "params": {
+      "epochs": 3,
+      "lr": 5e-05,
+      "batch_size": 64,
+      "max_len": 48
+    },
+    "train_seconds": 59.38470740000048,
+    "infer_ms_per_item": 8.281799997348571,
+    "model_size_mb": 87.38,
+    "n_params": 22723611,
+    "notes": "fine-tuned sentence-transformers/all-MiniLM-L6-v2, best-val checkpoint"
+  },
+  {
+    "task": "intent_classification",
+    "model": "distilbert_finetuned",
+    "family": "deep",
+    "metrics": {
+      "accuracy": 0.9961154273029966,
+      "balanced_acc": 0.9955821009221002,
+      "macro_f1": 0.9955781068474574,
+      "weighted_f1": 0.9961166621639963,
+      "macro_precision": 0.9955797074802989,
+      "macro_recall": 0.9955821009221002,
+      "top3_accuracy": 1.0
+    },
+    "params": {
+      "epochs": 3,
+      "lr": 3e-05,
+      "batch_size": 64,
+      "max_len": 48
+    },
+    "train_seconds": 126.00251330000174,
+    "infer_ms_per_item": 8.186399998521665,
+    "model_size_mb": 256.18,
+    "n_params": 66974235,
+    "notes": "fine-tuned distilbert-base-uncased, best-val checkpoint"
+  },
+  {
+    "task": "intent_classification",
+    "model": "kmeans_tfidf_svd200",
+    "family": "unsupervised",
+    "metrics": {
+      "ARI": 0.24232352068181823,
+      "NMI": 0.5525200457530621,
+      "V_measure": 0.552520045753062,
+      "purity": 0.44125,
+      "hungarian_acc": 0.376625,
+      "n_clusters": 27,
+      "noise_frac": 0.0,
+      "silhouette": 0.06766947969758126
+    },
+    "params": {},
+    "train_seconds": null,
+    "infer_ms_per_item": null,
+    "model_size_mb": null,
+    "n_params": null,
+    "notes": "k = true number of intents"
+  },
+  {
+    "task": "intent_classification",
+    "model": "kmeans_minilm",
+    "family": "unsupervised",
+    "metrics": {
+      "ARI": 0.6670711523795226,
+      "NMI": 0.8368288096832406,
+      "V_measure": 0.8368288096832406,
+      "purity": 0.739,
+      "hungarian_acc": 0.70325,
+      "n_clusters": 27,
+      "noise_frac": 0.0,
+      "silhouette": 0.17287008464336395
+    },
+    "params": {},
+    "train_seconds": null,
+    "infer_ms_per_item": null,
+    "model_size_mb": null,
+    "n_params": null,
+    "notes": "k = true number of intents"
+  },
+  {
+    "task": "intent_classification",
+    "model": "agglomerative_ward_minilm",
+    "family": "unsupervised",
+    "metrics": {
+      "ARI": 0.6709033417482472,
+      "NMI": 0.8375137891776728,
+      "V_measure": 0.8375137891776728,
+      "purity": 0.743875,
+      "hungarian_acc": 0.71025,
+      "n_clusters": 27,
+      "noise_frac": 0.0,
+      "silhouette": 0.1699584424495697
+    },
+    "params": {},
+    "train_seconds": null,
+    "infer_ms_per_item": null,
+    "model_size_mb": null,
+    "n_params": null,
+    "notes": "k = true number of intents"
+  },
+  {
+    "task": "intent_classification",
+    "model": "gmm_minilm",
+    "family": "unsupervised",
+    "metrics": {
+      "ARI": 0.6586735658398762,
+      "NMI": 0.8264086371543884,
+      "V_measure": 0.8264086371543883,
+      "purity": 0.72375,
+      "hungarian_acc": 0.6955,
+      "n_clusters": 27,
+      "noise_frac": 0.0,
+      "silhouette": 0.1573982834815979
+    },
+    "params": {},
+    "train_seconds": null,
+    "infer_ms_per_item": null,
+    "model_size_mb": null,
+    "n_params": null,
+    "notes": "k = true number of intents"
+  },
+  {
+    "task": "intent_classification",
+    "model": "hdbscan_minilm",
+    "family": "unsupervised",
+    "metrics": {
+      "ARI": 0.20581463353355994,
+      "NMI": 0.6749773164141077,
+      "V_measure": 0.6749773164141077,
+      "purity": 0.592625,
+      "hungarian_acc": 0.50625,
+      "n_clusters": 37,
+      "noise_frac": 0.338,
+      "silhouette": 0.2727159857749939
+    },
+    "params": {},
+    "train_seconds": null,
+    "infer_ms_per_item": null,
+    "model_size_mb": null,
+    "n_params": null,
+    "notes": "k discovered by the algorithm"
+  },
+  {
+    "task": "intent_classification",
+    "model": "lda_topics_tfidf",
+    "family": "unsupervised",
+    "metrics": {
+      "ARI": 0.26315077194704534,
+      "NMI": 0.502677771412949,
+      "V_measure": 0.502677771412949,
+      "purity": 0.42025,
+      "hungarian_acc": 0.398375,
+      "n_clusters": 27,
+      "noise_frac": 0.0,
+      "silhouette": -0.04314436585456145
+    },
+    "params": {},
+    "train_seconds": null,
+    "infer_ms_per_item": null,
+    "model_size_mb": null,
+    "n_params": null,
+    "notes": "topic with highest weight = cluster"
+  }
+]

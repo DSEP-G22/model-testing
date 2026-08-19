@@ -1,0 +1,107 @@
+[
+  {
+    "task": "intent_robustness_shift",
+    "model": "tfidf_word+logreg",
+    "family": "traditional",
+    "metrics": {
+      "accuracy": 0.9771897810218978,
+      "balanced_acc": 0.9739727808592171,
+      "macro_f1": 0.9749091593457576,
+      "weighted_f1": 0.977305990819046,
+      "macro_precision": 0.9771580770913991,
+      "macro_recall": 0.9739727808592171,
+      "in_distribution_macro_f1": 0.9942084634836177,
+      "shift_drop": 0.019299304137860074
+    },
+    "params": {},
+    "train_seconds": 0.7632461999965017,
+    "infer_ms_per_item": null,
+    "model_size_mb": null,
+    "n_params": null,
+    "notes": "trained on clean flags, tested on Q/Z/W/P"
+  },
+  {
+    "task": "intent_robustness_shift",
+    "model": "tfidf_word+char+linsvc",
+    "family": "traditional",
+    "metrics": {
+      "accuracy": 0.9949402786994028,
+      "balanced_acc": 0.9940040414026542,
+      "macro_f1": 0.9943299920528555,
+      "weighted_f1": 0.9949418763734177,
+      "macro_precision": 0.9947286675366804,
+      "macro_recall": 0.9940040414026542,
+      "in_distribution_macro_f1": 0.9965932440320474,
+      "shift_drop": 0.0022632519791918604
+    },
+    "params": {},
+    "train_seconds": 3.9586696999976994,
+    "infer_ms_per_item": null,
+    "model_size_mb": null,
+    "n_params": null,
+    "notes": "trained on clean flags, tested on Q/Z/W/P"
+  },
+  {
+    "task": "intent_robustness_shift",
+    "model": "minilm+logreg",
+    "family": "embedding",
+    "metrics": {
+      "accuracy": 0.9794293297942933,
+      "balanced_acc": 0.9774420339015714,
+      "macro_f1": 0.9778673530379968,
+      "weighted_f1": 0.9794720227036867,
+      "macro_precision": 0.9788421421193679,
+      "macro_recall": 0.9774420339015714,
+      "in_distribution_macro_f1": 0.995954822994505,
+      "shift_drop": 0.01808746995650823
+    },
+    "params": {},
+    "train_seconds": 0.40063630000076955,
+    "infer_ms_per_item": null,
+    "model_size_mb": null,
+    "n_params": null,
+    "notes": "frozen encoder, clean-trained head"
+  },
+  {
+    "task": "intent_robustness_shift",
+    "model": "minilm_zeroshot_label_match",
+    "family": "embedding",
+    "metrics": {
+      "accuracy": 0.7264432647644327,
+      "balanced_acc": 0.7185971630191464,
+      "macro_f1": 0.7136783576233283,
+      "weighted_f1": 0.7216812436205178,
+      "macro_precision": 0.7297618585379533,
+      "macro_recall": 0.7185971630191464,
+      "in_distribution_macro_f1": 0.7488718499202472,
+      "shift_drop": 0.03519349229691893
+    },
+    "params": {},
+    "train_seconds": 0.0,
+    "infer_ms_per_item": null,
+    "model_size_mb": null,
+    "n_params": null,
+    "notes": "no training text; immune to this shift by construction"
+  },
+  {
+    "task": "intent_robustness_shift",
+    "model": "distilbert_finetuned",
+    "family": "deep",
+    "metrics": {
+      "accuracy": 0.9630889183808892,
+      "balanced_acc": 0.9582153953237557,
+      "macro_f1": 0.9581509180591854,
+      "weighted_f1": 0.9634071437759318,
+      "macro_precision": 0.9596984541997791,
+      "macro_recall": 0.9582153953237557,
+      "in_distribution_macro_f1": 0.9986153169241918,
+      "shift_drop": 0.04046439886500641
+    },
+    "params": {},
+    "train_seconds": 48.8408253000016,
+    "infer_ms_per_item": null,
+    "model_size_mb": null,
+    "n_params": null,
+    "notes": "trained on clean flags only"
+  }
+]
