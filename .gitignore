@@ -1,0 +1,6 @@
+.vscode
+.venv
+/artifacts
+__pycache__/
+data_cache/nllb-*
+data_cache/flores

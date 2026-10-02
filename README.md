@@ -45,6 +45,7 @@ Rebuild the notebooks after editing a source file:
 | `01_intent_classification` | Bitext 27K customer support | 27-way intent classification | TF-IDF + LogReg / LinearSVC / ComplementNB / SGD / RandomForest / SVD+HistGB; MiniLM frozen + LogReg / kNN / LinearSVC / MLP; MiniLM zero-shot and few-shot prototype matching; TextCNN from scratch; MiniLM and DistilBERT fine-tuned; KMeans / Agglomerative / GMM / HDBSCAN / LDA |
 | `02_router_image_classification` | Roboflow router detection v38 | 15-way crop classification | HOG + LinearSVC / LogReg; colour histogram + RandomForest; pixels + PCA + LogReg; HOG+colour + HistGB; frozen ResNet18 / MobileNetV3 / EfficientNet-B0 + LogReg; the same three fine-tuned; KMeans / Agglomerative / HDBSCAN on CNN features |
 | `03_voice_transcription_benchmark` | 11 call-centre recordings, 7 languages | transcription, translation, language ID | Whisper tiny/base/small/medium, faster-whisper small/medium (CTranslate2 int8) |
+| `src/mt_benchmark.py` | FLORES-200 devtest (mteb/flores), si/ta <-> en | machine translation | NLLB-200 distilled 600M vs 1.3B, CTranslate2 int8 on CPU (see `results/TRANSLATION_BENCHMARK.md`) |
 | `04_benchmark_summary` | — | consolidation | reads `results/*.json`, writes the summary CSVs, figures and `BENCHMARK_REPORT.md` |
 
 Run 01–03 in any order, then 04.

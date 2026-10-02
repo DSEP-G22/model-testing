@@ -1,0 +1,30 @@
+# Runs src/mt_benchmark.py on a GitHub runner (fast link for the 1.3B weights).
+name: mt-benchmark
+on:
+  workflow_dispatch:
+    inputs:
+      n: { description: FLORES devtest sentences per direction, default: "200" }
+jobs:
+  bench:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.12" }
+      - run: |
+          pip install --index-url https://download.pytorch.org/whl/cpu torch
+          pip install "ctranslate2>=4.4" "transformers>=4.44,<5" sentencepiece sacrebleu pandas pyarrow psutil huggingface_hub
+      - name: Models and data
+        run: |
+          ct2-transformers-converter --model facebook/nllb-200-distilled-600M --quantization int8 \
+            --output_dir data_cache/nllb-600M-ct2 --copy_files tokenizer.json tokenizer_config.json \
+            special_tokens_map.json sentencepiece.bpe.model
+          python -c "
+          from huggingface_hub import snapshot_download as s, hf_hub_download as h
+          s('OpenNMT/nllb-200-distilled-1.3B-ct2-int8', revision='70f572adafa4794890ce7826156a4209717855af', local_dir='data_cache/nllb-1.3B-ct2', allow_patterns=['*.json', 'model.bin'])
+          h('mteb/flores', 'devtest.parquet', repo_type='dataset', local_dir='data_cache/flores')"
+      - run: python src/mt_benchmark.py ${{ inputs.n }}
+      - run: lscpu | grep -E "Model name|^CPU\(s\)" > results/translation_runner_cpu.txt
+      - uses: actions/upload-artifact@v4
+        with: { name: mt-benchmark, path: "results/*translation*" }
