@@ -1,0 +1,200 @@
+{
+ "rows": [
+  {
+   "model": "nllb-600M-ct2-int8",
+   "pair": "sin->eng",
+   "n": 200,
+   "chrf++": 56.18,
+   "bleu": 30.43,
+   "sent_per_s_batched": 2.46,
+   "p50_ms_single": 1718,
+   "p95_ms_single": 3098,
+   "load_s": 1.1,
+   "ram_mb": 782,
+   "disk_mb": 621
+  },
+  {
+   "model": "nllb-600M-ct2-int8",
+   "pair": "tam->eng",
+   "n": 200,
+   "chrf++": 55.84,
+   "bleu": 30.92,
+   "sent_per_s_batched": 2.51,
+   "p50_ms_single": 1626,
+   "p95_ms_single": 2805,
+   "load_s": 1.1,
+   "ram_mb": 782,
+   "disk_mb": 621
+  },
+  {
+   "model": "nllb-600M-ct2-int8",
+   "pair": "eng->sin",
+   "n": 200,
+   "chrf++": 41.4,
+   "bleu": null,
+   "sent_per_s_batched": 1.01,
+   "p50_ms_single": 3231,
+   "p95_ms_single": 6845,
+   "load_s": 1.1,
+   "ram_mb": 782,
+   "disk_mb": 621
+  },
+  {
+   "model": "nllb-600M-ct2-int8",
+   "pair": "eng->tam",
+   "n": 200,
+   "chrf++": 50.62,
+   "bleu": null,
+   "sent_per_s_batched": 1.22,
+   "p50_ms_single": 2667,
+   "p95_ms_single": 5296,
+   "load_s": 1.1,
+   "ram_mb": 782,
+   "disk_mb": 621
+  },
+  {
+   "model": "nllb-1.3B-ct2-int8",
+   "pair": "sin->eng",
+   "n": 200,
+   "chrf++": 59.49,
+   "bleu": 33.6,
+   "sent_per_s_batched": 1.22,
+   "p50_ms_single": 3265,
+   "p95_ms_single": 6069,
+   "load_s": 1.3,
+   "ram_mb": 930,
+   "disk_mb": 1336
+  },
+  {
+   "model": "nllb-1.3B-ct2-int8",
+   "pair": "tam->eng",
+   "n": 200,
+   "chrf++": 59.63,
+   "bleu": 34.9,
+   "sent_per_s_batched": 1.27,
+   "p50_ms_single": 3049,
+   "p95_ms_single": 5661,
+   "load_s": 1.3,
+   "ram_mb": 930,
+   "disk_mb": 1336
+  },
+  {
+   "model": "nllb-1.3B-ct2-int8",
+   "pair": "eng->sin",
+   "n": 200,
+   "chrf++": 43.04,
+   "bleu": null,
+   "sent_per_s_batched": 0.55,
+   "p50_ms_single": 6122,
+   "p95_ms_single": 11827,
+   "load_s": 1.3,
+   "ram_mb": 930,
+   "disk_mb": 1336
+  },
+  {
+   "model": "nllb-1.3B-ct2-int8",
+   "pair": "eng->tam",
+   "n": 200,
+   "chrf++": 51.69,
+   "bleu": null,
+   "sent_per_s_batched": 0.65,
+   "p50_ms_single": 5076,
+   "p95_ms_single": 10521,
+   "load_s": 1.3,
+   "ram_mb": 930,
+   "disk_mb": 1336
+  }
+ ],
+ "samples": {
+  "sin->eng": {
+   "source": [
+    "\"අපට දැන් මාස 4ක් වයසැති දියවැඩියාවෙන් පෙළුනු නමුත් දැන් දියවැඩියාව නොමැති මීයෙක් ඇත,\" ඔහු තවදුරටත් පැවසී ය.",
+    "පර්යේෂණය තවමත් එහි ආරම්භක දිනවල පවතින බව නෝවා ස්කොටියා, හැලිෆැක්ස්හි ඩැල්හවුසි විශ්වවිද්‍යාලයෙහි වෛද්‍ය විද්‍යා මහාචාර්ය සහ කැනේඩියානු දියවැඩියා සංගමයෙහි සායනික හා විද්‍යාත්මක අංශයේ ප්‍රධානී ආචාර්ය එහුඩ් ඌර් අනතුරු ඇඟවීය.",
+    "අනෙකුත් විශේෂඥයන් සමහරක් දෙනා මෙන්ම, ඔහුද දියවැඩියාව සුව කිරීමේ හැකියාව පිළිබඳව සැක පහල කරන්නේ, 1 ආකාරයේ දියවැඩියාව දැනටමත් පවත්නා පුද්ගලයන් සම්බන්ධයෙන් මෙම සොයාගැනීම් කිසිඳු අදාලත්වයක් නොදක්වන බව සටහන් කරමිනි."
+   ],
+   "reference": [
+    "\"We now have 4-month-old mice that are non-diabetic that used to be diabetic,\" he added.",
+    "Dr. Ehud Ur, professor of medicine at Dalhousie University in Halifax, Nova Scotia and chair of the clinical and scientific division of the Canadian Diabetes Association cautioned that the research is still in its early days.",
+    "Like some other experts, he is skeptical about whether diabetes can be cured, noting that these findings have no relevance to people who already have Type 1 diabetes."
+   ],
+   "nllb-600M-ct2-int8": [
+    "\"We had a four-month-old diabetic but now we have a rat without diabetes\", he added.",
+    "Dr Ehud Uhr, professor of medicine at Dalhousie University in Nova Scotia, Halifax and head of the clinical and scientific department at the Canadian Diabetes Association, warned that the research is still in its early days.",
+    "Like some other experts, he also doubts the cure for diabetes, noting that these findings have no relevance for people who already have type 1 diabetes."
+   ],
+   "nllb-1.3B-ct2-int8": [
+    "\"We now have a 4-month-old rat with diabetes but now without diabetes\", he added.",
+    "The research is still in its infancy, warned Dr. Ehud Ur, professor of medicine at Dalhousie University in Halifax, Nova Scotia and head of the clinical and scientific section of the Canadian Diabetes Association.",
+    "Like some other experts, he is skeptical of the potential for a cure for diabetes, noting that the findings have no relevance for people who already have type 1 diabetes."
+   ]
+  },
+  "tam->eng": {
+   "source": [
+    "\"\"\"எங்களிடம் இப்போது  4-மாத-வயதுடைய எலி ஒன்று உள்ளது, முன்னர் அதற்கு நீரிழிவு இருந்தது தற்போது இல்லை\"\" என்று அவர் மேலும் கூறினார்.\"",
+    "ஹாலிஃபாக்ஸில் உள்ள டல்ஹெளசி பல்கலைக்கழகத்தின் மருத்துவப் பேராசிரியரும், நோவா ஸ்கோட்டியா மற்றும் கனேடிய நீரிழிவு சங்கத்தின் மருத்துவ மற்றும் அறிவியல் பிரிவின் தலைவருமான டாக்டர் இஹுத் உர், ஆராய்ச்சி இன்னும் ஆரம்ப நாட்களில்தான் உள்ளது என்று எச்சரித்துள்ளார்.",
+    "பிற வல்லுனர்கள் போலவே அவரும், ஏற்கனவே டைப் 1 இரத்த சர்க்கரை நோயுள்ளவர்களுக்கு இந்த கண்டுபிடிப்புகள் பொருந்தவில்லை என்பதால் இரத்த சர்க்கரை நோயிற்கு நிவாரணம் உள்ளதா என்பது குறித்து சந்தேகமடைகிறார்."
+   ],
+   "reference": [
+    "\"We now have 4-month-old mice that are non-diabetic that used to be diabetic,\" he added.",
+    "Dr. Ehud Ur, professor of medicine at Dalhousie University in Halifax, Nova Scotia and chair of the clinical and scientific division of the Canadian Diabetes Association cautioned that the research is still in its early days.",
+    "Like some other experts, he is skeptical about whether diabetes can be cured, noting that these findings have no relevance to people who already have Type 1 diabetes."
+   ],
+   "nllb-600M-ct2-int8": [
+    "\"\"\"We now have a four-month-old mouse that has had diabetes before and is not present\",\" he added\".",
+    "Dr Ehud Ur, a professor of medicine at Dalhousie University in Halifax and chair of the department of medicine and science at the Diabetes Association of Nova Scotia and Canada, warned that research is still in its early days.",
+    "Like other experts, he doubts that there is a cure for blood sugar as these findings do not apply to people already suffering from type 1 diabetes."
+   ],
+   "nllb-1.3B-ct2-int8": [
+    "\"We have a four-month-old rat now, which had diabetes before and does not now\", he added.",
+    "Dr. Ehud Ur, professor of medicine at Dalhousie University in Halifax and chair of the medical and scientific division of the Nova Scotia and Canadian Diabetes Association, warned that the research is still in its early days.",
+    "Like other experts, he is skeptical about the possibility of a cure for diabetes because the findings do not apply to people who already have type 1 diabetes."
+   ]
+  },
+  "eng->sin": {
+   "source": [
+    "\"We now have 4-month-old mice that are non-diabetic that used to be diabetic,\" he added.",
+    "Dr. Ehud Ur, professor of medicine at Dalhousie University in Halifax, Nova Scotia and chair of the clinical and scientific division of the Canadian Diabetes Association cautioned that the research is still in its early days.",
+    "Like some other experts, he is skeptical about whether diabetes can be cured, noting that these findings have no relevance to people who already have Type 1 diabetes."
+   ],
+   "reference": [
+    "\"අපට දැන් මාස 4ක් වයසැති දියවැඩියාවෙන් පෙළුනු නමුත් දැන් දියවැඩියාව නොමැති මීයෙක් ඇත,\" ඔහු තවදුරටත් පැවසී ය.",
+    "පර්යේෂණය තවමත් එහි ආරම්භක දිනවල පවතින බව නෝවා ස්කොටියා, හැලිෆැක්ස්හි ඩැල්හවුසි විශ්වවිද්‍යාලයෙහි වෛද්‍ය විද්‍යා මහාචාර්ය සහ කැනේඩියානු දියවැඩියා සංගමයෙහි සායනික හා විද්‍යාත්මක අංශයේ ප්‍රධානී ආචාර්ය එහුඩ් ඌර් අනතුරු ඇඟවීය.",
+    "අනෙකුත් විශේෂඥයන් සමහරක් දෙනා මෙන්ම, ඔහුද දියවැඩියාව සුව කිරීමේ හැකියාව පිළිබඳව සැක පහල කරන්නේ, 1 ආකාරයේ දියවැඩියාව දැනටමත් පවත්නා පුද්ගලයන් සම්බන්ධයෙන් මෙම සොයාගැනීම් කිසිඳු අදාලත්වයක් නොදක්වන බව සටහන් කරමිනි."
+   ],
+   "nllb-600M-ct2-int8": [
+    "\"අපිට දැන් දියවැඩියාව නැති මාස 4 ක් වයසැති මීයන් සිටින අතර කලින් දියවැඩියා රෝගීන් වූවා\", ඔහු තවදුරටත් පැවසීය.",
+    "කැනේඩියානු දියවැඩියාව පිළිබඳ සංගමයේ සායනික හා විද් යාත්මක අංශයේ සභාපති සහ නෝවා ස්කොට්ලන්තයේ හැලිෆැක්ස්හි ඩාලුසි විශ්වවිද් යාලයේ වෛද් ය විද් යාව පිළිබඳ මහාචාර්ය එහුඩ් උර් මහතා අනතුරු අඟවා සිටියේ මෙම පර්යේෂණ තවමත් ආරම්භක කාලයේ පවතින බවයි.",
+    "සමහර විශේෂඥයින් මෙන්, දියවැඩියාව සුව කළ හැකිද යන්න පිළිබඳව ඔහු සැක සහිතව සිටින අතර, මෙම සොයාගැනීම් වර්ග 1 දියවැඩියා රෝගීන් සඳහා කිසිදු අදාළත්වයක් නොමැති බව සඳහන් කරයි."
+   ],
+   "nllb-1.3B-ct2-int8": [
+    "\"අපිට දැන් මාස 4 ක් වයසැති මීයන් සිටින අතර ඔවුන් දියවැඩියා රෝගීන් නොවන අතර ඔවුන් මීට පෙර දියවැඩියාව රෝගීන් වූහ\".",
+    "කැනේඩියානු දියවැඩියා සංගමයේ සායනික හා විද් යාත්මක අංශයේ සභාපති සහ නෝවා ස්කොෂියා හි හැලිෆැක්ස් හි ඩල්හවුසි විශ්ව විද් යාලයේ වෛද් ය විද් යාව පිළිබඳ මහාචාර්ය එහූඩ් උර් අනතුරු ඇඟවූයේ පර්යේෂණ තවමත් ආරම්භයේ පවතින බවයි.",
+    "වෙනත් විශේෂඥයන් මෙන් ඔහුද දියවැඩියාව සුව කළ හැකිදැයි සැක කරයි. මෙම සොයාගැනීම් දැනටමත් පළමු වර්ගයේ දියවැඩියා රෝගයෙන් පෙළෙන අයට අදාළ නොවන බව ඔහු සඳහන් කරයි."
+   ]
+  },
+  "eng->tam": {
+   "source": [
+    "\"We now have 4-month-old mice that are non-diabetic that used to be diabetic,\" he added.",
+    "Dr. Ehud Ur, professor of medicine at Dalhousie University in Halifax, Nova Scotia and chair of the clinical and scientific division of the Canadian Diabetes Association cautioned that the research is still in its early days.",
+    "Like some other experts, he is skeptical about whether diabetes can be cured, noting that these findings have no relevance to people who already have Type 1 diabetes."
+   ],
+   "reference": [
+    "\"\"\"எங்களிடம் இப்போது  4-மாத-வயதுடைய எலி ஒன்று உள்ளது, முன்னர் அதற்கு நீரிழிவு இருந்தது தற்போது இல்லை\"\" என்று அவர் மேலும் கூறினார்.\"",
+    "ஹாலிஃபாக்ஸில் உள்ள டல்ஹெளசி பல்கலைக்கழகத்தின் மருத்துவப் பேராசிரியரும், நோவா ஸ்கோட்டியா மற்றும் கனேடிய நீரிழிவு சங்கத்தின் மருத்துவ மற்றும் அறிவியல் பிரிவின் தலைவருமான டாக்டர் இஹுத் உர், ஆராய்ச்சி இன்னும் ஆரம்ப நாட்களில்தான் உள்ளது என்று எச்சரித்துள்ளார்.",
+    "பிற வல்லுனர்கள் போலவே அவரும், ஏற்கனவே டைப் 1 இரத்த சர்க்கரை நோயுள்ளவர்களுக்கு இந்த கண்டுபிடிப்புகள் பொருந்தவில்லை என்பதால் இரத்த சர்க்கரை நோயிற்கு நிவாரணம் உள்ளதா என்பது குறித்து சந்தேகமடைகிறார்."
+   ],
+   "nllb-600M-ct2-int8": [
+    "\"நாங்கள் இப்போது 4 மாதங்கள் பழமையான எலிகள் உள்ளன, அவை சர்க்கரை நோய் இல்லாதவை, முன்பு அவை சர்க்கரையில் நோய்வாய்ப்பட்டவை\", என்று அவர் மேலும் கூறினார்.",
+    "கனேடிய நீரிழிவு சங்கத்தின் மருத்துவ மற்றும் விஞ்ஞான பிரிவின் தலைவரும், ஹாலிஃபாக்ஸில் உள்ள டால்ஹூஸி பல்கலைக்கழகத்தில் மருத்துவப் பேராசிரியரும் டாக்டர் எஹுட் உர், இந்த ஆராய்ச்சி இன்னும் ஆரம்ப காலங்களில் உள்ளது என்று எச்சரித்தார்.",
+    "வேறு சில நிபுணர்களைப் போலவே, நீரிழிவு நோயை குணப்படுத்த முடியுமா என்று அவர் சந்தேகிக்கிறார், இந்த கண்டுபிடிப்புகள் ஏற்கனவே வகை 1 நீரிழிவுகள் உள்ளவர்களுக்கு பொருத்தமானவை அல்ல என்பதைக் குறிப்பிடுகிறார்."
+   ],
+   "nllb-1.3B-ct2-int8": [
+    "\"நாம் இப்போது 4 மாத வயதான எலிகளைக் கொண்டுள்ளோம், அவை சர்க்கரை நோயால் பாதிக்கப்படாதவை, அவை முன்பு சர்க்கரைநோயால் பாதிக்கப்பட்டவை\", என்று அவர் மேலும் கூறினார்.",
+    "கனேடிய நீரிழிவு சங்கத்தின் மருத்துவ மற்றும் விஞ்ஞானப் பிரிவின் தலைவரும், ஹாலிஃபாக்ஸில் உள்ள டல்ஹவுசி பல்கலைக்கழகத்தின் மருத்துவப் பேராசிரியருமான டாக்டர் எஹுட் உர் இந்த ஆராய்ச்சி இன்னும் ஆரம்பத்திலேயே இருப்பதாக எச்சரித்தார்.",
+    "சில நிபுணர்களைப் போலவே, நீரிழிவு நோயை குணப்படுத்த முடியுமா என்று அவர் சந்தேகிக்கிறார், இந்த கண்டுபிடிப்புகள் ஏற்கனவே வகை 1 நீரிழிவைக் கொண்டவர்களுக்கு பொருந்தாது என்று குறிப்பிடுகிறார்."
+   ]
+  }
+ },
+ "threads": 4,
+ "cpu": 4
+}
