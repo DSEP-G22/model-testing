@@ -35,7 +35,7 @@ A = CACHE / "asr-si"
 #: name -> (CT2 directory or faster-whisper size, source repo @ revision, what backs it)
 MODELS = {
     "faster-whisper-small-int8": ("small", "openai/whisper-small", "Radford et al. 2023 (Whisper)"),
-    "sinhaspeech-run11-int8": (A / "run11", "SinhaSpeech/whisper-small-sinhala-v6-e6-run11-best@8e79fac",
+    "sinhaspeech-run11-int8": (A / "run11", "SinhaSpeech/whisper-small-sinhala-v6-e6-run11-best@b51781e",
                                "model card: 16.38 WER / 4.43 CER, 15,860-clip speaker-disjoint test"),
     "dehanns-lora-r32-s456-int8": (A / "dehanns", "dehanns/whisper-small-sinhala-lora-r32-seed-456@3d1a454 (merged)",
                                    "model card: 48.6 WER / 12.6 CER, 4,326-clip test; rank/seed study"),

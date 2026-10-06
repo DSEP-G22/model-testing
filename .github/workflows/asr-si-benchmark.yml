@@ -22,10 +22,14 @@ jobs:
           from huggingface_hub import snapshot_download, hf_hub_download, list_repo_files
           from transformers import WhisperForConditionalGeneration, WhisperTokenizerFast
           def convert(src, name):
-              WhisperTokenizerFast.from_pretrained(src).save_pretrained(src)
+              try:
+                  WhisperTokenizerFast.from_pretrained(src).save_pretrained(src)
+              except Exception as exc:  # a transformers-5 tokenizer_config: whisper-small's own vocabulary
+                  print("tokenizer fallback for", name, exc)
+                  WhisperTokenizerFast.from_pretrained("openai/whisper-small").save_pretrained(src)
               TransformersConverter(src, copy_files=["tokenizer.json", "preprocessor_config.json"]).convert(
                   f"data_cache/asr-si/{name}", quantization="int8", force=True)
-          for name, repo, rev in [("run11", "SinhaSpeech/whisper-small-sinhala-v6-e6-run11-best", "8e79faca831c89a3caf339a1386efa50a87d8081"),
+          for name, repo, rev in [("run11", "SinhaSpeech/whisper-small-sinhala-v6-e6-run11-best", "b51781e05fce8c67c6dc4c6f5e2a1963ec328344"),
                                   ("linga", "Lingalingeswaran/whisper-small-sinhala_v3", "cf548833541b0761fa7240d2a71c06bc0268a47a"),
                                   ("hlasith", "hlasith/whisper-sinhala-small", "21155f6271d0008e484141177e315dff64c80550")]:
               weights = "model.safetensors" if "model.safetensors" in list_repo_files(repo, revision=rev) else "pytorch_model.bin"
