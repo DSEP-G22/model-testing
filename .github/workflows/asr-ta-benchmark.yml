@@ -1,0 +1,39 @@
+# Runs src/asr_ta_benchmark.py on a GitHub runner (fast link for ~1 GB per Whisper checkpoint).
+name: asr-ta-benchmark
+on:
+  workflow_dispatch:
+    inputs:
+      n: { description: FLEURS ta_in test clips, default: "200" }
+jobs:
+  bench:
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.12" }
+      - run: |
+          pip install --index-url https://download.pytorch.org/whl/cpu torch
+          pip install "ctranslate2>=4.5,<5" "transformers>=4.45,<5" "faster-whisper==1.2.1" "av>=11,<19" jiwer pandas pyarrow psutil huggingface_hub
+      - name: Models and data (converted exactly as v3/services/audio/convert.py does)
+        run: |
+          python - <<'EOF'
+          from ctranslate2.converters import TransformersConverter
+          from huggingface_hub import snapshot_download, hf_hub_download, list_repo_files
+          from transformers import WhisperTokenizerFast
+          for name, repo, rev in [("vasista22", "vasista22/whisper-tamil-small", "ac0d71cd70d4c66aec7126996cd9e56e97e698b7"),
+                                  ("steja", "steja/whisper-small-tamil", "eb8e84c6f9d65eb39643a73b5c2f58f7c5822047"),
+                                  ("lingalingeswaran", "Lingalingeswaran/whisper-small-ta", "c93432ca440ab050702db52e6e631fd3d2141c6c")]:
+              weights = "model.safetensors" if "model.safetensors" in list_repo_files(repo, revision=rev) else "pytorch_model.bin"
+              src = snapshot_download(repo, revision=rev, allow_patterns=["*.json", "*.txt", weights])
+              WhisperTokenizerFast.from_pretrained(src).save_pretrained(src)
+              TransformersConverter(src, copy_files=["tokenizer.json", "preprocessor_config.json"]).convert(
+                  f"data_cache/asr-ta/{name}", quantization="int8", force=True)
+          hf_hub_download("google/fleurs", "ta_in/test/0000.parquet", repo_type="dataset", revision="refs/convert/parquet",
+                          local_dir="data_cache/fleurs-raw")
+          EOF
+          mkdir -p data_cache/fleurs-ta && mv data_cache/fleurs-raw/ta_in/test/0000.parquet data_cache/fleurs-ta/test.parquet
+      - run: python src/asr_ta_benchmark.py ${{ inputs.n }}
+      - run: lscpu | grep -E "Model name|^CPU\(s\)" > results/asr_tamil_runner_cpu.txt
+      - uses: actions/upload-artifact@v4
+        with: { name: asr-ta-benchmark, path: "results/*asr_tamil*" }
