@@ -1,0 +1,119 @@
+{
+ "seeds": [
+  {
+   "seed": 42,
+   "val_acc": 0.75,
+   "gold_macro_f1": 0.7053652230122819,
+   "gold_accuracy": 0.6933333333333334
+  },
+  {
+   "seed": 43,
+   "val_acc": 0.7613636363636364,
+   "gold_macro_f1": 0.7890401289908208,
+   "gold_accuracy": 0.78
+  },
+  {
+   "seed": 44,
+   "val_acc": 0.75,
+   "gold_macro_f1": 0.7727225760964699,
+   "gold_accuracy": 0.7666666666666667
+  }
+ ],
+ "chosen_seed": 43,
+ "export": [
+  {
+   "model": "torch fp32 (GPU)",
+   "threads": null,
+   "gold_macro_f1": 0.789,
+   "gold_accuracy": 0.78,
+   "agree_with_torch": 1.0,
+   "p50_ms": null,
+   "p95_ms": null
+  },
+  {
+   "model": "model.fp32.onnx",
+   "threads": 1,
+   "gold_macro_f1": 0.789,
+   "gold_accuracy": 0.78,
+   "agree_with_torch": 1.0,
+   "p50_ms": 109.2,
+   "p95_ms": 340.6
+  },
+  {
+   "model": "model.fp32.onnx",
+   "threads": 2,
+   "gold_macro_f1": 0.789,
+   "gold_accuracy": 0.78,
+   "agree_with_torch": 1.0,
+   "p50_ms": 75.9,
+   "p95_ms": 219.7
+  },
+  {
+   "model": "model.int8-naive.onnx",
+   "threads": 1,
+   "gold_macro_f1": 0.5257,
+   "gold_accuracy": 0.6667,
+   "agree_with_torch": 0.8333,
+   "p50_ms": 82.7,
+   "p95_ms": 236.5
+  },
+  {
+   "model": "model.int8-naive.onnx",
+   "threads": 2,
+   "gold_macro_f1": 0.5257,
+   "gold_accuracy": 0.6667,
+   "agree_with_torch": 0.8333,
+   "p50_ms": 60.7,
+   "p95_ms": 177.8
+  },
+  {
+   "model": "model.int8.onnx",
+   "threads": 1,
+   "gold_macro_f1": 0.789,
+   "gold_accuracy": 0.78,
+   "agree_with_torch": 1.0,
+   "p50_ms": 83.2,
+   "p95_ms": 242.0
+  },
+  {
+   "model": "model.int8.onnx",
+   "threads": 2,
+   "gold_macro_f1": 0.789,
+   "gold_accuracy": 0.78,
+   "agree_with_torch": 1.0,
+   "p50_ms": 59.0,
+   "p95_ms": 189.2
+  }
+ ],
+ "confusion_int8": {
+  "critical": {
+   "critical": 19,
+   "high": 4,
+   "normal": 0,
+   "low": 0
+  },
+  "high": {
+   "critical": 1,
+   "high": 35,
+   "normal": 0,
+   "low": 0
+  },
+  "normal": {
+   "critical": 0,
+   "high": 4,
+   "normal": 42,
+   "low": 18
+  },
+  "low": {
+   "critical": 0,
+   "high": 0,
+   "normal": 6,
+   "low": 21
+  }
+ },
+ "sizes_mb": {
+  "model.fp32.onnx": 448.1,
+  "model.int8.onnx": 214.3,
+  "tokenizer.json": 2.3
+ }
+}
