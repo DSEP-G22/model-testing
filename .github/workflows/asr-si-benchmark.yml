@@ -27,6 +27,9 @@ jobs:
               except Exception as exc:  # a transformers-5 tokenizer_config: whisper-small's own vocabulary
                   print("tokenizer fallback for", name, exc)
                   WhisperTokenizerFast.from_pretrained("openai/whisper-small").save_pretrained(src)
+              import os, shutil
+              if not os.path.exists(f"{src}/preprocessor_config.json"):  # some cards ship without it
+                  shutil.copy(hf_hub_download("openai/whisper-small", "preprocessor_config.json"), src)
               TransformersConverter(src, copy_files=["tokenizer.json", "preprocessor_config.json"]).convert(
                   f"data_cache/asr-si/{name}", quantization="int8", force=True)
           for name, repo, rev in [("run11", "SinhaSpeech/whisper-small-sinhala-v6-e6-run11-best", "b51781e05fce8c67c6dc4c6f5e2a1963ec328344"),
