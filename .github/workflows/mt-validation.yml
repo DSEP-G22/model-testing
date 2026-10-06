@@ -1,0 +1,59 @@
+# Notebook 09: every translation candidate on FLORES-200 + the research sentences, one job per
+# model (fast Hub link, 4 vCPU like mt-benchmark), then one job that runs the notebook's analysis.
+name: mt-validation
+on:
+  workflow_dispatch:
+    inputs:
+      n: { description: FLORES devtest sentences per direction, default: "200" }
+      n_llm: { description: Sentences per direction for TranslateGemma (CPU), default: "100" }
+jobs:
+  eval:
+    runs-on: ubuntu-latest
+    timeout-minutes: 350
+    strategy:
+      fail-fast: false
+      matrix:
+        model: [nllb-600M, nllb-1.3B, nllb-3.3B, madlad-3B, m2m100-418M, mbart50-611M, opus-mt-77M, translategemma-4B]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.12" }
+      - name: Evaluate
+        env:
+          MT_ONLY: ${{ matrix.model }}
+          MT_N: ${{ inputs.n }}
+          MT_N_LLM: ${{ inputs.n_llm }}
+          MPLBACKEND: Agg
+          # mt-benchmark's pin for the CT2 models; TranslateGemma's config needs transformers 5
+          TF: ${{ matrix.model == 'translategemma-4B' && 'transformers>=5,<6' || 'transformers>=4.44,<5' }}
+        run: |
+          sudo mkdir -p /mnt/cache && sudo chown $USER /mnt/cache && rm -rf data_cache && ln -s /mnt/cache data_cache
+          pip install --index-url https://download.pytorch.org/whl/cpu torch
+          pip install "ctranslate2>=4.4" "$TF" accelerate sentencepiece protobuf sacrebleu pandas pyarrow psutil huggingface_hub matplotlib
+          python notebooks/_src/09_translation_validation.py
+          lscpu | grep -E "Model name|^CPU\(s\)" > results/mt_validation/runner_cpu.txt
+      - uses: actions/upload-artifact@v4
+        with: { name: "mt-${{ matrix.model }}", path: results/mt_validation/ }
+
+  analyse:
+    needs: eval
+    if: always()
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.12" }
+      - uses: actions/download-artifact@v4
+        with: { pattern: "mt-*", path: results/mt_validation, merge-multiple: true }
+      - run: |
+          pip install "ctranslate2>=4.4" "transformers>=4.44,<5" sentencepiece sacrebleu pandas pyarrow psutil huggingface_hub matplotlib nbformat nbclient ipykernel
+          python -m ipykernel install --user --name dsep22-modeltesting
+          python src/run_notebooks.py 09_translation
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: mt-validation
+          path: |
+            notebooks/09_translation_validation.ipynb
+            results/mt_validation/
+            results/*translation*

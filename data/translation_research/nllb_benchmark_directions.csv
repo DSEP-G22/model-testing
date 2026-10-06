@@ -1,0 +1,9 @@
+﻿run_time,model,source,direction,label,chrf,latency_ms,n_sentences
+2026-10-06 21:59:48,NLLB-200 distilled 600M (served),pre-measured profile,si_en,Sinhala → English,56.2,390,30
+2026-10-06 21:59:48,NLLB-200 distilled 600M (served),pre-measured profile,ta_en,Tamil → English,55.8,380,30
+2026-10-06 21:59:48,NLLB-200 distilled 600M (served),pre-measured profile,en_si,English → Sinhala,41.4,420,15
+2026-10-06 21:59:48,NLLB-200 distilled 600M (served),pre-measured profile,en_ta,English → Tamil,50.6,410,15
+2026-10-06 21:59:48,NLLB-200 distilled 1.3B,pre-measured profile,si_en,Sinhala → English,59.5,810,30
+2026-10-06 21:59:48,NLLB-200 distilled 1.3B,pre-measured profile,ta_en,Tamil → English,59.6,790,30
+2026-10-06 21:59:48,NLLB-200 distilled 1.3B,pre-measured profile,en_si,English → Sinhala,43.0,860,15
+2026-10-06 21:59:48,NLLB-200 distilled 1.3B,pre-measured profile,en_ta,English → Tamil,51.7,840,15

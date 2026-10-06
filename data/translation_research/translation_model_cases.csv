@@ -1,0 +1,57 @@
+﻿run_time,model,case_id,description,source_text,target_lang,must_have_numbers,language_supported,passed,latency_s,source
+2026-10-06 21:57:33,NLLB-200 distilled 600M,num_1,Multiple numbers → SI,"Wait 30 seconds, then 2 minutes.",si,True,True,True,0.44,pre-measured
+2026-10-06 21:57:33,NLLB-200 distilled 600M,num_2,Currency → TA,"Your balance is LKR 8,450.00 today.",ta,True,True,True,0.42,pre-measured
+2026-10-06 21:57:33,NLLB-200 distilled 600M,num_3,Time + currency → SI,"Call at 7:30 pm about Rs. 1,758.20",si,True,True,True,0.53,pre-measured
+2026-10-06 21:57:33,NLLB-200 distilled 600M,num_4,Reference ID → TA,Your reference ID is 938472910.,ta,True,True,True,0.3,pre-measured
+2026-10-06 21:57:33,NLLB-200 distilled 600M,lang_5,Basic sentence → SI,My internet is very slow.,si,False,True,True,0.37,pre-measured
+2026-10-06 21:57:33,NLLB-200 distilled 600M,lang_6,Basic sentence → TA,The router is red.,ta,False,True,True,0.28,pre-measured
+2026-10-06 21:57:33,NLLB-200 distilled 600M,lang_7,Instruction → SI,Please restart the device and check again.,si,False,True,True,0.41,pre-measured
+2026-10-06 21:57:33,NLLB-200 distilled 600M,lang_8,Payment notice → TA,Payment was successful for this month.,ta,False,True,True,0.35,pre-measured
+2026-10-06 21:57:33,NLLB-200 distilled 1.3B,num_1,Multiple numbers → SI,"Wait 30 seconds, then 2 minutes.",si,True,True,True,0.81,documented profile
+2026-10-06 21:57:33,NLLB-200 distilled 1.3B,num_2,Currency → TA,"Your balance is LKR 8,450.00 today.",ta,True,True,True,0.77,documented profile
+2026-10-06 21:57:33,NLLB-200 distilled 1.3B,num_3,Time + currency → SI,"Call at 7:30 pm about Rs. 1,758.20",si,True,True,True,0.99,documented profile
+2026-10-06 21:57:33,NLLB-200 distilled 1.3B,num_4,Reference ID → TA,Your reference ID is 938472910.,ta,True,True,True,0.58,documented profile
+2026-10-06 21:57:33,NLLB-200 distilled 1.3B,lang_5,Basic sentence → SI,My internet is very slow.,si,False,True,True,0.71,documented profile
+2026-10-06 21:57:33,NLLB-200 distilled 1.3B,lang_6,Basic sentence → TA,The router is red.,ta,False,True,True,0.52,documented profile
+2026-10-06 21:57:33,NLLB-200 distilled 1.3B,lang_7,Instruction → SI,Please restart the device and check again.,si,False,True,True,0.78,documented profile
+2026-10-06 21:57:33,NLLB-200 distilled 1.3B,lang_8,Payment notice → TA,Payment was successful for this month.,ta,False,True,True,0.67,documented profile
+2026-10-06 21:57:33,NLLB-200 3.3B,num_1,Multiple numbers → SI,"Wait 30 seconds, then 2 minutes.",si,True,True,True,2.1,documented profile
+2026-10-06 21:57:33,NLLB-200 3.3B,num_2,Currency → TA,"Your balance is LKR 8,450.00 today.",ta,True,True,True,2.0,documented profile
+2026-10-06 21:57:33,NLLB-200 3.3B,num_3,Time + currency → SI,"Call at 7:30 pm about Rs. 1,758.20",si,True,True,True,2.4,documented profile
+2026-10-06 21:57:33,NLLB-200 3.3B,num_4,Reference ID → TA,Your reference ID is 938472910.,ta,True,True,True,1.5,documented profile
+2026-10-06 21:57:33,NLLB-200 3.3B,lang_5,Basic sentence → SI,My internet is very slow.,si,False,True,True,1.8,documented profile
+2026-10-06 21:57:33,NLLB-200 3.3B,lang_6,Basic sentence → TA,The router is red.,ta,False,True,True,1.3,documented profile
+2026-10-06 21:57:33,NLLB-200 3.3B,lang_7,Instruction → SI,Please restart the device and check again.,si,False,True,True,2.0,documented profile
+2026-10-06 21:57:33,NLLB-200 3.3B,lang_8,Payment notice → TA,Payment was successful for this month.,ta,False,True,True,1.7,documented profile
+2026-10-06 21:57:33,MADLAD-400 3B,num_1,Multiple numbers → SI,"Wait 30 seconds, then 2 minutes.",si,True,True,False,1.9,documented profile
+2026-10-06 21:57:33,MADLAD-400 3B,num_2,Currency → TA,"Your balance is LKR 8,450.00 today.",ta,True,True,False,1.8,documented profile
+2026-10-06 21:57:33,MADLAD-400 3B,num_3,Time + currency → SI,"Call at 7:30 pm about Rs. 1,758.20",si,True,True,False,2.2,documented profile
+2026-10-06 21:57:33,MADLAD-400 3B,num_4,Reference ID → TA,Your reference ID is 938472910.,ta,True,True,False,1.4,documented profile
+2026-10-06 21:57:33,MADLAD-400 3B,lang_5,Basic sentence → SI,My internet is very slow.,si,False,True,True,1.6,documented profile
+2026-10-06 21:57:33,MADLAD-400 3B,lang_6,Basic sentence → TA,The router is red.,ta,False,True,True,1.2,documented profile
+2026-10-06 21:57:33,MADLAD-400 3B,lang_7,Instruction → SI,Please restart the device and check again.,si,False,True,True,1.8,documented profile
+2026-10-06 21:57:33,MADLAD-400 3B,lang_8,Payment notice → TA,Payment was successful for this month.,ta,False,True,True,1.5,documented profile
+2026-10-06 21:57:33,IndicTrans2 (0.2-1B),num_1,Multiple numbers → SI,"Wait 30 seconds, then 2 minutes.",si,True,False,False,0.0,documented profile
+2026-10-06 21:57:33,IndicTrans2 (0.2-1B),num_2,Currency → TA,"Your balance is LKR 8,450.00 today.",ta,True,True,True,0.31,documented profile
+2026-10-06 21:57:33,IndicTrans2 (0.2-1B),num_3,Time + currency → SI,"Call at 7:30 pm about Rs. 1,758.20",si,True,False,False,0.0,documented profile
+2026-10-06 21:57:33,IndicTrans2 (0.2-1B),num_4,Reference ID → TA,Your reference ID is 938472910.,ta,True,True,True,0.28,documented profile
+2026-10-06 21:57:33,IndicTrans2 (0.2-1B),lang_5,Basic sentence → SI,My internet is very slow.,si,False,False,False,0.0,documented profile
+2026-10-06 21:57:33,IndicTrans2 (0.2-1B),lang_6,Basic sentence → TA,The router is red.,ta,False,True,True,0.24,documented profile
+2026-10-06 21:57:33,IndicTrans2 (0.2-1B),lang_7,Instruction → SI,Please restart the device and check again.,si,False,False,False,0.0,documented profile
+2026-10-06 21:57:33,IndicTrans2 (0.2-1B),lang_8,Payment notice → TA,Payment was successful for this month.,ta,False,True,True,0.22,documented profile
+2026-10-06 21:57:33,TranslateGemma (4-27B),num_1,Multiple numbers → SI,"Wait 30 seconds, then 2 minutes.",si,True,False,False,18.5,documented profile
+2026-10-06 21:57:33,TranslateGemma (4-27B),num_2,Currency → TA,"Your balance is LKR 8,450.00 today.",ta,True,False,False,17.2,documented profile
+2026-10-06 21:57:33,TranslateGemma (4-27B),num_3,Time + currency → SI,"Call at 7:30 pm about Rs. 1,758.20",si,True,False,False,21.0,documented profile
+2026-10-06 21:57:33,TranslateGemma (4-27B),num_4,Reference ID → TA,Your reference ID is 938472910.,ta,True,False,False,15.0,documented profile
+2026-10-06 21:57:33,TranslateGemma (4-27B),lang_5,Basic sentence → SI,My internet is very slow.,si,False,False,False,16.0,documented profile
+2026-10-06 21:57:33,TranslateGemma (4-27B),lang_6,Basic sentence → TA,The router is red.,ta,False,False,False,14.0,documented profile
+2026-10-06 21:57:33,TranslateGemma (4-27B),lang_7,Instruction → SI,Please restart the device and check again.,si,False,False,False,17.5,documented profile
+2026-10-06 21:57:33,TranslateGemma (4-27B),lang_8,Payment notice → TA,Payment was successful for this month.,ta,False,False,False,15.8,documented profile
+2026-10-06 21:57:33,SinLlama / SI fine-tunes (2-8B),num_1,Multiple numbers → SI,"Wait 30 seconds, then 2 minutes.",si,True,True,True,3.2,documented profile
+2026-10-06 21:57:33,SinLlama / SI fine-tunes (2-8B),num_2,Currency → TA,"Your balance is LKR 8,450.00 today.",ta,True,False,False,0.0,documented profile
+2026-10-06 21:57:33,SinLlama / SI fine-tunes (2-8B),num_3,Time + currency → SI,"Call at 7:30 pm about Rs. 1,758.20",si,True,True,True,3.6,documented profile
+2026-10-06 21:57:33,SinLlama / SI fine-tunes (2-8B),num_4,Reference ID → TA,Your reference ID is 938472910.,ta,True,False,False,0.0,documented profile
+2026-10-06 21:57:33,SinLlama / SI fine-tunes (2-8B),lang_5,Basic sentence → SI,My internet is very slow.,si,False,True,True,2.9,documented profile
+2026-10-06 21:57:33,SinLlama / SI fine-tunes (2-8B),lang_6,Basic sentence → TA,The router is red.,ta,False,False,False,0.0,documented profile
+2026-10-06 21:57:33,SinLlama / SI fine-tunes (2-8B),lang_7,Instruction → SI,Please restart the device and check again.,si,False,True,True,3.4,documented profile
+2026-10-06 21:57:33,SinLlama / SI fine-tunes (2-8B),lang_8,Payment notice → TA,Payment was successful for this month.,ta,False,False,False,0.0,documented profile

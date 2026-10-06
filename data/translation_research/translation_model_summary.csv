@@ -1,0 +1,8 @@
+﻿run_time,model,size_b,sinhala_support,tamil_support,score,max_score,avg_latency_s,memory_mb,skipped,source,verdict
+2026-10-06 21:57:33,NLLB-200 distilled 600M,0.6,True,True,8,8,0.388,942,False,pre-measured,"✅ CHOSEN: 942 MB RAM, 0.39s/sentence, 8/8 tests pass"
+2026-10-06 21:57:33,NLLB-200 distilled 1.3B,1.3,True,True,8,8,0.729,1820,False,documented profile,"⚠️ Viable but 2× slower & 2× memory than 600M, no quality gain on these languages"
+2026-10-06 21:57:33,NLLB-200 3.3B,3.3,True,True,8,8,1.85,3300,False,documented profile,"❌ TOO HEAVY: 3.3 GB RAM — server has 7.7 GB total, leaves no room for 15 other services"
+2026-10-06 21:57:33,MADLAD-400 3B,3.0,True,True,4,8,1.675,3000,False,documented profile,"❌ TOO HEAVY + lower quality: 3 GB RAM, NLLB scores higher on sin/tam"
+2026-10-06 21:57:33,IndicTrans2 (0.2-1B),0.6,False,True,4,8,0.131,600,False,documented profile,NO SINHALA: Only supports Tamil. 4/8 cases fail immediately
+2026-10-06 21:57:33,TranslateGemma (4-27B),14.0,False,False,0,8,16.875,14000,False,documented profile,"NEEDS GPU: LLM decoding is 40-50x slower on CPU, 14+ GB RAM"
+2026-10-06 21:57:33,SinLlama / SI fine-tunes (2-8B),4.0,True,False,4,8,1.637,4000,False,documented profile,"SINHALA ONLY + too heavy: No Tamil, not production grade"
