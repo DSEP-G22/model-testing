@@ -23,7 +23,7 @@ code-mixed with English. Punctuation stripped; vowel signs and ZWJ kept.
 * run11's training pool includes YouTube audio, so overlap with this test set is possible: read its
   absolute numbers as optimistic. The ranking matches the earlier 10-clip check.
 * Base whisper-small loops on forced Sinhala ("අපි අපි අපි ..."), so its error rates are above 1.
-* hlasith ships no `preprocessor_config.json` and Lingalingeswaran/hlasith tokenizer configs needed
+* hlasith ships no `preprocessor_config.json`, and its transformers 5 tokenizer config needed
   whisper-small's own vocabulary to convert (see the workflow).
 
 Why dehanns became v3's alternative, and the research behind each choice: `v3/docs/SINHALA-ASR.md`.
