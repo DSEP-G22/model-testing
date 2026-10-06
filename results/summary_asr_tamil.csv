@@ -1,0 +1,5 @@
+model,source,n,audio_min,wer,cer,empty,rtf,p50_s_per_clip,load_s,ram_mb
+faster-whisper-small-int8,openai/whisper-small (the base model production runs),200,43.5,0.7846,0.2765,0,0.567,4.01,3.1,482
+vasista22-whisper-tamil-small-int8,vasista22/whisper-tamil-small@ac0d71c,200,43.5,0.2823,0.0999,0,0.501,3.83,0.1,0
+steja-whisper-small-tamil-int8,steja/whisper-small-tamil@eb8e84c,200,43.5,0.4287,0.1162,0,0.535,3.96,0.1,0
+lingalingeswaran-whisper-small-ta-int8,Lingalingeswaran/whisper-small-ta@c93432c,200,43.5,0.461,0.1596,0,0.552,3.95,0.1,0
