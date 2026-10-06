@@ -1,0 +1,52 @@
+# Runs src/asr_si_benchmark.py on a GitHub runner (fast link for ~1 GB per Whisper checkpoint).
+name: asr-si-benchmark
+on:
+  workflow_dispatch:
+    inputs:
+      n: { description: SPEAK-ASR youtube-sinhala-asr test clips (405 in all), default: "200" }
+jobs:
+  bench:
+    runs-on: ubuntu-latest
+    timeout-minutes: 240
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.12" }
+      - run: |
+          pip install --index-url https://download.pytorch.org/whl/cpu torch
+          pip install "ctranslate2>=4.5,<5" "transformers>=4.45,<5" "peft>=0.11" "faster-whisper==1.2.1" "av>=11,<19" jiwer pandas pyarrow huggingface_hub
+      - name: Models and data (converted exactly as v3/services/audio/convert.py does)
+        run: |
+          python - <<'EOF'
+          from ctranslate2.converters import TransformersConverter
+          from huggingface_hub import snapshot_download, hf_hub_download, list_repo_files
+          from transformers import WhisperForConditionalGeneration, WhisperTokenizerFast
+          def convert(src, name):
+              WhisperTokenizerFast.from_pretrained(src).save_pretrained(src)
+              TransformersConverter(src, copy_files=["tokenizer.json", "preprocessor_config.json"]).convert(
+                  f"data_cache/asr-si/{name}", quantization="int8", force=True)
+          for name, repo, rev in [("run11", "SinhaSpeech/whisper-small-sinhala-v6-e6-run11-best", "8e79faca831c89a3caf339a1386efa50a87d8081"),
+                                  ("linga", "Lingalingeswaran/whisper-small-sinhala_v3", "cf548833541b0761fa7240d2a71c06bc0268a47a"),
+                                  ("hlasith", "hlasith/whisper-sinhala-small", "21155f6271d0008e484141177e315dff64c80550")]:
+              weights = "model.safetensors" if "model.safetensors" in list_repo_files(repo, revision=rev) else "pytorch_model.bin"
+              convert(snapshot_download(repo, revision=rev, allow_patterns=["*.json", "*.txt", weights]), name)
+          # The LoRA adapter, merged into whisper-small so it converts like a full fine-tune.
+          from peft import PeftModel
+          ad = snapshot_download("dehanns/whisper-small-sinhala-lora-r32-seed-456", revision="3d1a45410e15a4bdf99ab95da82282240187b7e8")
+          base = snapshot_download("openai/whisper-small", allow_patterns=["*.json", "*.txt", "model.safetensors"])
+          merged = PeftModel.from_pretrained(WhisperForConditionalGeneration.from_pretrained(base), ad).merge_and_unload()
+          merged.save_pretrained("data_cache/dehanns-merged")
+          import shutil, glob
+          for f in glob.glob(f"{ad}/*.json") + glob.glob(f"{ad}/*.txt"):
+              if "adapter" not in f and "metrics" not in f and "report" not in f and "pipeline" not in f:
+                  shutil.copy(f, "data_cache/dehanns-merged/")
+          shutil.copy(f"{base}/preprocessor_config.json", "data_cache/dehanns-merged/")
+          convert("data_cache/dehanns-merged", "dehanns")
+          hf_hub_download("SPEAK-ASR/youtube-sinhala-asr", "default/test/0000.parquet", repo_type="dataset",
+                          revision="refs/convert/parquet", local_dir="data_cache/yt-raw")
+          EOF
+          mkdir -p data_cache/yt-si && mv data_cache/yt-raw/default/test/0000.parquet data_cache/yt-si/test.parquet
+      - run: cd src && python asr_si_benchmark.py ${{ inputs.n }}
+      - run: lscpu | grep -E "Model name|^CPU\(s\)" > results/asr_sinhala_runner_cpu.txt
+      - uses: actions/upload-artifact@v4
+        with: { name: asr-si-benchmark, path: "results/*asr_sinhala*" }
