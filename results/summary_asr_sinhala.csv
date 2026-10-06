@@ -1,0 +1,6 @@
+model,source,backing,n,audio_min,wer,cer,code_mixed_wer,code_mixed_cer,empty,rtf,p50_s_per_clip,load_s
+faster-whisper-small-int8,openai/whisper-small,Radford et al. 2023 (Whisper),200,27.5,1.202,1.1739,1.1436,1.0223,0,1.809,15.19,4.2
+sinhaspeech-run11-int8,SinhaSpeech/whisper-small-sinhala-v6-e6-run11-best@b51781e,"model card: 16.38 WER / 4.43 CER, 15,860-clip speaker-disjoint test",200,27.5,0.2295,0.1265,0.2396,0.1656,0,0.49,3.84,0.1
+dehanns-lora-r32-s456-int8,dehanns/whisper-small-sinhala-lora-r32-seed-456@3d1a454 (merged),"model card: 48.6 WER / 12.6 CER, 4,326-clip test; rank/seed study",200,27.5,0.8615,0.4844,0.9031,0.5968,0,0.521,4.09,0.1
+lingalingeswaran-v3-int8,Lingalingeswaran/whisper-small-sinhala_v3@cf54883,model card: 46.5 WER,200,27.5,0.7804,0.4679,0.8474,0.6013,0,0.492,3.88,0.1
+hlasith-int8,hlasith/whisper-sinhala-small@21155f6,"model card: 61.7 WER / 14.9 CER, 10 clips",200,27.5,0.9154,0.5557,0.9438,0.6533,0,0.554,4.07,0.1

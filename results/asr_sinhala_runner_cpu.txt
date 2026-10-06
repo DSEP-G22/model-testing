@@ -1,0 +1,2 @@
+CPU(s):                                  4
+Model name:                              AMD EPYC 7763 64-Core Processor

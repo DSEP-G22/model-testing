@@ -1,0 +1,113 @@
+{
+ "rows": [
+  {
+   "model": "faster-whisper-small-int8",
+   "source": "openai/whisper-small",
+   "backing": "Radford et al. 2023 (Whisper)",
+   "n": 200,
+   "audio_min": 27.5,
+   "wer": 1.202,
+   "cer": 1.1739,
+   "code_mixed_wer": 1.1436,
+   "code_mixed_cer": 1.0223,
+   "empty": 0,
+   "rtf": 1.809,
+   "p50_s_per_clip": 15.19,
+   "load_s": 4.2
+  },
+  {
+   "model": "sinhaspeech-run11-int8",
+   "source": "SinhaSpeech/whisper-small-sinhala-v6-e6-run11-best@b51781e",
+   "backing": "model card: 16.38 WER / 4.43 CER, 15,860-clip speaker-disjoint test",
+   "n": 200,
+   "audio_min": 27.5,
+   "wer": 0.2295,
+   "cer": 0.1265,
+   "code_mixed_wer": 0.2396,
+   "code_mixed_cer": 0.1656,
+   "empty": 0,
+   "rtf": 0.49,
+   "p50_s_per_clip": 3.84,
+   "load_s": 0.1
+  },
+  {
+   "model": "dehanns-lora-r32-s456-int8",
+   "source": "dehanns/whisper-small-sinhala-lora-r32-seed-456@3d1a454 (merged)",
+   "backing": "model card: 48.6 WER / 12.6 CER, 4,326-clip test; rank/seed study",
+   "n": 200,
+   "audio_min": 27.5,
+   "wer": 0.8615,
+   "cer": 0.4844,
+   "code_mixed_wer": 0.9031,
+   "code_mixed_cer": 0.5968,
+   "empty": 0,
+   "rtf": 0.521,
+   "p50_s_per_clip": 4.09,
+   "load_s": 0.1
+  },
+  {
+   "model": "lingalingeswaran-v3-int8",
+   "source": "Lingalingeswaran/whisper-small-sinhala_v3@cf54883",
+   "backing": "model card: 46.5 WER",
+   "n": 200,
+   "audio_min": 27.5,
+   "wer": 0.7804,
+   "cer": 0.4679,
+   "code_mixed_wer": 0.8474,
+   "code_mixed_cer": 0.6013,
+   "empty": 0,
+   "rtf": 0.492,
+   "p50_s_per_clip": 3.88,
+   "load_s": 0.1
+  },
+  {
+   "model": "hlasith-int8",
+   "source": "hlasith/whisper-sinhala-small@21155f6",
+   "backing": "model card: 61.7 WER / 14.9 CER, 10 clips",
+   "n": 200,
+   "audio_min": 27.5,
+   "wer": 0.9154,
+   "cer": 0.5557,
+   "code_mixed_wer": 0.9438,
+   "code_mixed_cer": 0.6533,
+   "empty": 0,
+   "rtf": 0.554,
+   "p50_s_per_clip": 4.07,
+   "load_s": 0.1
+  }
+ ],
+ "samples": {
+  "reference": [
+   "එතකොට අපි AI එකට කිව්වොතින් මේ වාර්තාව සම්පූර්ණයෙන්ම ලියල දෙන්න කියලා",
+   "පොහොට්ටුවට ලැබිච්ච ගෝඨාභය රාජපක්ෂ මහත්තයට ලැබිච්ච ඡන්ද ලක්ෂ",
+   "මං හිතන්නේ මං පිස්සෙක් වගේ. මං අද දවසේ ප්‍රශ්න ගොඩකට මුහුණ දීලා හිටියේ"
+  ],
+  "faster-whisper-small-int8": [
+   "අපි අපි අපි අපි අපි අපි අපි අපි අපි අපි අපි අපි අපි අපි අපි අපි අපි අපි අපි අපි අපි අපි අපි අපි අපි අපි අපි අපි අපි අපි අපි අපි අපි අපි අපි අපි අපි අ",
+   "ඉවවහවවවවවවවවවවවවවවවවවවවවවවවවවවවවවවවවවවවවවවවවවවවවවවවවවවවවවවවවවවවවවවවවවවවවවවවවවවවවවවවවවවවවවවවවවවවවවවවවවවවවවවවවවවවව",
+   "ඇපින්න්න්න්න්න්න්න්න්න්න්න්න්න්න්න්න්න්න්න්න්න්න්න්න්න්න්න්න්න්න්න්න්න්න්න්න්න්න්න්න්න්න්න්න්න්න්න්න්න්න්න්න්න්න"
+  ],
+  "sinhaspeech-run11-int8": [
+   "එතකොට අපි ai එකට කිව්වොතින් මේ වාර්තාව සම්පූර්ණයෙන්ම ලියලා දෙන්න කියලා",
+   "පුහුටුවට ලැබිච්ච ගෝඨාභය රාජපක්ෂ මහත්තයට ලැබිච්ච ඡන්ද ලක්ෂ",
+   "මං හිතන්නේ මං පිස්සෙක් වගේ මං අද දවසේ ප්‍රශ්න ගොඩකට මුහුණ දීලා හිටියේ"
+  ],
+  "dehanns-lora-r32-s456-int8": [
+   "එතකොට අපි ඒකට කිවුවතින් මේ වාර්තාව සම්පූර්ණම ලිගල දෙඳි කියල",
+   "පුහුත්වට ලෙබිච්ච ජුවටා වෙරජ ප්ෂ්මධ ලැබිච්ච චන්ද ලක්ෂ",
+   "මාහිතනමක් පිස්සේකාගේ මං අධාස ප්‍රශ්න ගොඩගට මුණු දීල හිටියේ"
+  ],
+  "lingalingeswaran-v3-int8": [
+   "එතකොට අපි ඒකට කිව්වතින් මේ වාර්තාව සම්පූර්ණයම ලිගල දෙන්ද කියල",
+   "පුහුට්වට ලැබිච්ච යුවටාවරාජප්‍රශ්මක ලැබිච්ච ඡන්ද ලක්ෂ",
+   "මහිදන මම පීස්සේකවගේ මඟ අද්ධාස ප්‍රශ්න ගොඩයකට මුනදීල හිටියේ"
+  ],
+  "hlasith-int8": [
+   "ඇතු කොට අපි එයා යිකද කිම්වතින්මේ වාර්ථාව සංකුර්ණයම ලියල දෙන්න කියලා",
+   "පුහු රුල විච්චර් යෝටව රජ පොෂමං ලෙවික්ටම්ද ලක්ෂය",
+   "මයිදල මං පිරිසේරුවාගැ මං අල්ලාස පරශ්න ගොඩගෙන මෝන දීලෙ ඉටියේ"
+  ]
+ },
+ "cpu": 4,
+ "dataset": "SPEAK-ASR/youtube-sinhala-asr test"
+}
