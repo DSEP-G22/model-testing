@@ -22,13 +22,10 @@ WEIGHTS = ("pytorch_model.bin", "model.safetensors")
 REPOS = {
     "nllb-600M-ct2": ("facebook/nllb-200-distilled-600M", "f8d333a", True),
     "nllb-1.3B-ct2": ("OpenNMT/nllb-200-distilled-1.3B-ct2-int8", "70f572a", False),
-    "nllb-3.3B-ct2": ("OpenNMT/nllb-200-3.3B-ct2-int8", "28d998c", False),
-    "madlad-3B-ct2": ("Nextcloud-AI/madlad400-3b-mt-ct2-int8", "aa32bbd", False),
     "m2m100-418M-ct2": ("facebook/m2m100_418M", "55c2e61", True),
     "mbart50-ct2": ("facebook/mbart-large-50-many-to-many-mmt", "e30b6cb", True),
     "opus-mul-en-ct2": ("Helsinki-NLP/opus-mt-mul-en", "848eae0", True),
     "opus-en-mul-ct2": ("Helsinki-NLP/opus-mt-en-mul", "07ab277", True),
-    "translategemma-4b": ("Infomaniak-AI/vllm-translategemma-4b-it", "cb3e0b2", False),
 }
 
 
@@ -46,6 +43,9 @@ def fetch(name: str) -> Path:
                       allow_patterns=["*.json", "*.model", "*.spm", "*.txt", "pytorch_model.bin", "model.safetensors"])
     keep = [f.name for f in raw.iterdir() if f.is_file() and f.name not in WEIGHTS and f.name != "config.json"]
     ctranslate2.converters.TransformersConverter(str(raw), copy_files=keep).convert(str(out), quantization="int8", force=True)
+    # out/config.json is CT2's: save the tokenizer with its class so AutoTokenizer finds it
+    from transformers import AutoTokenizer
+    AutoTokenizer.from_pretrained(raw).save_pretrained(out)
     shutil.rmtree(raw)
     return out
 

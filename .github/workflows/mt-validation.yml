@@ -5,15 +5,14 @@ on:
   workflow_dispatch:
     inputs:
       n: { description: FLORES devtest sentences per direction, default: "200" }
-      n_llm: { description: Sentences per direction for TranslateGemma (CPU), default: "100" }
 jobs:
   eval:
     runs-on: ubuntu-latest
-    timeout-minutes: 350
+    timeout-minutes: 120
     strategy:
       fail-fast: false
       matrix:
-        model: [nllb-600M, nllb-1.3B, nllb-3.3B, madlad-3B, m2m100-418M, mbart50-611M, opus-mt-77M, translategemma-4B]
+        model: [nllb-600M, nllb-1.3B, m2m100-418M, mbart50-611M, opus-mt-77M]
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -22,14 +21,11 @@ jobs:
         env:
           MT_ONLY: ${{ matrix.model }}
           MT_N: ${{ inputs.n }}
-          MT_N_LLM: ${{ inputs.n_llm }}
           MPLBACKEND: Agg
-          # mt-benchmark's pin for the CT2 models; TranslateGemma's config needs transformers 5
-          TF: ${{ matrix.model == 'translategemma-4B' && 'transformers>=5,<6' || 'transformers>=4.44,<5' }}
         run: |
           sudo mkdir -p /mnt/cache && sudo chown $USER /mnt/cache && rm -rf data_cache && ln -s /mnt/cache data_cache
           pip install --index-url https://download.pytorch.org/whl/cpu torch
-          pip install "ctranslate2>=4.4" "$TF" accelerate sentencepiece protobuf sacrebleu pandas pyarrow psutil huggingface_hub matplotlib
+          pip install "ctranslate2>=4.4" "transformers>=4.44,<5" sentencepiece protobuf sacrebleu pandas pyarrow psutil huggingface_hub matplotlib
           python notebooks/_src/09_translation_validation.py
           lscpu | grep -E "Model name|^CPU\(s\)" > results/mt_validation/runner_cpu.txt
       - uses: actions/upload-artifact@v4
@@ -45,7 +41,8 @@ jobs:
         with: { python-version: "3.12" }
       - uses: actions/download-artifact@v4
         with: { pattern: "mt-*", path: results/mt_validation, merge-multiple: true }
-      - run: |
+      - env: { MT_EVAL: "0" }
+        run: |
           pip install "ctranslate2>=4.4" "transformers>=4.44,<5" sentencepiece sacrebleu pandas pyarrow psutil huggingface_hub matplotlib nbformat nbclient ipykernel
           python -m ipykernel install --user --name dsep22-modeltesting
           python src/run_notebooks.py 09_translation

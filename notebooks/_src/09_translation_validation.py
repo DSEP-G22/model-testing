@@ -12,15 +12,19 @@
 # | | Research files | This notebook |
 # |---|---|---|
 # | Metric | chrF++ (`sacrebleu`, `word_order=2`) | same, plus BLEU into English |
-# | Runtime | CTranslate2 int8, CPU, 4 threads, beam 2 into English / 4 out, `no_repeat_ngram_size=4` | same for every encoder-decoder; TranslateGemma (an LLM) in bf16 with greedy decoding |
+# | Runtime | CTranslate2 int8, CPU, 4 threads, beam 2 into English / 4 out, `no_repeat_ngram_size=4` | same, for every model |
 # | Data 1 | 30 + 30 + 15 + 15 sentences written into `benchmark_nllb.py` and labelled "FLORES-200" | the same sentences, imported from the script |
 # | Data 2 | — (claimed: FLORES-200 devtest) | real FLORES-200 devtest, first 200 sentences per direction, as `src/mt_benchmark.py` |
 # | Numbers | 8 cases in `eval_translation.py`, `numbers_kept` | the same cases and the production `numbers_kept`, on the **raw** model output |
 #
-# Candidates (all eight from the research table that can be run, plus three small baselines that
-# also cover Sinhala): NLLB-200 600M / 1.3B / 3.3B, MADLAD-400 3B, M2M-100 418M, mBART-50
-# many-to-many (611M), OPUS-MT `mul-en` + `en-mul` (2 × 77M), TranslateGemma 4B. IndicTrans2 and
-# SinLlama are checked from their published configs (language list, parameter count).
+# Run: every **small** candidate (≤ 1.3B parameters) that covers Sinhala — NLLB-200 distilled
+# 600M and 1.3B from the research table, plus three small multilingual models the research did not
+# test: M2M-100 418M, mBART-50 many-to-many (611M) and OPUS-MT `mul-en` + `en-mul` (2 × 77M).
+#
+# Not run: the large models the research already discarded on size (NLLB-200 3.3B, MADLAD-400 3B,
+# TranslateGemma 4B, SinLlama 8B) and IndicTrans2. Their size and language claims are checked
+# from the published weights and configs on the Hugging Face Hub (section 6.2), which is a
+# measurement, not a profile.
 #
 # Run on the `mt-validation` GitHub workflow (AMD EPYC, 4 vCPU, no GPU — the same runner type
 # as `mt_benchmark.py`): the local link pulls the Hub at ~70 KB/s. Each model is evaluated in its
@@ -44,12 +48,11 @@ RESEARCH = BENCH / "data" / "translation_research"
 sys.path.insert(0, str(BENCH / "src"))
 import mt_fetch
 
-N = int(os.environ.get("MT_N", 200))            # FLORES sentences per direction (encoder-decoders)
-N_LLM = int(os.environ.get("MT_N_LLM", 100))    # TranslateGemma: CPU decoding is the bottleneck
+N = int(os.environ.get("MT_N", 200))            # FLORES sentences per direction
 ONLY = [m for m in os.environ.get("MT_ONLY", "").split(",") if m]
 THREADS = 4
 pd.set_option("display.width", 200, "display.max_columns", 30, "display.max_colwidth", 80)
-print({"N": N, "N_LLM": N_LLM, "ONLY": ONLY or "all (cached results are reused)", "cpus": os.cpu_count(),
+print({"N": N, "ONLY": ONLY or "all (cached results are reused)", "cpus": os.cpu_count(),
        "ram_gb": round(psutil.virtual_memory().total / 2**30, 1)})
 
 # %% [markdown]
@@ -109,32 +112,25 @@ CODES = {
     "nllb":  {"si": "sin_Sinh", "ta": "tam_Taml", "en": "eng_Latn"},
     "m2m":   {"si": "__si__", "ta": "__ta__", "en": "__en__"},
     "mbart": {"si": "si_LK", "ta": "ta_IN", "en": "en_XX"},
-    "madlad": {"si": "<2si>", "ta": "<2ta>", "en": "<2en>"},
     "opus":  {"si": ">>sin<<", "ta": ">>tam<<", "en": None},
-    "tg":    {"si": "si", "ta": "ta", "en": "en"},
 }
 # name -> family, data_cache dirs (opus has one model per direction), nominal parameters (B)
 CANDIDATES = {
     "nllb-600M":    ("nllb", {"in": "nllb-600M-ct2", "out": "nllb-600M-ct2"}, 0.6),
     "nllb-1.3B":    ("nllb", {"in": "nllb-1.3B-ct2", "out": "nllb-1.3B-ct2"}, 1.3),
-    "nllb-3.3B":    ("nllb", {"in": "nllb-3.3B-ct2", "out": "nllb-3.3B-ct2"}, 3.3),
-    "madlad-3B":    ("madlad", {"in": "madlad-3B-ct2", "out": "madlad-3B-ct2"}, 3.0),
     "m2m100-418M":  ("m2m", {"in": "m2m100-418M-ct2", "out": "m2m100-418M-ct2"}, 0.418),
     "mbart50-611M": ("mbart", {"in": "mbart50-ct2", "out": "mbart50-ct2"}, 0.611),
     "opus-mt-77M":  ("opus", {"in": "opus-mul-en-ct2", "out": "opus-en-mul-ct2"}, 0.077),
-    "translategemma-4B": ("tg", {"in": "translategemma-4b", "out": "translategemma-4b"}, 4.3),
 }
-TODO = [m for m in CANDIDATES if (not ONLY or m in ONLY) and not (OUT / f"{m}.json").exists()]
+EVAL = os.environ.get("MT_EVAL", "1") == "1"   # 0 = analysis only (the workflow's last job)
+TODO = [m for m in CANDIDATES if EVAL and (not ONLY or m in ONLY) and not (OUT / f"{m}.json").exists()]
 print("to evaluate in this run:", TODO or "none, all cached")
 
 # %%
 def support(name):
-    """Does the model's own vocabulary / chat template carry a code for si and ta?"""
+    """Does the model's own vocabulary carry a language code for si and ta?"""
     fam, dirs, _ = CANDIDATES[name]
     path = CACHE / dirs["out"]
-    if fam == "tg":
-        tpl = (path / "chat_template.jinja").read_text(encoding="utf-8")
-        return {l: f'"{c}":' in tpl for l, c in CODES[fam].items() if l != "en"}
     vocab = set(AutoTokenizer.from_pretrained(path).get_vocab())
     return {l: c in vocab for l, c in CODES[fam].items() if l != "en"}
 
@@ -168,7 +164,7 @@ class CT2:
             tok.src_lang = code[s]
         elif self.fam == "m2m":
             tok.src_lang = s
-        pre = code[t] + " " if self.fam == "madlad" or (self.fam == "opus" and t != "en") else ""
+        pre = code[t] + " " if self.fam == "opus" and t != "en" else ""
         prefix = self.fam in ("nllb", "mbart", "m2m")
         out = []
         for i in range(0, len(sents), batch):
@@ -180,30 +176,6 @@ class CT2:
                                skip_special_tokens=True).strip() for r in res]
         return out
 
-
-class TranslateGemma:
-    """Gemma-3 4B translation LLM; Infomaniak's ungated mirror of google/translategemma-4b-it,
-    whose template takes '<<<source>>>si<<<target>>>en<<<text>>>...'. bf16, greedy, CPU."""
-
-    def __init__(self, fam, dirs):
-        import torch
-        from transformers import AutoModelForImageTextToText
-        torch.set_num_threads(THREADS)
-        p = CACHE / dirs["in"]
-        self.torch, self.tok = torch, AutoTokenizer.from_pretrained(p, padding_side="left")
-        self.model = AutoModelForImageTextToText.from_pretrained(p, dtype=torch.bfloat16).eval()
-
-    def __call__(self, sents, s, t, batch=8):
-        out = []
-        for i in range(0, len(sents), batch):
-            msgs = [[{"role": "user", "content": f"<<<source>>>{s}<<<target>>>{t}<<<text>>>{x}"}]
-                    for x in sents[i:i + batch]]
-            enc = self.tok.apply_chat_template(msgs, add_generation_prompt=True, padding=True,
-                                               return_tensors="pt", return_dict=True)
-            with self.torch.inference_mode():
-                gen = self.model.generate(**enc, max_new_tokens=256, do_sample=False)
-            out += [x.strip() for x in self.tok.batch_decode(gen[:, enc["input_ids"].shape[1]:], skip_special_tokens=True)]
-        return out
 
 # %% [markdown]
 # ### 3.1 The production number guard, verbatim from `v3/services/translation/app/translate.py`
@@ -238,22 +210,21 @@ def evaluate(name):
     fam, dirs, params = CANDIDATES[name]
     for d in set(dirs.values()):
         mt_fetch.fetch(d)
-    is_llm = fam == "tg"
     proc = psutil.Process()
     base, t0 = proc.memory_info().rss, time.perf_counter()
-    model = (TranslateGemma if is_llm else CT2)(fam, dirs)
+    model = CT2(fam, dirs)
     rec = {"model": name, "family": fam, "params_b": params, "load_s": round(time.perf_counter() - t0, 1),
            "ram_mb": round((proc.memory_info().rss - base) / 2**20),
            "disk_mb": disk_mb(*[CACHE / d for d in dirs.values()]), "support": support(name),
-           "decoding": "bf16 greedy" if is_llm else "ct2 int8 beam 2/4", "flores": {}, "research": {}}
-    n = N_LLM if is_llm else N
+           "flores": {}, "research": {}}
+    n = N
     for s, t in PAIRS:
         srcs, refs = FLORES[(s, t)][0][:n], FLORES[(s, t)][1][:n]
         t0 = time.perf_counter()
         hyps = model(srcs, s, t)
         batch_s = time.perf_counter() - t0
         lat = []
-        for x in srcs[:10 if is_llm else 20]:  # production translates one message at a time
+        for x in srcs[:20]:  # production translates one message at a time
             t1 = time.perf_counter(); model([x], s, t); lat.append((time.perf_counter() - t1) * 1000)
         rec["flores"][f"{s}->{t}"] = {
             "n": n, "chrf++": chrf(hyps, refs),
@@ -334,8 +305,7 @@ chrf_audit = a[["model", "pair", "n_sentences", "chrf", "research_set_chrf++", "
 chrf_audit
 
 # %%
-SUM_MAP = {"NLLB-200 distilled 600M": "nllb-600M", "NLLB-200 distilled 1.3B": "nllb-1.3B", "NLLB-200 3.3B": "nllb-3.3B",
-           "MADLAD-400 3B": "madlad-3B", "TranslateGemma (4-27B)": "translategemma-4B"}
+SUM_MAP = {"NLLB-200 distilled 600M": "nllb-600M", "NLLB-200 distilled 1.3B": "nllb-1.3B"}
 
 def measured(m):
     r = REC.get(m)
@@ -362,7 +332,11 @@ print(num.pivot_table(index="model", columns="case", values="kept", aggfunc="fir
 num[~num["kept"]]
 
 # %% [markdown]
-# ### 6.2 Models that are not run: IndicTrans2 and SinLlama, from their published configs
+# ### 6.2 Models that are not run: size and languages from the published weights and configs
+#
+# Weight sizes are summed from the Hub's file metadata at a pinned revision (the int8 CTranslate2
+# build where one exists, otherwise bf16 safetensors); language support from each model's own
+# language list or chat template.
 
 # %%
 from huggingface_hub import HfApi, hf_hub_download
@@ -373,9 +347,23 @@ it2_langs = re.search(r"language_details:\s*>-?\s*(.+?)\n\S", open(it2, encoding
 it2_langs = [l.strip() for l in it2_langs]
 print("IndicTrans2 languages:", len(it2_langs), "| sin_Sinh listed:", "sin_Sinh" in it2_langs, "| tam_Taml listed:", "tam_Taml" in it2_langs)
 
-sl = api.model_info("SAWithanage/SinLlama-Llama-3-8B-Merged", files_metadata=True)
-sl_gb = sum(s.size or 0 for s in sl.siblings if s.rfilename.endswith(".safetensors")) / 1e9
-print(f"SinLlama weights: {sl_gb:.1f} GB on disk (bf16, about {sl_gb / 2:.1f}B parameters) — over twice the server's 7.7 GB of RAM")
+def hub_mb(repo, rev, exts=(".bin", ".safetensors")):
+    info = api.model_info(repo, revision=rev, files_metadata=True)
+    return round(sum(f.size or 0 for f in info.siblings if f.rfilename.endswith(exts)) / 2**20)
+
+tg_tpl = open(hf_hub_download("Infomaniak-AI/vllm-translategemma-4b-it", "chat_template.jinja", revision="cb3e0b2"), encoding="utf-8").read()
+large = pd.DataFrame([
+    {"model": "nllb-3.3B", "build": "OpenNMT/nllb-200-3.3B-ct2-int8", "weights_mb": hub_mb("OpenNMT/nllb-200-3.3B-ct2-int8", "28d998c"), "si": True, "ta": True},
+    {"model": "madlad-3B", "build": "Nextcloud-AI/madlad400-3b-mt-ct2-int8", "weights_mb": hub_mb("Nextcloud-AI/madlad400-3b-mt-ct2-int8", "aa32bbd"), "si": True, "ta": True},
+    {"model": "translategemma-4B", "build": "translategemma-4b-it (bf16)", "weights_mb": hub_mb("Infomaniak-AI/vllm-translategemma-4b-it", "cb3e0b2"),
+     "si": '"si":' in tg_tpl, "ta": '"ta":' in tg_tpl},
+    {"model": "sinllama-8B", "build": "SinLlama-Llama-3-8B-Merged (bf16)", "weights_mb": hub_mb("SAWithanage/SinLlama-Llama-3-8B-Merged", "6c4f36c"), "si": True, "ta": False},
+    {"model": "indictrans2-200M", "build": "indictrans2-en-indic-dist-200M", "weights_mb": None, "si": "sin_Sinh" in it2_langs, "ta": "tam_Taml" in it2_langs},
+])
+large["vs_600M_int8"] = (large.weights_mb / 621).round(1)
+large["over_budget"] = large.weights_mb > 1536
+sl_gb = large.set_index("model").loc["sinllama-8B", "weights_mb"] / 1024
+large
 
 # %% [markdown]
 # ## 7. The selection argument: size against Sinhala ↔ English quality
@@ -412,8 +400,7 @@ tab
 # ### 7.1 Is the gap real? Paired bootstrap of chrF++ against the served 600M
 #
 # 1,000 resamples of the same sentence indices for both systems (Koehn 2004). A 95% interval
-# that excludes 0 means the difference is not sampling noise. TranslateGemma is compared on its
-# own first-`N_LLM` sentences.
+# that excludes 0 means the difference is not sampling noise.
 
 # %%
 from sacrebleu.metrics import CHRF
@@ -483,18 +470,30 @@ def within(measured, claimed, tol=0.25):
 
 p50 = n6["flores"]["si->en"]["p50_ms_single"]
 v.append(("600M latency 390 ms per si->en sentence", within(p50, 390), f"measured p50 {p50} ms on 4 vCPU"))
-for m, claimed in [("nllb-600M", 942), ("nllb-1.3B", 1820), ("nllb-3.3B", 3300), ("madlad-3B", 3000)]:
+for m, claimed in [("nllb-600M", 942), ("nllb-1.3B", 1820)]:
     if m in by.index:
         v.append((f"{m} needs {claimed} MB", within(by.loc[m, "ram_mb"], claimed),
                   f"measured RSS {by.loc[m, 'ram_mb']} MB, int8 weights {by.loc[m, 'disk_mb']} MB"))
+L = large.set_index("model")
+for m, claimed in [("nllb-3.3B", 3300), ("madlad-3B", 3000)]:
+    v.append((f"{m} too heavy (~{claimed} MB)", "holds" if L.loc[m, "over_budget"] else "does not hold",
+              f"int8 weights {L.loc[m, 'weights_mb']} MB = {L.loc[m, 'vs_600M_int8']}x the 600M"))
+v.append(("TranslateGemma: Sinhala/Tamil unsupported (research CSV)", "does not hold" if L.loc["translategemma-4B", "si"] else "holds",
+          f"its chat template lists si={L.loc['translategemma-4B', 'si']} ta={L.loc['translategemma-4B', 'ta']}"))
+v.append(("TranslateGemma too heavy for the CPU server", "holds" if L.loc["translategemma-4B", "over_budget"] else "does not hold",
+          f"bf16 weights {L.loc['translategemma-4B', 'weights_mb']} MB"))
 if "nllb-1.3B" in by.index:
     b = boot[(boot.model == "nllb-1.3B")]
-    v.append(("1.3B: 'no quality gain on these languages' (translation_model_summary.csv)", "does not hold",
+    v.append(("1.3B: 'no quality gain on these languages' (translation_model_summary.csv)",
+              "does not hold" if (b.significant & (b.delta_vs_600M > 0)).any() else "holds",
               "; ".join(f"{r.pair} {r.delta_vs_600M:+.2f} [{r.ci95_lo}, {r.ci95_hi}]" for r in b.itertuples())))
-for m in ["nllb-3.3B", "madlad-3B", "translategemma-4B", "m2m100-418M", "mbart50-611M", "opus-mt-77M"]:
+for m in ["m2m100-418M", "mbart50-611M", "opus-mt-77M"]:
     if m in by.index:
         r = by.loc[m]
-        v.append((m, "fits" if r.fits else "ruled out",
+        sb = boot[(boot.model == m) & boot.pair.isin(["si->en", "en->si"])]
+        worse = (sb.significant & (sb.delta_vs_600M < 0)).any()
+        v.append((f"{m} as a smaller Sinhala translator", "ruled out: size" if not r.fits else
+                  "ruled out: quality" if worse else "competitive with 600M",
                   f"si<->en {r['si<->en']} vs 600M {by.loc['nllb-600M','si<->en']}; {r.disk_mb} MB; p50 {r.p50_ms_si_en} ms; si={r.si_ok} ta={r.ta_ok}; numbers {r.numbers_kept}"))
 v.append(("IndicTrans2 has no Sinhala", "holds" if "sin_Sinh" not in it2_langs else "does not hold", f"{len(it2_langs)} languages, sin_Sinh absent"))
 v.append(("SinLlama too heavy", "holds", f"{sl_gb:.1f} GB of bf16 weights"))
