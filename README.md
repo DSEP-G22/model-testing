@@ -46,9 +46,11 @@ Rebuild the notebooks after editing a source file:
 | `02_router_image_classification` | Roboflow router detection v38 | 15-way crop classification | HOG + LinearSVC / LogReg; colour histogram + RandomForest; pixels + PCA + LogReg; HOG+colour + HistGB; frozen ResNet18 / MobileNetV3 / EfficientNet-B0 + LogReg; the same three fine-tuned; KMeans / Agglomerative / HDBSCAN on CNN features |
 | `03_voice_transcription_benchmark` | 11 call-centre recordings, 7 languages | transcription, translation, language ID | Whisper tiny/base/small/medium, faster-whisper small/medium (CTranslate2 int8) |
 | `src/mt_benchmark.py` | FLORES-200 devtest (mteb/flores), si/ta <-> en | machine translation | NLLB-200 distilled 600M vs 1.3B, CTranslate2 int8 on CPU (see `results/TRANSLATION_BENCHMARK.md`) |
+| `06_latest_models` | Bitext (nb 01 split) + TriageModel train/gold | intent and urgency | XLNet-base fine-tuned; Laya zero-shot, zero-shot + MiniLM shortlist, frozen encoder + LogReg; SetFit (MiniLM, 8/64 shots); DistilBERT on urgency (see `results/LATEST_MODELS_REPORT.md`) |
+| `07_generalization_hand_written` | 108 hand written sentences, padded/typo test split, 30 off-taxonomy ISP messages (`v3/docs/final/content/generalization_sets.yaml`) | intent drift check | all 9 intent models: the report's six plus XLNet and the two Laya variants (see `results/LATEST_GENERALIZATION.md`) |
 | `04_benchmark_summary` | — | consolidation | reads `results/*.json`, writes the summary CSVs, figures and `BENCHMARK_REPORT.md` |
 
-Run 01–03 in any order, then 04.
+Run 01–03 in any order, then 04. 05–07 read the Bitext split and artifacts from 01; 07 also needs 06 (XLNet artifact).
 
 ## Metrics
 

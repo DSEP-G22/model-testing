@@ -1,0 +1,1248 @@
+{
+ "models": [
+  "xlnet_ft",
+  "laya_zeroshot",
+  "laya_encoder_logreg",
+  "setfit_k8",
+  "setfit_k64"
+ ],
+ "n_test": 3604,
+ "in_distribution": {
+  "xlnet_ft": {
+   "accuracy": 0.9975027746947835,
+   "macro_f1": 0.9973771189584832
+  },
+  "laya_zeroshot": {
+   "accuracy": 0.9145394006659268,
+   "macro_f1": 0.9072828714841323
+  },
+  "laya_encoder_logreg": {
+   "accuracy": 0.97669256381798,
+   "macro_f1": 0.9741956754449093
+  },
+  "setfit_k8": {
+   "accuracy": 0.9298002219755827,
+   "macro_f1": 0.9268978740023323
+  },
+  "setfit_k64": {
+   "accuracy": 0.9716981132075472,
+   "macro_f1": 0.9685063318601336
+  }
+ },
+ "paraphrase": {
+  "xlnet_ft": {
+   "accuracy": 0.5925925925925926,
+   "macro_f1": 0.5524166344427782,
+   "lenient_accuracy": 0.6851851851851852
+  },
+  "laya_zeroshot": {
+   "accuracy": 0.7314814814814815,
+   "macro_f1": 0.7153252097696542,
+   "lenient_accuracy": 0.8055555555555556
+  },
+  "laya_encoder_logreg": {
+   "accuracy": 0.5370370370370371,
+   "macro_f1": 0.4886109774998663,
+   "lenient_accuracy": 0.6111111111111112
+  },
+  "setfit_k8": {
+   "accuracy": 0.6388888888888888,
+   "macro_f1": 0.6090784911046349,
+   "lenient_accuracy": 0.7314814814814815
+  },
+  "setfit_k64": {
+   "accuracy": 0.6759259259259259,
+   "macro_f1": 0.6574180963069851,
+   "lenient_accuracy": 0.7685185185185185
+  }
+ },
+ "paraphrase_selective": {
+  "xlnet_ft": {
+   "coverage": 0.1111111111111111,
+   "accuracy_when_answering": 0.9166666666666666,
+   "confidently_wrong": 0.009259259259259259
+  },
+  "laya_zeroshot": {
+   "coverage": 0.9537037037037037,
+   "accuracy_when_answering": 0.7378640776699029,
+   "confidently_wrong": 0.25
+  },
+  "laya_encoder_logreg": {
+   "coverage": 0.5092592592592593,
+   "accuracy_when_answering": 0.7636363636363637,
+   "confidently_wrong": 0.12037037037037036
+  },
+  "setfit_k8": {
+   "coverage": 0.5277777777777778,
+   "accuracy_when_answering": 0.7543859649122807,
+   "confidently_wrong": 0.12962962962962962
+  },
+  "setfit_k64": {
+   "coverage": 0.3425925925925926,
+   "accuracy_when_answering": 0.8378378378378378,
+   "confidently_wrong": 0.05555555555555555
+  }
+ },
+ "paraphrase_rows": [
+  {
+   "text": "I changed my mind about the purchase I made yesterday, so please stop it before it ships.",
+   "true": "cancel_order",
+   "xlnet_ft": "cancel_order",
+   "laya_zeroshot": "cancel_order",
+   "laya_encoder_logreg": "cancel_order",
+   "setfit_k8": "cancel_order",
+   "setfit_k64": "delivery_options"
+  },
+  {
+   "text": "Could you withdraw my latest purchase, I no longer want it.",
+   "true": "cancel_order",
+   "xlnet_ft": "cancel_order",
+   "laya_zeroshot": "cancel_order",
+   "laya_encoder_logreg": "cancel_order",
+   "setfit_k8": "cancel_order",
+   "setfit_k64": "cancel_order"
+  },
+  {
+   "text": "I ordered a kettle on Monday but my sister already gave me one for my birthday, and I would like to know how I can get the order called off before you send it out.",
+   "true": "cancel_order",
+   "xlnet_ft": "delivery_period",
+   "laya_zeroshot": "cancel_order",
+   "laya_encoder_logreg": "get_invoice",
+   "setfit_k8": "delivery_options",
+   "setfit_k64": "delivery_options"
+  },
+  {
+   "text": "Is it too late to back out of what I bought?",
+   "true": "cancel_order",
+   "xlnet_ft": "cancel_order",
+   "laya_zeroshot": "check_refund_policy",
+   "laya_encoder_logreg": "cancel_order",
+   "setfit_k8": "cancel_order",
+   "setfit_k64": "check_refund_policy"
+  },
+  {
+   "text": "I would like to swap the blue jacket in my basket for the black one.",
+   "true": "change_order",
+   "xlnet_ft": "switch_account",
+   "laya_zeroshot": "change_order",
+   "laya_encoder_logreg": "delete_account",
+   "setfit_k8": "change_order",
+   "setfit_k64": "change_order"
+  },
+  {
+   "text": "Can I amend what is in my purchase, I picked the wrong size.",
+   "true": "change_order",
+   "xlnet_ft": "change_order",
+   "laya_zeroshot": "change_order",
+   "laya_encoder_logreg": "change_order",
+   "setfit_k8": "change_order",
+   "setfit_k64": "change_order"
+  },
+  {
+   "text": "After I paid I realised I had left two items out of my purchase, and I would like to add them to the same parcel if that is still possible.",
+   "true": "change_order",
+   "xlnet_ft": "change_order",
+   "laya_zeroshot": "change_order",
+   "laya_encoder_logreg": "delivery_period",
+   "setfit_k8": "delivery_options",
+   "setfit_k64": "change_order"
+  },
+  {
+   "text": "Any chance I can alter my order a bit?",
+   "true": "change_order",
+   "xlnet_ft": "change_order",
+   "laya_zeroshot": "change_order",
+   "laya_encoder_logreg": "place_order",
+   "setfit_k8": "change_order",
+   "setfit_k64": "change_order"
+  },
+  {
+   "text": "I am moving house this week so the parcel needs to go to a different place.",
+   "true": "change_shipping_address",
+   "xlnet_ft": "delivery_options",
+   "laya_zeroshot": "change_shipping_address",
+   "laya_encoder_logreg": "cancel_order",
+   "setfit_k8": "delivery_options",
+   "setfit_k64": "set_up_shipping_address"
+  },
+  {
+   "text": "Please redirect my package to my office instead of my home.",
+   "true": "change_shipping_address",
+   "xlnet_ft": "switch_account",
+   "laya_zeroshot": "change_shipping_address",
+   "laya_encoder_logreg": "set_up_shipping_address",
+   "setfit_k8": "set_up_shipping_address",
+   "setfit_k64": "set_up_shipping_address"
+  },
+  {
+   "text": "I typed my old street into the form when I bought the lamp, and now I need the delivery to arrive at my new flat on the other side of town.",
+   "true": "change_shipping_address",
+   "xlnet_ft": "set_up_shipping_address",
+   "laya_zeroshot": "change_shipping_address",
+   "laya_encoder_logreg": "set_up_shipping_address",
+   "setfit_k8": "delivery_options",
+   "setfit_k64": "set_up_shipping_address"
+  },
+  {
+   "text": "The parcel is going to the wrong location, can you fix that?",
+   "true": "change_shipping_address",
+   "xlnet_ft": "change_shipping_address",
+   "laya_zeroshot": "track_order",
+   "laya_encoder_logreg": "change_order",
+   "setfit_k8": "set_up_shipping_address",
+   "setfit_k64": "change_shipping_address"
+  },
+  {
+   "text": "If I drop my order now, will it cost me anything?",
+   "true": "check_cancellation_fee",
+   "xlnet_ft": "cancel_order",
+   "laya_zeroshot": "cancel_order",
+   "laya_encoder_logreg": "place_order",
+   "setfit_k8": "delivery_options",
+   "setfit_k64": "delivery_options"
+  },
+  {
+   "text": "Is there a charge for calling off a purchase?",
+   "true": "check_cancellation_fee",
+   "xlnet_ft": "cancel_order",
+   "laya_zeroshot": "check_cancellation_fee",
+   "laya_encoder_logreg": "complaint",
+   "setfit_k8": "contact_customer_service",
+   "setfit_k64": "check_cancellation_fee"
+  },
+  {
+   "text": "Before I decide whether to stop my order I need to understand whether you take any money for doing so, and how much.",
+   "true": "check_cancellation_fee",
+   "xlnet_ft": "check_refund_policy",
+   "laya_zeroshot": "check_cancellation_fee",
+   "laya_encoder_logreg": "delete_account",
+   "setfit_k8": "check_payment_methods",
+   "setfit_k64": "check_refund_policy"
+  },
+  {
+   "text": "What would I lose by cancelling?",
+   "true": "check_cancellation_fee",
+   "xlnet_ft": "cancel_order",
+   "laya_zeroshot": "delete_account",
+   "laya_encoder_logreg": "delete_account",
+   "setfit_k8": "cancel_order",
+   "setfit_k64": "cancel_order"
+  },
+  {
+   "text": "I want to look at the charges on my latest bill.",
+   "true": "check_invoice",
+   "xlnet_ft": "check_invoice",
+   "laya_zeroshot": "check_invoice",
+   "laya_encoder_logreg": "check_invoice",
+   "setfit_k8": "check_invoice",
+   "setfit_k64": "check_invoice"
+  },
+  {
+   "text": "Can you show me how much I was billed for my last purchase?",
+   "true": "check_invoice",
+   "xlnet_ft": "track_refund",
+   "laya_zeroshot": "check_invoice",
+   "laya_encoder_logreg": "check_invoice",
+   "setfit_k8": "check_invoice",
+   "setfit_k64": "track_refund"
+  },
+  {
+   "text": "My accountant asked me about the amounts on the statement for last month and I would like to go through every line of it before I reply to her.",
+   "true": "check_invoice",
+   "xlnet_ft": "check_invoice",
+   "laya_zeroshot": "check_invoice",
+   "laya_encoder_logreg": "get_invoice",
+   "setfit_k8": "edit_account",
+   "setfit_k64": "track_refund"
+  },
+  {
+   "text": "Where do I see what I owe?",
+   "true": "check_invoice",
+   "xlnet_ft": "check_refund_policy",
+   "laya_zeroshot": "check_invoice",
+   "laya_encoder_logreg": "check_invoice",
+   "setfit_k8": "track_refund",
+   "setfit_k64": "track_refund"
+  },
+  {
+   "text": "Do you take PayPal or only cards?",
+   "true": "check_payment_methods",
+   "xlnet_ft": "switch_account",
+   "laya_zeroshot": "check_payment_methods",
+   "laya_encoder_logreg": "switch_account",
+   "setfit_k8": "check_payment_methods",
+   "setfit_k64": "check_payment_methods"
+  },
+  {
+   "text": "Which ways of paying are available on your site?",
+   "true": "check_payment_methods",
+   "xlnet_ft": "check_payment_methods",
+   "laya_zeroshot": "check_payment_methods",
+   "laya_encoder_logreg": "delivery_options",
+   "setfit_k8": "check_payment_methods",
+   "setfit_k64": "check_payment_methods"
+  },
+  {
+   "text": "I do not own a credit card, so before I fill my basket I need to know whether there is a different way to settle the amount, such as a bank transfer.",
+   "true": "check_payment_methods",
+   "xlnet_ft": "set_up_shipping_address",
+   "laya_zeroshot": "delivery_options",
+   "laya_encoder_logreg": "delete_account",
+   "setfit_k8": "check_payment_methods",
+   "setfit_k64": "get_refund"
+  },
+  {
+   "text": "Can I pay with cash on arrival?",
+   "true": "check_payment_methods",
+   "xlnet_ft": "delivery_options",
+   "laya_zeroshot": "delivery_options",
+   "laya_encoder_logreg": "cancel_order",
+   "setfit_k8": "check_payment_methods",
+   "setfit_k64": "get_refund"
+  },
+  {
+   "text": "How long do I have to send something back and get my money returned?",
+   "true": "check_refund_policy",
+   "xlnet_ft": "get_refund",
+   "laya_zeroshot": "check_refund_policy",
+   "laya_encoder_logreg": "get_refund",
+   "setfit_k8": "get_refund",
+   "setfit_k64": "check_refund_policy"
+  },
+  {
+   "text": "What are your rules about returning goods?",
+   "true": "check_refund_policy",
+   "xlnet_ft": "get_refund",
+   "laya_zeroshot": "check_refund_policy",
+   "laya_encoder_logreg": "check_refund_policy",
+   "setfit_k8": "delivery_options",
+   "setfit_k64": "check_refund_policy"
+  },
+  {
+   "text": "I bought a pair of shoes that do not fit and before I post them back I would like to read exactly under what conditions you give the money back.",
+   "true": "check_refund_policy",
+   "xlnet_ft": "check_refund_policy",
+   "laya_zeroshot": "check_refund_policy",
+   "laya_encoder_logreg": "get_invoice",
+   "setfit_k8": "check_refund_policy",
+   "setfit_k64": "check_refund_policy"
+  },
+  {
+   "text": "Do you give money back on opened items?",
+   "true": "check_refund_policy",
+   "xlnet_ft": "place_order",
+   "laya_zeroshot": "get_refund",
+   "laya_encoder_logreg": "check_refund_policy",
+   "setfit_k8": "get_refund",
+   "setfit_k64": "check_refund_policy"
+  },
+  {
+   "text": "I am very unhappy with how my purchase was handled.",
+   "true": "complaint",
+   "xlnet_ft": "delivery_period",
+   "laya_zeroshot": "get_refund",
+   "laya_encoder_logreg": "complaint",
+   "setfit_k8": "complaint",
+   "setfit_k64": "complaint"
+  },
+  {
+   "text": "The service I received was unacceptable and I want to report it.",
+   "true": "complaint",
+   "xlnet_ft": "review",
+   "laya_zeroshot": "review",
+   "laya_encoder_logreg": "complaint",
+   "setfit_k8": "complaint",
+   "setfit_k64": "complaint"
+  },
+  {
+   "text": "I waited three weeks for a parcel that arrived broken and nobody answered my emails, so I would like to put on record that I am extremely disappointed.",
+   "true": "complaint",
+   "xlnet_ft": "delivery_period",
+   "laya_zeroshot": "track_order",
+   "laya_encoder_logreg": "complaint",
+   "setfit_k8": "delivery_period",
+   "setfit_k64": "complaint"
+  },
+  {
+   "text": "Something went badly wrong and I want somebody to know.",
+   "true": "complaint",
+   "xlnet_ft": "contact_human_agent",
+   "laya_zeroshot": "cancel_order",
+   "laya_encoder_logreg": "delivery_period",
+   "setfit_k8": "track_refund",
+   "setfit_k64": "payment_issue"
+  },
+  {
+   "text": "What number can I ring to speak to your support team?",
+   "true": "contact_customer_service",
+   "xlnet_ft": "contact_customer_service",
+   "laya_zeroshot": "contact_human_agent",
+   "laya_encoder_logreg": "contact_customer_service",
+   "setfit_k8": "contact_human_agent",
+   "setfit_k64": "contact_human_agent"
+  },
+  {
+   "text": "How do I get in touch with you?",
+   "true": "contact_customer_service",
+   "xlnet_ft": "contact_human_agent",
+   "laya_zeroshot": "contact_human_agent",
+   "laya_encoder_logreg": "contact_human_agent",
+   "setfit_k8": "contact_human_agent",
+   "setfit_k64": "contact_human_agent"
+  },
+  {
+   "text": "I have a few questions that do not fit in any form on the site, so I am looking for an email address or a phone line for your help desk.",
+   "true": "contact_customer_service",
+   "xlnet_ft": "contact_human_agent",
+   "laya_zeroshot": "registration_problems",
+   "laya_encoder_logreg": "review",
+   "setfit_k8": "contact_human_agent",
+   "setfit_k64": "contact_customer_service"
+  },
+  {
+   "text": "When is your support open?",
+   "true": "contact_customer_service",
+   "xlnet_ft": "contact_customer_service",
+   "laya_zeroshot": "contact_customer_service",
+   "laya_encoder_logreg": "delivery_period",
+   "setfit_k8": "track_order",
+   "setfit_k64": "delivery_period"
+  },
+  {
+   "text": "Please connect me with a real person.",
+   "true": "contact_human_agent",
+   "xlnet_ft": "contact_human_agent",
+   "laya_zeroshot": "contact_human_agent",
+   "laya_encoder_logreg": "contact_human_agent",
+   "setfit_k8": "contact_human_agent",
+   "setfit_k64": "contact_human_agent"
+  },
+  {
+   "text": "I do not want to talk to a bot, I need a staff member.",
+   "true": "contact_human_agent",
+   "xlnet_ft": "contact_human_agent",
+   "laya_zeroshot": "contact_human_agent",
+   "laya_encoder_logreg": "contact_human_agent",
+   "setfit_k8": "contact_human_agent",
+   "setfit_k64": "contact_human_agent"
+  },
+  {
+   "text": "I have tried the automatic replies three times and they keep missing my point, so I would like to be passed to an actual employee who can listen.",
+   "true": "contact_human_agent",
+   "xlnet_ft": "contact_human_agent",
+   "laya_zeroshot": "contact_human_agent",
+   "laya_encoder_logreg": "complaint",
+   "setfit_k8": "contact_human_agent",
+   "setfit_k64": "contact_customer_service"
+  },
+  {
+   "text": "Is there somebody I can speak with directly?",
+   "true": "contact_human_agent",
+   "xlnet_ft": "contact_human_agent",
+   "laya_zeroshot": "contact_human_agent",
+   "laya_encoder_logreg": "contact_human_agent",
+   "setfit_k8": "contact_human_agent",
+   "setfit_k64": "contact_human_agent"
+  },
+  {
+   "text": "I would like to join your shop as a member.",
+   "true": "create_account",
+   "xlnet_ft": "create_account",
+   "laya_zeroshot": "newsletter_subscription",
+   "laya_encoder_logreg": "newsletter_subscription",
+   "setfit_k8": "place_order",
+   "setfit_k64": "create_account"
+  },
+  {
+   "text": "How can I make a new login for your website?",
+   "true": "create_account",
+   "xlnet_ft": "create_account",
+   "laya_zeroshot": "create_account",
+   "laya_encoder_logreg": "create_account",
+   "setfit_k8": "create_account",
+   "setfit_k64": "create_account"
+  },
+  {
+   "text": "I keep buying things as a guest and it is getting tedious, so I want to sign up so my details are saved for next time.",
+   "true": "create_account",
+   "xlnet_ft": "registration_problems",
+   "laya_zeroshot": "create_account",
+   "laya_encoder_logreg": "create_account",
+   "setfit_k8": "edit_account",
+   "setfit_k64": "create_account"
+  },
+  {
+   "text": "Can I open a profile with you?",
+   "true": "create_account",
+   "xlnet_ft": "create_account",
+   "laya_zeroshot": "create_account",
+   "laya_encoder_logreg": "create_account",
+   "setfit_k8": "create_account",
+   "setfit_k64": "create_account"
+  },
+  {
+   "text": "I want you to erase my profile and everything attached to it.",
+   "true": "delete_account",
+   "xlnet_ft": "delete_account",
+   "laya_zeroshot": "delete_account",
+   "laya_encoder_logreg": "delete_account",
+   "setfit_k8": "delete_account",
+   "setfit_k64": "delete_account"
+  },
+  {
+   "text": "Please close my membership for good.",
+   "true": "delete_account",
+   "xlnet_ft": "delete_account",
+   "laya_zeroshot": "delete_account",
+   "laya_encoder_logreg": "review",
+   "setfit_k8": "delete_account",
+   "setfit_k64": "delete_account"
+  },
+  {
+   "text": "I no longer use your shop and I do not want my personal data kept on your servers, so I would like my whole account removed.",
+   "true": "delete_account",
+   "xlnet_ft": "delete_account",
+   "laya_zeroshot": "delete_account",
+   "laya_encoder_logreg": "delete_account",
+   "setfit_k8": "delete_account",
+   "setfit_k64": "delete_account"
+  },
+  {
+   "text": "How do I get rid of my login?",
+   "true": "delete_account",
+   "xlnet_ft": "recover_password",
+   "laya_zeroshot": "delete_account",
+   "laya_encoder_logreg": "recover_password",
+   "setfit_k8": "delete_account",
+   "setfit_k64": "delete_account"
+  },
+  {
+   "text": "Do you offer same day shipping?",
+   "true": "delivery_options",
+   "xlnet_ft": "delivery_options",
+   "laya_zeroshot": "delivery_options",
+   "laya_encoder_logreg": "delivery_period",
+   "setfit_k8": "delivery_options",
+   "setfit_k64": "delivery_options"
+  },
+  {
+   "text": "What choices do I have for getting my parcel?",
+   "true": "delivery_options",
+   "xlnet_ft": "get_invoice",
+   "laya_zeroshot": "delivery_options",
+   "laya_encoder_logreg": "delivery_options",
+   "setfit_k8": "delivery_options",
+   "setfit_k64": "delivery_options"
+  },
+  {
+   "text": "I would like to know if there is a faster way to receive my goods than standard post, and whether picking them up from a shop is possible.",
+   "true": "delivery_options",
+   "xlnet_ft": "delivery_options",
+   "laya_zeroshot": "delivery_options",
+   "laya_encoder_logreg": "delivery_period",
+   "setfit_k8": "delivery_options",
+   "setfit_k64": "delivery_options"
+  },
+  {
+   "text": "Can the package be left with a neighbour?",
+   "true": "delivery_options",
+   "xlnet_ft": "contact_human_agent",
+   "laya_zeroshot": "delivery_options",
+   "laya_encoder_logreg": "contact_human_agent",
+   "setfit_k8": "delivery_options",
+   "setfit_k64": "delivery_options"
+  },
+  {
+   "text": "How many days until my goods turn up?",
+   "true": "delivery_period",
+   "xlnet_ft": "delivery_period",
+   "laya_zeroshot": "track_order",
+   "laya_encoder_logreg": "delivery_period",
+   "setfit_k8": "delivery_period",
+   "setfit_k64": "delivery_period"
+  },
+  {
+   "text": "When should I expect the parcel to reach me?",
+   "true": "delivery_period",
+   "xlnet_ft": "delivery_period",
+   "laya_zeroshot": "delivery_period",
+   "laya_encoder_logreg": "delivery_period",
+   "setfit_k8": "delivery_period",
+   "setfit_k64": "delivery_period"
+  },
+  {
+   "text": "I am buying a gift for a birthday that is two weeks away, so I need to be sure about how much time shipping normally takes before I place the purchase.",
+   "true": "delivery_period",
+   "xlnet_ft": "delivery_period",
+   "laya_zeroshot": "delivery_period",
+   "laya_encoder_logreg": "delivery_period",
+   "setfit_k8": "delivery_period",
+   "setfit_k64": "delivery_period"
+  },
+  {
+   "text": "Will it get here before the weekend?",
+   "true": "delivery_period",
+   "xlnet_ft": "delivery_period",
+   "laya_zeroshot": "track_order",
+   "laya_encoder_logreg": "delivery_period",
+   "setfit_k8": "delivery_period",
+   "setfit_k64": "delivery_period"
+  },
+  {
+   "text": "I need to correct the phone number on my profile.",
+   "true": "edit_account",
+   "xlnet_ft": "edit_account",
+   "laya_zeroshot": "registration_problems",
+   "laya_encoder_logreg": "edit_account",
+   "setfit_k8": "edit_account",
+   "setfit_k64": "edit_account"
+  },
+  {
+   "text": "Can I update the name I registered with?",
+   "true": "edit_account",
+   "xlnet_ft": "edit_account",
+   "laya_zeroshot": "edit_account",
+   "laya_encoder_logreg": "edit_account",
+   "setfit_k8": "edit_account",
+   "setfit_k64": "edit_account"
+  },
+  {
+   "text": "My surname changed after my wedding and the email I use is different now, so I would like to bring my stored details up to date.",
+   "true": "edit_account",
+   "xlnet_ft": "edit_account",
+   "laya_zeroshot": "edit_account",
+   "laya_encoder_logreg": "edit_account",
+   "setfit_k8": "edit_account",
+   "setfit_k64": "edit_account"
+  },
+  {
+   "text": "Where do I modify my personal information?",
+   "true": "edit_account",
+   "xlnet_ft": "edit_account",
+   "laya_zeroshot": "edit_account",
+   "laya_encoder_logreg": "edit_account",
+   "setfit_k8": "edit_account",
+   "setfit_k64": "edit_account"
+  },
+  {
+   "text": "Please email me a copy of my receipt.",
+   "true": "get_invoice",
+   "xlnet_ft": "get_invoice",
+   "laya_zeroshot": "check_invoice",
+   "laya_encoder_logreg": "newsletter_subscription",
+   "setfit_k8": "check_invoice",
+   "setfit_k64": "check_invoice"
+  },
+  {
+   "text": "I need a PDF of the bill for my last purchase.",
+   "true": "get_invoice",
+   "xlnet_ft": "check_invoice",
+   "laya_zeroshot": "get_invoice",
+   "laya_encoder_logreg": "cancel_order",
+   "setfit_k8": "check_invoice",
+   "setfit_k64": "get_invoice"
+  },
+  {
+   "text": "My company reimburses expenses only with a proper tax document, so I am asking you to send me the invoice for the order I made last Tuesday.",
+   "true": "get_invoice",
+   "xlnet_ft": "get_invoice",
+   "laya_zeroshot": "get_invoice",
+   "laya_encoder_logreg": "get_invoice",
+   "setfit_k8": "get_invoice",
+   "setfit_k64": "get_invoice"
+  },
+  {
+   "text": "Can I download the paperwork for what I paid?",
+   "true": "get_invoice",
+   "xlnet_ft": "get_invoice",
+   "laya_zeroshot": "get_invoice",
+   "laya_encoder_logreg": "get_refund",
+   "setfit_k8": "get_refund",
+   "setfit_k64": "track_refund"
+  },
+  {
+   "text": "I would like my money returned for the broken item.",
+   "true": "get_refund",
+   "xlnet_ft": "place_order",
+   "laya_zeroshot": "get_refund",
+   "laya_encoder_logreg": "get_refund",
+   "setfit_k8": "get_refund",
+   "setfit_k64": "check_refund_policy"
+  },
+  {
+   "text": "The product was faulty and I want to be reimbursed.",
+   "true": "get_refund",
+   "xlnet_ft": "get_refund",
+   "laya_zeroshot": "get_refund",
+   "laya_encoder_logreg": "get_refund",
+   "setfit_k8": "check_refund_policy",
+   "setfit_k64": "check_refund_policy"
+  },
+  {
+   "text": "The vacuum cleaner stopped working after two days, I have already sent it back, and now I am asking for the full amount to be put back on my card.",
+   "true": "get_refund",
+   "xlnet_ft": "get_invoice",
+   "laya_zeroshot": "get_refund",
+   "laya_encoder_logreg": "get_refund",
+   "setfit_k8": "check_cancellation_fee",
+   "setfit_k64": "check_cancellation_fee"
+  },
+  {
+   "text": "Can I have my payment back?",
+   "true": "get_refund",
+   "xlnet_ft": "get_refund",
+   "laya_zeroshot": "payment_issue",
+   "laya_encoder_logreg": "get_refund",
+   "setfit_k8": "get_refund",
+   "setfit_k64": "get_refund"
+  },
+  {
+   "text": "Please put my email on your mailing list.",
+   "true": "newsletter_subscription",
+   "xlnet_ft": "set_up_shipping_address",
+   "laya_zeroshot": "newsletter_subscription",
+   "laya_encoder_logreg": "newsletter_subscription",
+   "setfit_k8": "newsletter_subscription",
+   "setfit_k64": "newsletter_subscription"
+  },
+  {
+   "text": "I keep getting your promotional emails and want them to stop.",
+   "true": "newsletter_subscription",
+   "xlnet_ft": "newsletter_subscription",
+   "laya_zeroshot": "newsletter_subscription",
+   "laya_encoder_logreg": "change_order",
+   "setfit_k8": "newsletter_subscription",
+   "setfit_k64": "newsletter_subscription"
+  },
+  {
+   "text": "I would love to hear about your seasonal sales, so could you add me to the list that sends out offers and news by email.",
+   "true": "newsletter_subscription",
+   "xlnet_ft": "newsletter_subscription",
+   "laya_zeroshot": "newsletter_subscription",
+   "laya_encoder_logreg": "newsletter_subscription",
+   "setfit_k8": "newsletter_subscription",
+   "setfit_k64": "place_order"
+  },
+  {
+   "text": "How do I opt out of your emails?",
+   "true": "newsletter_subscription",
+   "xlnet_ft": "newsletter_subscription",
+   "laya_zeroshot": "newsletter_subscription",
+   "laya_encoder_logreg": "newsletter_subscription",
+   "setfit_k8": "newsletter_subscription",
+   "setfit_k64": "newsletter_subscription"
+  },
+  {
+   "text": "My card was turned down at checkout even though it works elsewhere.",
+   "true": "payment_issue",
+   "xlnet_ft": "create_account",
+   "laya_zeroshot": "payment_issue",
+   "laya_encoder_logreg": "registration_problems",
+   "setfit_k8": "payment_issue",
+   "setfit_k64": "payment_issue"
+  },
+  {
+   "text": "I tried to pay but the page showed an error.",
+   "true": "payment_issue",
+   "xlnet_ft": "payment_issue",
+   "laya_zeroshot": "payment_issue",
+   "laya_encoder_logreg": "payment_issue",
+   "setfit_k8": "payment_issue",
+   "setfit_k64": "payment_issue"
+  },
+  {
+   "text": "I was charged once but the site says the transaction failed, and I am worried that the money has left my account without the purchase going through.",
+   "true": "payment_issue",
+   "xlnet_ft": "delete_account",
+   "laya_zeroshot": "get_invoice",
+   "laya_encoder_logreg": "payment_issue",
+   "setfit_k8": "check_cancellation_fee",
+   "setfit_k64": "check_cancellation_fee"
+  },
+  {
+   "text": "Something is wrong with the way my payment is handled.",
+   "true": "payment_issue",
+   "xlnet_ft": "payment_issue",
+   "laya_zeroshot": "payment_issue",
+   "laya_encoder_logreg": "track_refund",
+   "setfit_k8": "payment_issue",
+   "setfit_k64": "payment_issue"
+  },
+  {
+   "text": "I would like to buy the red backpack that is on your front page.",
+   "true": "place_order",
+   "xlnet_ft": "place_order",
+   "laya_zeroshot": "place_order",
+   "laya_encoder_logreg": "create_account",
+   "setfit_k8": "place_order",
+   "setfit_k64": "place_order"
+  },
+  {
+   "text": "How do I complete a purchase of two items?",
+   "true": "place_order",
+   "xlnet_ft": "place_order",
+   "laya_zeroshot": "place_order",
+   "laya_encoder_logreg": "place_order",
+   "setfit_k8": "place_order",
+   "setfit_k64": "place_order"
+  },
+  {
+   "text": "I have been browsing for a while and finally decided to take the desk and the chair, so can you tell me what I need to do to finish buying them?",
+   "true": "place_order",
+   "xlnet_ft": "place_order",
+   "laya_zeroshot": "track_order",
+   "laya_encoder_logreg": "place_order",
+   "setfit_k8": "place_order",
+   "setfit_k64": "place_order"
+  },
+  {
+   "text": "Can I get that product shipped to me?",
+   "true": "place_order",
+   "xlnet_ft": "place_order",
+   "laya_zeroshot": "delivery_options",
+   "laya_encoder_logreg": "delivery_period",
+   "setfit_k8": "delivery_options",
+   "setfit_k64": "delivery_options"
+  },
+  {
+   "text": "I cannot remember the secret word for my login.",
+   "true": "recover_password",
+   "xlnet_ft": "recover_password",
+   "laya_zeroshot": "recover_password",
+   "laya_encoder_logreg": "recover_password",
+   "setfit_k8": "recover_password",
+   "setfit_k64": "recover_password"
+  },
+  {
+   "text": "How can I get back into my account, I forgot how to sign in.",
+   "true": "recover_password",
+   "xlnet_ft": "recover_password",
+   "laya_zeroshot": "recover_password",
+   "laya_encoder_logreg": "recover_password",
+   "setfit_k8": "recover_password",
+   "setfit_k64": "recover_password"
+  },
+  {
+   "text": "I have not logged in for a year and I have no idea what my password was, and the reset email never arrives, so I need another way to regain access.",
+   "true": "recover_password",
+   "xlnet_ft": "recover_password",
+   "laya_zeroshot": "recover_password",
+   "laya_encoder_logreg": "recover_password",
+   "setfit_k8": "recover_password",
+   "setfit_k64": "recover_password"
+  },
+  {
+   "text": "I am locked out, help.",
+   "true": "recover_password",
+   "xlnet_ft": "delete_account",
+   "laya_zeroshot": "cancel_order",
+   "laya_encoder_logreg": "recover_password",
+   "setfit_k8": "recover_password",
+   "setfit_k64": "delete_account"
+  },
+  {
+   "text": "The sign up form will not accept my details.",
+   "true": "registration_problems",
+   "xlnet_ft": "registration_problems",
+   "laya_zeroshot": "create_account",
+   "laya_encoder_logreg": "registration_problems",
+   "setfit_k8": "registration_problems",
+   "setfit_k64": "registration_problems"
+  },
+  {
+   "text": "I am trying to join but the confirmation never reaches my inbox.",
+   "true": "registration_problems",
+   "xlnet_ft": "track_refund",
+   "laya_zeroshot": "registration_problems",
+   "laya_encoder_logreg": "newsletter_subscription",
+   "setfit_k8": "registration_problems",
+   "setfit_k64": "registration_problems"
+  },
+  {
+   "text": "Every time I fill in the form to open a profile the page reloads and tells me something is invalid, but it does not say what, and I have tried three browsers.",
+   "true": "registration_problems",
+   "xlnet_ft": "switch_account",
+   "laya_zeroshot": "registration_problems",
+   "laya_encoder_logreg": "set_up_shipping_address",
+   "setfit_k8": "switch_account",
+   "setfit_k64": "registration_problems"
+  },
+  {
+   "text": "Registering does not work for me.",
+   "true": "registration_problems",
+   "xlnet_ft": "create_account",
+   "laya_zeroshot": "registration_problems",
+   "laya_encoder_logreg": "registration_problems",
+   "setfit_k8": "registration_problems",
+   "setfit_k64": "registration_problems"
+  },
+  {
+   "text": "I want to leave my thoughts about the jacket I bought.",
+   "true": "review",
+   "xlnet_ft": "review",
+   "laya_zeroshot": "review",
+   "laya_encoder_logreg": "review",
+   "setfit_k8": "review",
+   "setfit_k64": "review"
+  },
+  {
+   "text": "Where can I rate a product I received?",
+   "true": "review",
+   "xlnet_ft": "review",
+   "laya_zeroshot": "review",
+   "laya_encoder_logreg": "review",
+   "setfit_k8": "review",
+   "setfit_k64": "review"
+  },
+  {
+   "text": "The headphones I got last month are excellent and I would like to tell other shoppers about them by writing feedback that appears under the item.",
+   "true": "review",
+   "xlnet_ft": "review",
+   "laya_zeroshot": "review",
+   "laya_encoder_logreg": "review",
+   "setfit_k8": "review",
+   "setfit_k64": "review"
+  },
+  {
+   "text": "Can I share my opinion about your service?",
+   "true": "review",
+   "xlnet_ft": "review",
+   "laya_zeroshot": "review",
+   "laya_encoder_logreg": "review",
+   "setfit_k8": "contact_customer_service",
+   "setfit_k64": "review"
+  },
+  {
+   "text": "I need to add a place where you can send my parcels.",
+   "true": "set_up_shipping_address",
+   "xlnet_ft": "set_up_shipping_address",
+   "laya_zeroshot": "set_up_shipping_address",
+   "laya_encoder_logreg": "check_refund_policy",
+   "setfit_k8": "delivery_options",
+   "setfit_k64": "delivery_options"
+  },
+  {
+   "text": "Where do I enter the address for my deliveries?",
+   "true": "set_up_shipping_address",
+   "xlnet_ft": "set_up_shipping_address",
+   "laya_zeroshot": "set_up_shipping_address",
+   "laya_encoder_logreg": "set_up_shipping_address",
+   "setfit_k8": "set_up_shipping_address",
+   "setfit_k64": "set_up_shipping_address"
+  },
+  {
+   "text": "I have just registered and nothing is saved yet, so I would like to put in the street and postcode that your couriers should use from now on.",
+   "true": "set_up_shipping_address",
+   "xlnet_ft": "set_up_shipping_address",
+   "laya_zeroshot": "change_shipping_address",
+   "laya_encoder_logreg": "set_up_shipping_address",
+   "setfit_k8": "set_up_shipping_address",
+   "setfit_k64": "set_up_shipping_address"
+  },
+  {
+   "text": "How do I tell you where I live?",
+   "true": "set_up_shipping_address",
+   "xlnet_ft": "delivery_period",
+   "laya_zeroshot": "change_shipping_address",
+   "laya_encoder_logreg": "contact_human_agent",
+   "setfit_k8": "set_up_shipping_address",
+   "setfit_k64": "set_up_shipping_address"
+  },
+  {
+   "text": "I have two profiles and want to use the other one.",
+   "true": "switch_account",
+   "xlnet_ft": "switch_account",
+   "laya_zeroshot": "switch_account",
+   "laya_encoder_logreg": "delete_account",
+   "setfit_k8": "switch_account",
+   "setfit_k64": "switch_account"
+  },
+  {
+   "text": "How do I move over to my work login?",
+   "true": "switch_account",
+   "xlnet_ft": "switch_account",
+   "laya_zeroshot": "switch_account",
+   "laya_encoder_logreg": "recover_password",
+   "setfit_k8": "switch_account",
+   "setfit_k64": "switch_account"
+  },
+  {
+   "text": "My partner and I both shop with you using different emails and I would like to change over from my personal profile to the business one without signing out of everything.",
+   "true": "switch_account",
+   "xlnet_ft": "switch_account",
+   "laya_zeroshot": "switch_account",
+   "laya_encoder_logreg": "create_account",
+   "setfit_k8": "switch_account",
+   "setfit_k64": "switch_account"
+  },
+  {
+   "text": "Can I change which account I am in?",
+   "true": "switch_account",
+   "xlnet_ft": "edit_account",
+   "laya_zeroshot": "switch_account",
+   "laya_encoder_logreg": "change_order",
+   "setfit_k8": "switch_account",
+   "setfit_k64": "switch_account"
+  },
+  {
+   "text": "Where is my parcel right now?",
+   "true": "track_order",
+   "xlnet_ft": "delivery_period",
+   "laya_zeroshot": "track_order",
+   "laya_encoder_logreg": "track_order",
+   "setfit_k8": "delivery_options",
+   "setfit_k64": "delivery_options"
+  },
+  {
+   "text": "I want to follow the journey of the goods I bought.",
+   "true": "track_order",
+   "xlnet_ft": "delivery_period",
+   "laya_zeroshot": "track_order",
+   "laya_encoder_logreg": "delivery_options",
+   "setfit_k8": "place_order",
+   "setfit_k64": "place_order"
+  },
+  {
+   "text": "It has been five days since I paid and I have heard nothing, so could you tell me where my package is and when the courier will arrive.",
+   "true": "track_order",
+   "xlnet_ft": "delivery_period",
+   "laya_zeroshot": "track_refund",
+   "laya_encoder_logreg": "track_refund",
+   "setfit_k8": "delivery_period",
+   "setfit_k64": "delivery_period"
+  },
+  {
+   "text": "Has my purchase been dispatched yet?",
+   "true": "track_order",
+   "xlnet_ft": "delivery_period",
+   "laya_zeroshot": "track_order",
+   "laya_encoder_logreg": "track_refund",
+   "setfit_k8": "delivery_period",
+   "setfit_k64": "delivery_period"
+  },
+  {
+   "text": "Has the money for my returned item reached my bank?",
+   "true": "track_refund",
+   "xlnet_ft": "track_refund",
+   "laya_zeroshot": "track_refund",
+   "laya_encoder_logreg": "track_refund",
+   "setfit_k8": "get_refund",
+   "setfit_k64": "get_refund"
+  },
+  {
+   "text": "When will the reimbursement I asked for show up?",
+   "true": "track_refund",
+   "xlnet_ft": "delivery_period",
+   "laya_zeroshot": "get_refund",
+   "laya_encoder_logreg": "get_refund",
+   "setfit_k8": "track_refund",
+   "setfit_k64": "track_refund"
+  },
+  {
+   "text": "I sent the trousers back two weeks ago and was told that I would be paid back, but my statement shows nothing, so I would like to know how far along the repayment is.",
+   "true": "track_refund",
+   "xlnet_ft": "track_refund",
+   "laya_zeroshot": "track_refund",
+   "laya_encoder_logreg": "track_refund",
+   "setfit_k8": "track_refund",
+   "setfit_k64": "track_refund"
+  },
+  {
+   "text": "Where is my refund?",
+   "true": "track_refund",
+   "xlnet_ft": "track_refund",
+   "laya_zeroshot": "track_refund",
+   "laya_encoder_logreg": "track_refund",
+   "setfit_k8": "get_refund",
+   "setfit_k64": "get_refund"
+  }
+ ],
+ "padded": {
+  "xlnet_ft": {
+   "accuracy": 0.7638734739178691,
+   "macro_f1": 0.8127388654328151
+  },
+  "laya_zeroshot": {
+   "accuracy": 0.8909544950055494,
+   "macro_f1": 0.8862612646989239
+  },
+  "laya_encoder_logreg": {
+   "accuracy": 0.2658157602663707,
+   "macro_f1": 0.2845486729010418
+  },
+  "setfit_k8": {
+   "accuracy": 0.9042730299667037,
+   "macro_f1": 0.9007708449821485
+  },
+  "setfit_k64": {
+   "accuracy": 0.9567147613762487,
+   "macro_f1": 0.9526397248964483
+  }
+ },
+ "noise": {
+  "0.0": {
+   "xlnet_ft": {
+    "accuracy": 0.9975027746947835,
+    "macro_f1": 0.9973771189584832
+   },
+   "laya_zeroshot": {
+    "accuracy": 0.9145394006659268,
+    "macro_f1": 0.9072828714841323
+   },
+   "laya_encoder_logreg": {
+    "accuracy": 0.97669256381798,
+    "macro_f1": 0.9741956754449093
+   },
+   "setfit_k8": {
+    "accuracy": 0.9298002219755827,
+    "macro_f1": 0.9268978740023323
+   },
+   "setfit_k64": {
+    "accuracy": 0.9716981132075472,
+    "macro_f1": 0.9685063318601336
+   }
+  },
+  "0.03": {
+   "xlnet_ft": {
+    "accuracy": 0.9750277469478358,
+    "macro_f1": 0.9742730447510239
+   },
+   "laya_zeroshot": {
+    "accuracy": 0.8493340732519423,
+    "macro_f1": 0.8434106234964658
+   },
+   "laya_encoder_logreg": {
+    "accuracy": 0.8817980022197558,
+    "macro_f1": 0.8768719272524372
+   },
+   "setfit_k8": {
+    "accuracy": 0.8407325194228635,
+    "macro_f1": 0.833184034213931
+   },
+   "setfit_k64": {
+    "accuracy": 0.8967813540510544,
+    "macro_f1": 0.8913733366592651
+   }
+  },
+  "0.06": {
+   "xlnet_ft": {
+    "accuracy": 0.9464483906770256,
+    "macro_f1": 0.9450730637925328
+   },
+   "laya_zeroshot": {
+    "accuracy": 0.781354051054384,
+    "macro_f1": 0.7754659604305633
+   },
+   "laya_encoder_logreg": {
+    "accuracy": 0.7577691453940066,
+    "macro_f1": 0.7509693226237363
+   },
+   "setfit_k8": {
+    "accuracy": 0.7333518312985572,
+    "macro_f1": 0.7246689446002951
+   },
+   "setfit_k64": {
+    "accuracy": 0.8060488346281909,
+    "macro_f1": 0.8008538987981632
+   }
+  },
+  "0.1": {
+   "xlnet_ft": {
+    "accuracy": 0.8729189789123196,
+    "macro_f1": 0.869685594840528
+   },
+   "laya_zeroshot": {
+    "accuracy": 0.6698113207547169,
+    "macro_f1": 0.6670785996762127
+   },
+   "laya_encoder_logreg": {
+    "accuracy": 0.5865704772475028,
+    "macro_f1": 0.5823855198676591
+   },
+   "setfit_k8": {
+    "accuracy": 0.6137624861265261,
+    "macro_f1": 0.6088035466760906
+   },
+   "setfit_k64": {
+    "accuracy": 0.6817425083240843,
+    "macro_f1": 0.6793459575846861
+   }
+  },
+  "0.15": {
+   "xlnet_ft": {
+    "accuracy": 0.7738623751387348,
+    "macro_f1": 0.7682168403873525
+   },
+   "laya_zeroshot": {
+    "accuracy": 0.5557713651498335,
+    "macro_f1": 0.5586215477144131
+   },
+   "laya_encoder_logreg": {
+    "accuracy": 0.42591564927857933,
+    "macro_f1": 0.42589417236721866
+   },
+   "setfit_k8": {
+    "accuracy": 0.48612652608213097,
+    "macro_f1": 0.4857796939452097
+   },
+   "setfit_k64": {
+    "accuracy": 0.5577136514983352,
+    "macro_f1": 0.557221587481672
+   }
+  },
+  "0.2": {
+   "xlnet_ft": {
+    "accuracy": 0.6578801331853497,
+    "macro_f1": 0.653046827750969
+   },
+   "laya_zeroshot": {
+    "accuracy": 0.4481132075471698,
+    "macro_f1": 0.45390372250641764
+   },
+   "laya_encoder_logreg": {
+    "accuracy": 0.30965593784683687,
+    "macro_f1": 0.30576940257077995
+   },
+   "setfit_k8": {
+    "accuracy": 0.3948390677025527,
+    "macro_f1": 0.3949471423997818
+   },
+   "setfit_k64": {
+    "accuracy": 0.445338512763596,
+    "macro_f1": 0.4460555698502414
+   }
+  }
+ },
+ "unknown": {
+  "xlnet_ft": {
+   "auroc": 0.9978079911209766,
+   "accepted": 0.0,
+   "mean_conf_in": 0.9985004663467407,
+   "mean_conf_unknown": 0.6144580841064453
+  },
+  "laya_zeroshot": {
+   "auroc": 0.8995005549389568,
+   "accepted": 0.4,
+   "mean_conf_in": 0.9445274417314096,
+   "mean_conf_unknown": 0.5607333333333333
+  },
+  "laya_encoder_logreg": {
+   "auroc": 0.9429800221975584,
+   "accepted": 0.3,
+   "mean_conf_in": 0.9834014773368835,
+   "mean_conf_unknown": 0.7064377069473267
+  },
+  "setfit_k8": {
+   "auroc": 0.9911949685534591,
+   "accepted": 0.0,
+   "mean_conf_in": 0.3491765856742859,
+   "mean_conf_unknown": 0.09788882732391357
+  },
+  "setfit_k64": {
+   "auroc": 0.9947373288938217,
+   "accepted": 0.0,
+   "mean_conf_in": 0.7803351283073425,
+   "mean_conf_unknown": 0.2354247123003006
+  }
+ }
+}

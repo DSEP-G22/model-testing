@@ -51,8 +51,8 @@
       "top3_accuracy": 0.9997225305216426
     },
     "params": {},
-    "train_seconds": 1.148834200001147,
-    "infer_ms_per_item": 0.5548000044655055,
+    "train_seconds": 0.9194677000014053,
+    "infer_ms_per_item": 0.6270499998208834,
     "model_size_mb": 0.92,
     "n_params": null,
     "notes": ""
@@ -70,8 +70,8 @@
       "macro_recall": 0.9991183009902345
     },
     "params": {},
-    "train_seconds": 8.887370100004773,
-    "infer_ms_per_item": 1.4377499974216335,
+    "train_seconds": 8.012907899999846,
+    "infer_ms_per_item": 1.5222500023810426,
     "model_size_mb": 1.96,
     "n_params": null,
     "notes": ""
@@ -90,8 +90,8 @@
       "top3_accuracy": 0.9980577136514983
     },
     "params": {},
-    "train_seconds": 0.2746776999993017,
-    "infer_ms_per_item": 0.6196999966050498,
+    "train_seconds": 0.31765119999909075,
+    "infer_ms_per_item": 1.1053999987780116,
     "model_size_mb": 1.0,
     "n_params": null,
     "notes": ""
@@ -110,8 +110,8 @@
       "top3_accuracy": 0.994173140954495
     },
     "params": {},
-    "train_seconds": 0.6914116999978432,
-    "infer_ms_per_item": 0.8818499991321005,
+    "train_seconds": 0.7594772999982524,
+    "infer_ms_per_item": 1.0092499996972037,
     "model_size_mb": 0.2,
     "n_params": null,
     "notes": ""
@@ -130,8 +130,8 @@
       "top3_accuracy": 0.9986126526082131
     },
     "params": {},
-    "train_seconds": 3.8598322000034386,
-    "infer_ms_per_item": 83.91669999764417,
+    "train_seconds": 4.067169999998441,
+    "infer_ms_per_item": 69.55554999876767,
     "model_size_mb": 55.97,
     "n_params": null,
     "notes": ""
@@ -150,8 +150,8 @@
       "top3_accuracy": 0.9955604883462819
     },
     "params": {},
-    "train_seconds": 87.75574969999434,
-    "infer_ms_per_item": 38.745650002965704,
+    "train_seconds": 42.29243900000074,
+    "infer_ms_per_item": 27.50354999989213,
     "model_size_mb": 13.13,
     "n_params": null,
     "notes": ""
@@ -170,8 +170,8 @@
       "top3_accuracy": 0.9994450610432852
     },
     "params": {},
-    "train_seconds": 34.183043400000315,
-    "infer_ms_per_item": 9.851449997565942,
+    "train_seconds": 0.7939726999975392,
+    "infer_ms_per_item": 6.161500000214437,
     "model_size_mb": 0.04,
     "n_params": null,
     "notes": "frozen MiniLM encoder; latency includes encoding"
@@ -190,8 +190,8 @@
       "top3_accuracy": 0.9977802441731409
     },
     "params": {},
-    "train_seconds": 0.03864880000037374,
-    "infer_ms_per_item": 9.851449997565942,
+    "train_seconds": 0.0354406000005838,
+    "infer_ms_per_item": 6.161500000214437,
     "model_size_mb": 22.93,
     "n_params": null,
     "notes": "frozen MiniLM encoder; latency includes encoding"
@@ -209,8 +209,8 @@
       "macro_recall": 0.9946596401560801
     },
     "params": {},
-    "train_seconds": 11.950932199993986,
-    "infer_ms_per_item": 9.851449997565942,
+    "train_seconds": 7.68979760000002,
+    "infer_ms_per_item": 6.161500000214437,
     "model_size_mb": 0.08,
     "n_params": null,
     "notes": "frozen MiniLM encoder; latency includes encoding"
@@ -229,8 +229,8 @@
       "top3_accuracy": 0.9991675915649278
     },
     "params": {},
-    "train_seconds": 6.698777500001597,
-    "infer_ms_per_item": 9.851449997565942,
+    "train_seconds": 3.382828400001017,
+    "infer_ms_per_item": 6.161500000214437,
     "model_size_mb": 1.12,
     "n_params": null,
     "notes": "frozen MiniLM encoder; latency includes encoding"
@@ -250,7 +250,7 @@
     },
     "params": {},
     "train_seconds": 0.0,
-    "infer_ms_per_item": 9.751449997565942,
+    "infer_ms_per_item": 6.061500000214437,
     "model_size_mb": null,
     "n_params": null,
     "notes": "no training labels used; cosine vs auto-generated intent descriptions"
@@ -269,7 +269,7 @@
     },
     "params": {},
     "train_seconds": 0.0,
-    "infer_ms_per_item": 9.751449997565942,
+    "infer_ms_per_item": 6.061500000214437,
     "model_size_mb": null,
     "n_params": null,
     "notes": "nearest class centroid, 1 shots/class"
@@ -288,7 +288,7 @@
     },
     "params": {},
     "train_seconds": 0.0,
-    "infer_ms_per_item": 9.751449997565942,
+    "infer_ms_per_item": 6.061500000214437,
     "model_size_mb": null,
     "n_params": null,
     "notes": "nearest class centroid, 5 shots/class"
@@ -307,7 +307,7 @@
     },
     "params": {},
     "train_seconds": 0.0,
-    "infer_ms_per_item": 9.751449997565942,
+    "infer_ms_per_item": 6.061500000214437,
     "model_size_mb": null,
     "n_params": null,
     "notes": "nearest class centroid, 10 shots/class"
@@ -326,7 +326,7 @@
     },
     "params": {},
     "train_seconds": 0.0,
-    "infer_ms_per_item": 9.751449997565942,
+    "infer_ms_per_item": 6.061500000214437,
     "model_size_mb": null,
     "n_params": null,
     "notes": "nearest class centroid, 25 shots/class"
@@ -345,7 +345,7 @@
     },
     "params": {},
     "train_seconds": 0.0,
-    "infer_ms_per_item": 9.751449997565942,
+    "infer_ms_per_item": 6.061500000214437,
     "model_size_mb": null,
     "n_params": null,
     "notes": "nearest class centroid, 50 shots/class"
@@ -364,7 +364,7 @@
     },
     "params": {},
     "train_seconds": 0.0,
-    "infer_ms_per_item": 9.751449997565942,
+    "infer_ms_per_item": 6.061500000214437,
     "model_size_mb": null,
     "n_params": null,
     "notes": "nearest class centroid, all shots/class"
@@ -383,8 +383,8 @@
       "top3_accuracy": 0.9991675915649278
     },
     "params": {},
-    "train_seconds": 22.6477076999945,
-    "infer_ms_per_item": 2.135999999154592,
+    "train_seconds": 12.0679947000026,
+    "infer_ms_per_item": 1.1407000001781853,
     "model_size_mb": 1.4,
     "n_params": 360475,
     "notes": "no pretraining, 12 epochs, best-val checkpoint"
@@ -408,8 +408,8 @@
       "batch_size": 64,
       "max_len": 48
     },
-    "train_seconds": 59.38470740000048,
-    "infer_ms_per_item": 8.281799997348571,
+    "train_seconds": 46.87785570000051,
+    "infer_ms_per_item": 5.522049999854062,
     "model_size_mb": 87.38,
     "n_params": 22723611,
     "notes": "fine-tuned sentence-transformers/all-MiniLM-L6-v2, best-val checkpoint"
@@ -433,8 +433,8 @@
       "batch_size": 64,
       "max_len": 48
     },
-    "train_seconds": 126.00251330000174,
-    "infer_ms_per_item": 8.186399998521665,
+    "train_seconds": 82.87067589999788,
+    "infer_ms_per_item": 6.128850000095554,
     "model_size_mb": 256.18,
     "n_params": 66974235,
     "notes": "fine-tuned distilbert-base-uncased, best-val checkpoint"

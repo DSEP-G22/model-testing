@@ -24,6 +24,8 @@ pd.set_option("display.max_columns", 40)
 tasks = {}
 for p in sorted(RESULTS.glob("*.json")):
     rows = json.loads(p.read_text())
+    if not isinstance(rows, list):  # e.g. latest_generalization.json, not a ResultStore table
+        continue
     recs = []
     for r in rows:
         rec = {"task": r["task"], "model": r["model"], "family": r["family"]}

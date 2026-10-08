@@ -1,0 +1,149 @@
+[
+  {
+    "task": "intent_latest_models",
+    "model": "xlnet_finetuned",
+    "family": "deep",
+    "metrics": {
+      "accuracy": 0.9975027746947835,
+      "balanced_acc": 0.9972643446308636,
+      "macro_f1": 0.9973771189584832,
+      "weighted_f1": 0.9975045398376514,
+      "macro_precision": 0.997512220814218,
+      "macro_recall": 0.9972643446308636,
+      "top3_accuracy": 1.0
+    },
+    "params": {
+      "epochs": 3,
+      "lr": 3e-05,
+      "batch_size": 32,
+      "max_len": 48
+    },
+    "train_seconds": 234.2687552999996,
+    "infer_ms_per_item": 16.393499998230254,
+    "model_size_mb": 449.9,
+    "n_params": 117329691,
+    "notes": "fine-tuned xlnet/xlnet-base-cased, best-val checkpoint, notebook-01 recipe"
+  },
+  {
+    "task": "intent_latest_models",
+    "model": "laya_zeroshot",
+    "family": "embedding",
+    "metrics": {
+      "accuracy": 0.9145394006659268,
+      "balanced_acc": 0.9130163317734815,
+      "macro_f1": 0.9072828714841323,
+      "weighted_f1": 0.9164160059505733,
+      "macro_precision": 0.9245395380724171,
+      "macro_recall": 0.9130163317734815,
+      "top3_accuracy": 0.9705882352941176
+    },
+    "params": {
+      "head_max_len": 512,
+      "criteria": "td.intent_prompts"
+    },
+    "train_seconds": 0,
+    "infer_ms_per_item": 71.95894999858865,
+    "model_size_mb": null,
+    "n_params": 421293827,
+    "notes": "no training labels; 27-way choice; test pass 88s batched"
+  },
+  {
+    "task": "intent_latest_models",
+    "model": "laya_zeroshot_shortlist8",
+    "family": "embedding",
+    "metrics": {
+      "accuracy": 0.9053829078801332,
+      "balanced_acc": 0.8977365937971551,
+      "macro_f1": 0.8957384699980687,
+      "weighted_f1": 0.9034228320230638,
+      "macro_precision": 0.9074784044939356,
+      "macro_recall": 0.8977365937971551
+    },
+    "params": {
+      "k": 8,
+      "shortlist_encoder": "sentence-transformers/all-MiniLM-L6-v2"
+    },
+    "train_seconds": 0,
+    "infer_ms_per_item": 56.67930000163324,
+    "model_size_mb": null,
+    "n_params": 421293827,
+    "notes": "no training labels; MiniLM keeps 8 of 27 labels, Laya picks; 210s"
+  },
+  {
+    "task": "intent_latest_models",
+    "model": "laya_encoder+logreg",
+    "family": "embedding",
+    "metrics": {
+      "accuracy": 0.97669256381798,
+      "balanced_acc": 0.9743325604241322,
+      "macro_f1": 0.9741956754449093,
+      "weighted_f1": 0.9766941988653319,
+      "macro_precision": 0.9742861226600594,
+      "macro_recall": 0.9743325604241322,
+      "top3_accuracy": 0.996392896781354
+    },
+    "params": {
+      "pool": "mean",
+      "max_len": 128,
+      "C": 1.0,
+      "standardised": true
+    },
+    "train_seconds": 0.9081797999970149,
+    "infer_ms_per_item": 26.359600000432692,
+    "model_size_mb": null,
+    "n_params": 421293827,
+    "notes": "frozen Laya encoder; encoding took 53s"
+  },
+  {
+    "task": "intent_latest_models",
+    "model": "setfit_minilm_k8",
+    "family": "deep",
+    "metrics": {
+      "accuracy": 0.9298002219755827,
+      "balanced_acc": 0.9270545747295472,
+      "macro_f1": 0.9268978740023323,
+      "weighted_f1": 0.929708297032669,
+      "macro_precision": 0.929816156644632,
+      "macro_recall": 0.9270545747295472,
+      "top3_accuracy": 0.9947280799112098
+    },
+    "params": {
+      "shots_per_intent": 8,
+      "num_iterations": 20,
+      "epochs": 1,
+      "batch_size": 32,
+      "body": "sentence-transformers/all-MiniLM-L6-v2"
+    },
+    "train_seconds": 21.76042569999845,
+    "infer_ms_per_item": 5.984699999316945,
+    "model_size_mb": 87.39,
+    "n_params": 22713216,
+    "notes": "SetFit, 216 labelled examples (8/intent)"
+  },
+  {
+    "task": "intent_latest_models",
+    "model": "setfit_minilm_k64",
+    "family": "deep",
+    "metrics": {
+      "accuracy": 0.9716981132075472,
+      "balanced_acc": 0.96812615200754,
+      "macro_f1": 0.9685063318601336,
+      "weighted_f1": 0.9717754041409898,
+      "macro_precision": 0.9697422443473817,
+      "macro_recall": 0.96812615200754,
+      "top3_accuracy": 0.9975027746947835
+    },
+    "params": {
+      "shots_per_intent": 64,
+      "num_iterations": 5,
+      "epochs": 1,
+      "batch_size": 32,
+      "body": "sentence-transformers/all-MiniLM-L6-v2"
+    },
+    "train_seconds": 47.30743649999931,
+    "infer_ms_per_item": 7.13989999894693,
+    "model_size_mb": 87.39,
+    "n_params": 22713216,
+    "notes": "SetFit, 1728 labelled examples (64/intent)"
+  }
+]

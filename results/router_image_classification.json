@@ -31,8 +31,8 @@
       "macro_recall": 0.7241201333209847
     },
     "params": {},
-    "train_seconds": 175.15635109999857,
-    "infer_ms_per_item": 0.3108000018983148,
+    "train_seconds": 143.45957760000238,
+    "infer_ms_per_item": 0.2901999996538507,
     "model_size_mb": 0.51,
     "n_params": null,
     "notes": "latency excludes feature extraction"
@@ -51,8 +51,8 @@
       "top3_accuracy": 0.9111111111111111
     },
     "params": {},
-    "train_seconds": 4.402857200002472,
-    "infer_ms_per_item": 0.3068000005441718,
+    "train_seconds": 0.33960840000145254,
+    "infer_ms_per_item": 0.2821000016410835,
     "model_size_mb": 0.3,
     "n_params": null,
     "notes": "latency excludes feature extraction"
@@ -71,8 +71,8 @@
       "top3_accuracy": 0.9777777777777777
     },
     "params": {},
-    "train_seconds": 1.3299899999983609,
-    "infer_ms_per_item": 102.03905000525992,
+    "train_seconds": 0.9912247000029311,
+    "infer_ms_per_item": 80.08264999989478,
     "model_size_mb": 9.11,
     "n_params": null,
     "notes": "latency excludes feature extraction"
@@ -91,8 +91,8 @@
       "top3_accuracy": 0.9259259259259259
     },
     "params": {},
-    "train_seconds": 78.45335250000062,
-    "infer_ms_per_item": 0.4081999977643136,
+    "train_seconds": 1.1202861999991,
+    "infer_ms_per_item": 0.3044000004592817,
     "model_size_mb": 1.41,
     "n_params": null,
     "notes": "latency excludes feature extraction"
@@ -111,8 +111,8 @@
       "top3_accuracy": 0.9481481481481482
     },
     "params": {},
-    "train_seconds": 24.105216000003566,
-    "infer_ms_per_item": 38.73990000283811,
+    "train_seconds": 12.674405699999625,
+    "infer_ms_per_item": 25.310749997515813,
     "model_size_mb": 4.81,
     "n_params": null,
     "notes": "latency excludes feature extraction"
@@ -131,7 +131,7 @@
       "top3_accuracy": 0.9851851851851852
     },
     "params": {},
-    "train_seconds": 8.109810000001744,
+    "train_seconds": 0.28034130000014557,
     "infer_ms_per_item": null,
     "model_size_mb": 0.04,
     "n_params": null,
@@ -151,7 +151,7 @@
       "top3_accuracy": 0.9777777777777777
     },
     "params": {},
-    "train_seconds": 3.522776600002544,
+    "train_seconds": 0.13433159999840427,
     "infer_ms_per_item": null,
     "model_size_mb": 0.07,
     "n_params": null,
@@ -171,7 +171,7 @@
       "top3_accuracy": 0.9851851851851852
     },
     "params": {},
-    "train_seconds": 2.761737200002244,
+    "train_seconds": 0.15515760000198497,
     "infer_ms_per_item": null,
     "model_size_mb": 0.09,
     "n_params": null,
@@ -195,8 +195,8 @@
       "lr": 0.0003,
       "class_weighted": true
     },
-    "train_seconds": 377.2281585000019,
-    "infer_ms_per_item": 5.386450000514742,
+    "train_seconds": 377.2397970999991,
+    "infer_ms_per_item": 4.56674999986717,
     "model_size_mb": 42.74,
     "n_params": 11183181,
     "notes": "augmented, class-weighted loss, best-val-macroF1 checkpoint"
@@ -219,8 +219,8 @@
       "lr": 0.0003,
       "class_weighted": true
     },
-    "train_seconds": 363.32966849999866,
-    "infer_ms_per_item": 9.429250001630862,
+    "train_seconds": 344.9281879000009,
+    "infer_ms_per_item": 8.54330000038317,
     "model_size_mb": 5.98,
     "n_params": 1531181,
     "notes": "augmented, class-weighted loss, best-val-macroF1 checkpoint"
@@ -243,8 +243,8 @@
       "lr": 0.0003,
       "class_weighted": true
     },
-    "train_seconds": 429.0565588000027,
-    "infer_ms_per_item": 14.254649999202229,
+    "train_seconds": 405.5090651999999,
+    "infer_ms_per_item": 12.65140000032261,
     "model_size_mb": 15.65,
     "n_params": 4024201,
     "notes": "augmented, class-weighted loss, best-val-macroF1 checkpoint"
@@ -264,7 +264,7 @@
       "silhouette": 0.08195541054010391
     },
     "params": {},
-    "train_seconds": 1.0015386000013677,
+    "train_seconds": 0.9103854999993928,
     "infer_ms_per_item": null,
     "model_size_mb": null,
     "n_params": null,
@@ -285,7 +285,7 @@
       "silhouette": 0.07642828673124313
     },
     "params": {},
-    "train_seconds": 1.370319899993774,
+    "train_seconds": 1.2099825000004785,
     "infer_ms_per_item": null,
     "model_size_mb": null,
     "n_params": null,
@@ -306,7 +306,7 @@
       "silhouette": 0.09288497269153595
     },
     "params": {},
-    "train_seconds": 9.72019910000381,
+    "train_seconds": 7.586119299998245,
     "infer_ms_per_item": null,
     "model_size_mb": null,
     "n_params": null,

@@ -1,0 +1,145 @@
+[
+  {
+    "task": "priority_latest_models",
+    "model": "laya_zeroshot",
+    "family": "embedding",
+    "metrics": {
+      "accuracy": 0.36666666666666664,
+      "balanced_acc": 0.3368366129994037,
+      "macro_f1": 0.29457484838753734,
+      "weighted_f1": 0.32152757815008803,
+      "macro_precision": 0.4963862765586904,
+      "macro_recall": 0.3368366129994037,
+      "top3_accuracy": 0.82
+    },
+    "params": {
+      "criteria": "teacher rubric"
+    },
+    "train_seconds": 0,
+    "infer_ms_per_item": 46.337849998963065,
+    "model_size_mb": null,
+    "n_params": 421293827,
+    "notes": "no training labels; 4-way choice on fused_text"
+  },
+  {
+    "task": "priority_latest_models",
+    "model": "laya_encoder+logreg",
+    "family": "embedding",
+    "metrics": {
+      "accuracy": 0.6933333333333334,
+      "balanced_acc": 0.7090246720333929,
+      "macro_f1": 0.7063080522382847,
+      "weighted_f1": 0.6945855157483064,
+      "macro_precision": 0.7240811238006188,
+      "macro_recall": 0.7090246720333929,
+      "top3_accuracy": 0.9866666666666667
+    },
+    "params": {
+      "pool": "mean",
+      "max_len": 128,
+      "C": 1.0,
+      "standardised": true
+    },
+    "train_seconds": 0.1904350999975577,
+    "infer_ms_per_item": 29.00210000188963,
+    "model_size_mb": null,
+    "n_params": 421293827,
+    "notes": "frozen Laya encoder; encoding took 15s"
+  },
+  {
+    "task": "priority_latest_models",
+    "model": "xlnet_finetuned",
+    "family": "deep",
+    "metrics": {
+      "accuracy": 0.7466666666666667,
+      "balanced_acc": 0.7581625173921686,
+      "macro_f1": 0.7557093093665243,
+      "weighted_f1": 0.7446655699553956,
+      "macro_precision": 0.7707933210051078,
+      "macro_recall": 0.7581625173921686,
+      "top3_accuracy": 1.0,
+      "accuracy_std": 0.038103173776627225,
+      "macro_f1_std": 0.036216579133941225
+    },
+    "params": {
+      "epochs": 10,
+      "lr": 3e-05,
+      "batch_size": 16,
+      "max_len": 128,
+      "seeds": [
+        42,
+        43,
+        44
+      ]
+    },
+    "train_seconds": 62.43376439999944,
+    "infer_ms_per_item": 19.390649998968,
+    "model_size_mb": null,
+    "n_params": 117312004,
+    "notes": "fine-tuned xlnet/xlnet-base-cased on train.jsonl (85%), best-val epoch, mean of 3 seeds"
+  },
+  {
+    "task": "priority_latest_models",
+    "model": "distilbert_finetuned",
+    "family": "deep",
+    "metrics": {
+      "accuracy": 0.6888888888888888,
+      "balanced_acc": 0.6709109769429537,
+      "macro_f1": 0.6584933366511169,
+      "weighted_f1": 0.6746959669809542,
+      "macro_precision": 0.6668391578011675,
+      "macro_recall": 0.6709109769429537,
+      "top3_accuracy": 1.0,
+      "accuracy_std": 0.07410369778014696,
+      "macro_f1_std": 0.13475021835434028
+    },
+    "params": {
+      "epochs": 10,
+      "lr": 3e-05,
+      "batch_size": 16,
+      "max_len": 128,
+      "seeds": [
+        42,
+        43,
+        44
+      ]
+    },
+    "train_seconds": 28.350232499999645,
+    "infer_ms_per_item": 8.055600001171115,
+    "model_size_mb": null,
+    "n_params": 66956548,
+    "notes": "fine-tuned distilbert-base-uncased on train.jsonl (85%), best-val epoch, mean of 3 seeds"
+  },
+  {
+    "task": "priority_latest_models",
+    "model": "setfit_minilm",
+    "family": "deep",
+    "metrics": {
+      "accuracy": 0.6644444444444445,
+      "balanced_acc": 0.6378894603458557,
+      "macro_f1": 0.6561493880215541,
+      "weighted_f1": 0.6601927793054935,
+      "macro_precision": 0.7108064730842384,
+      "macro_recall": 0.6378894603458557,
+      "top3_accuracy": 1.0,
+      "accuracy_std": 0.0062853936105470775,
+      "macro_f1_std": 0.00819185042379989
+    },
+    "params": {
+      "num_iterations": 20,
+      "epochs": 1,
+      "batch_size": 32,
+      "body": "sentence-transformers/all-MiniLM-L6-v2",
+      "seeds": [
+        42,
+        43,
+        44
+      ]
+    },
+    "train_seconds": 345.9681996333323,
+    "infer_ms_per_item": 8.430150001004222,
+    "model_size_mb": null,
+    "n_params": 22713216,
+    "notes": "SetFit on train.jsonl (584), mean of 3 seeds"
+  }
+]

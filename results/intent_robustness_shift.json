@@ -14,7 +14,7 @@
       "shift_drop": 0.019299304137860074
     },
     "params": {},
-    "train_seconds": 0.7632461999965017,
+    "train_seconds": 0.620975300000282,
     "infer_ms_per_item": null,
     "model_size_mb": null,
     "n_params": null,
@@ -35,7 +35,7 @@
       "shift_drop": 0.0022632519791918604
     },
     "params": {},
-    "train_seconds": 3.9586696999976994,
+    "train_seconds": 2.328875199997128,
     "infer_ms_per_item": null,
     "model_size_mb": null,
     "n_params": null,
@@ -56,7 +56,7 @@
       "shift_drop": 0.01808746995650823
     },
     "params": {},
-    "train_seconds": 0.40063630000076955,
+    "train_seconds": 1.0626207000022987,
     "infer_ms_per_item": null,
     "model_size_mb": null,
     "n_params": null,
@@ -98,7 +98,7 @@
       "shift_drop": 0.04046439886500641
     },
     "params": {},
-    "train_seconds": 48.8408253000016,
+    "train_seconds": 44.53269150000051,
     "infer_ms_per_item": null,
     "model_size_mb": null,
     "n_params": null,

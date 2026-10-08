@@ -1,0 +1,215 @@
+{
+  "python": "3.13.12",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "torch": "2.13.0+cu132",
+  "cuda_available": true,
+  "gpu": "NVIDIA GeForce RTX 4050 Laptop GPU",
+  "vram_gb": 6.0
+}
+intent  train=16817 val=3604 test=3604 classes=27
+priority train=496 val=88 gold=150
+gold urgency: {'normal': 48, 'high': 43, 'low': 39, 'critical': 20}
+Loading weights:   0%|          | 0/206 [00:00<?, ?it/s]Loading weights: 100%|██████████| 206/206 [00:00<00:00, 20271.37it/s]
+[transformers] [1mXLNetForSequenceClassification LOAD REPORT[0m from: xlnet/xlnet-base-cased
+Key                             | Status     | 
+--------------------------------+------------+-
+lm_loss.bias                    | UNEXPECTED | 
+lm_loss.weight                  | UNEXPECTED | 
+sequence_summary.summary.weight | MISSING    | 
+logits_proj.bias                | MISSING    | 
+sequence_summary.summary.bias   | MISSING    | 
+logits_proj.weight              | MISSING    | 
+
+Notes:
+- UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+- MISSING:	those params were newly initialized because missing from the checkpoint. Consider training on your downstream task.
+  xlnet/xlnet-base-cased seed=42 epoch 1  loss=0.9525  val_acc=0.9953
+  xlnet/xlnet-base-cased seed=42 epoch 2  loss=0.0183  val_acc=0.9986
+  xlnet/xlnet-base-cased seed=42 epoch 3  loss=0.0051  val_acc=0.9986
+Writing model shards:   0%|          | 0/1 [00:00<?, ?it/s]Writing model shards: 100%|██████████| 1/1 [00:00<00:00,  2.03it/s]Writing model shards: 100%|██████████| 1/1 [00:00<00:00,  2.03it/s]
+  -> stored xlnet_finetuned: accuracy=0.9975, balanced_acc=0.9973, macro_f1=0.9974, weighted_f1=0.9975, macro_precision=0.9975, macro_recall=0.9973, top3_accuracy=1.0000
+laya params: 421293827 head_max_len: 512
+  -> stored laya_zeroshot: accuracy=0.9145, balanced_acc=0.9130, macro_f1=0.9073, weighted_f1=0.9164, macro_precision=0.9245, macro_recall=0.9130, top3_accuracy=0.9706
+Loading weights:   0%|          | 0/103 [00:00<?, ?it/s]Loading weights: 100%|██████████| 103/103 [00:00<00:00, 3754.55it/s]
+  -> stored laya_zeroshot_shortlist8: accuracy=0.9054, balanced_acc=0.8977, macro_f1=0.8957, weighted_f1=0.9034, macro_precision=0.9075, macro_recall=0.8977
+[laya_encoder+logreg encode] 53.51s
+[laya_encoder+logreg fit] 2.41s
+  -> stored laya_encoder+logreg: accuracy=0.9767, balanced_acc=0.9743, macro_f1=0.9742, weighted_f1=0.9767, macro_precision=0.9743, macro_recall=0.9743, top3_accuracy=0.9964
+  -> stored laya_zeroshot: accuracy=0.3667, balanced_acc=0.3368, macro_f1=0.2946, weighted_f1=0.3215, macro_precision=0.4964, macro_recall=0.3368, top3_accuracy=0.8200
+[laya_encoder+logreg encode] 14.70s
+[laya_encoder+logreg fit] 0.17s
+  -> stored laya_encoder+logreg: accuracy=0.6933, balanced_acc=0.7090, macro_f1=0.7063, weighted_f1=0.6946, macro_precision=0.7241, macro_recall=0.7090, top3_accuracy=0.9867
+Loading weights:   0%|          | 0/206 [00:00<?, ?it/s]Loading weights: 100%|██████████| 206/206 [00:00<00:00, 16047.74it/s]
+[transformers] [1mXLNetForSequenceClassification LOAD REPORT[0m from: xlnet/xlnet-base-cased
+Key                             | Status     | 
+--------------------------------+------------+-
+lm_loss.bias                    | UNEXPECTED | 
+lm_loss.weight                  | UNEXPECTED | 
+sequence_summary.summary.weight | MISSING    | 
+logits_proj.bias                | MISSING    | 
+sequence_summary.summary.bias   | MISSING    | 
+logits_proj.weight              | MISSING    | 
+
+Notes:
+- UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+- MISSING:	those params were newly initialized because missing from the checkpoint. Consider training on your downstream task.
+  xlnet/xlnet-base-cased seed=42 epoch 1  loss=1.1259  val_acc=0.4318
+  xlnet/xlnet-base-cased seed=42 epoch 2  loss=0.8460  val_acc=0.6477
+  xlnet/xlnet-base-cased seed=42 epoch 3  loss=0.7013  val_acc=0.7386
+  xlnet/xlnet-base-cased seed=42 epoch 4  loss=0.5432  val_acc=0.7500
+  xlnet/xlnet-base-cased seed=42 epoch 5  loss=0.3828  val_acc=0.7386
+  xlnet/xlnet-base-cased seed=42 epoch 6  loss=0.2631  val_acc=0.7045
+  xlnet/xlnet-base-cased seed=42 epoch 7  loss=0.2046  val_acc=0.7159
+  xlnet/xlnet-base-cased seed=42 epoch 8  loss=0.1378  val_acc=0.7386
+  xlnet/xlnet-base-cased seed=42 epoch 9  loss=0.1136  val_acc=0.7159
+  xlnet/xlnet-base-cased seed=42 epoch 10  loss=0.1016  val_acc=0.7159
+Loading weights:   0%|          | 0/206 [00:00<?, ?it/s]Loading weights: 100%|██████████| 206/206 [00:00<00:00, 14459.24it/s]
+[transformers] [1mXLNetForSequenceClassification LOAD REPORT[0m from: xlnet/xlnet-base-cased
+Key                             | Status     | 
+--------------------------------+------------+-
+lm_loss.bias                    | UNEXPECTED | 
+lm_loss.weight                  | UNEXPECTED | 
+sequence_summary.summary.weight | MISSING    | 
+logits_proj.bias                | MISSING    | 
+sequence_summary.summary.bias   | MISSING    | 
+logits_proj.weight              | MISSING    | 
+
+Notes:
+- UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+- MISSING:	those params were newly initialized because missing from the checkpoint. Consider training on your downstream task.
+  xlnet/xlnet-base-cased seed=43 epoch 1  loss=1.1548  val_acc=0.4432
+  xlnet/xlnet-base-cased seed=43 epoch 2  loss=0.8583  val_acc=0.5568
+  xlnet/xlnet-base-cased seed=43 epoch 3  loss=0.7209  val_acc=0.6591
+  xlnet/xlnet-base-cased seed=43 epoch 4  loss=0.4973  val_acc=0.7045
+  xlnet/xlnet-base-cased seed=43 epoch 5  loss=0.4495  val_acc=0.7273
+  xlnet/xlnet-base-cased seed=43 epoch 6  loss=0.2728  val_acc=0.7273
+  xlnet/xlnet-base-cased seed=43 epoch 7  loss=0.1922  val_acc=0.7614
+  xlnet/xlnet-base-cased seed=43 epoch 8  loss=0.1528  val_acc=0.7500
+  xlnet/xlnet-base-cased seed=43 epoch 9  loss=0.0857  val_acc=0.7386
+  xlnet/xlnet-base-cased seed=43 epoch 10  loss=0.0829  val_acc=0.7500
+Loading weights:   0%|          | 0/206 [00:00<?, ?it/s]Loading weights: 100%|██████████| 206/206 [00:00<00:00, 17146.79it/s]
+[transformers] [1mXLNetForSequenceClassification LOAD REPORT[0m from: xlnet/xlnet-base-cased
+Key                             | Status     | 
+--------------------------------+------------+-
+lm_loss.bias                    | UNEXPECTED | 
+lm_loss.weight                  | UNEXPECTED | 
+sequence_summary.summary.weight | MISSING    | 
+logits_proj.bias                | MISSING    | 
+sequence_summary.summary.bias   | MISSING    | 
+logits_proj.weight              | MISSING    | 
+
+Notes:
+- UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+- MISSING:	those params were newly initialized because missing from the checkpoint. Consider training on your downstream task.
+  xlnet/xlnet-base-cased seed=44 epoch 1  loss=1.0860  val_acc=0.5227
+  xlnet/xlnet-base-cased seed=44 epoch 2  loss=0.8558  val_acc=0.5455
+  xlnet/xlnet-base-cased seed=44 epoch 3  loss=0.7228  val_acc=0.6591
+  xlnet/xlnet-base-cased seed=44 epoch 4  loss=0.5531  val_acc=0.7159
+  xlnet/xlnet-base-cased seed=44 epoch 5  loss=0.3945  val_acc=0.7386
+  xlnet/xlnet-base-cased seed=44 epoch 6  loss=0.2459  val_acc=0.7500
+  xlnet/xlnet-base-cased seed=44 epoch 7  loss=0.1947  val_acc=0.7273
+  xlnet/xlnet-base-cased seed=44 epoch 8  loss=0.1244  val_acc=0.7386
+  xlnet/xlnet-base-cased seed=44 epoch 9  loss=0.1182  val_acc=0.7273
+  xlnet/xlnet-base-cased seed=44 epoch 10  loss=0.1003  val_acc=0.7273
+  -> stored xlnet_finetuned: accuracy=0.7467, balanced_acc=0.7582, macro_f1=0.7557, weighted_f1=0.7447, macro_precision=0.7708, macro_recall=0.7582, top3_accuracy=1.0000, accuracy_std=0.0381, macro_f1_std=0.0362
+Loading weights:   0%|          | 0/100 [00:00<?, ?it/s]Loading weights: 100%|██████████| 100/100 [00:00<00:00, 3365.11it/s]
+[transformers] [1mDistilBertForSequenceClassification LOAD REPORT[0m from: distilbert-base-uncased
+Key                     | Status     | 
+------------------------+------------+-
+vocab_transform.weight  | UNEXPECTED | 
+vocab_layer_norm.weight | UNEXPECTED | 
+vocab_transform.bias    | UNEXPECTED | 
+vocab_layer_norm.bias   | UNEXPECTED | 
+vocab_projector.bias    | UNEXPECTED | 
+classifier.bias         | MISSING    | 
+pre_classifier.bias     | MISSING    | 
+classifier.weight       | MISSING    | 
+pre_classifier.weight   | MISSING    | 
+
+Notes:
+- UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+- MISSING:	those params were newly initialized because missing from the checkpoint. Consider training on your downstream task.
+  distilbert-base-uncased seed=42 epoch 1  loss=1.1880  val_acc=0.5227
+  distilbert-base-uncased seed=42 epoch 2  loss=0.8441  val_acc=0.5455
+  distilbert-base-uncased seed=42 epoch 3  loss=0.6284  val_acc=0.7273
+  distilbert-base-uncased seed=42 epoch 4  loss=0.4215  val_acc=0.7386
+  distilbert-base-uncased seed=42 epoch 5  loss=0.2655  val_acc=0.7614
+  distilbert-base-uncased seed=42 epoch 6  loss=0.1862  val_acc=0.7500
+  distilbert-base-uncased seed=42 epoch 7  loss=0.1433  val_acc=0.7500
+  distilbert-base-uncased seed=42 epoch 8  loss=0.0892  val_acc=0.7500
+  distilbert-base-uncased seed=42 epoch 9  loss=0.0788  val_acc=0.7386
+  distilbert-base-uncased seed=42 epoch 10  loss=0.0775  val_acc=0.7386
+Loading weights:   0%|          | 0/100 [00:00<?, ?it/s]Loading weights: 100%|██████████| 100/100 [00:00<00:00, 5442.20it/s]
+[transformers] [1mDistilBertForSequenceClassification LOAD REPORT[0m from: distilbert-base-uncased
+Key                     | Status     | 
+------------------------+------------+-
+vocab_transform.weight  | UNEXPECTED | 
+vocab_layer_norm.weight | UNEXPECTED | 
+vocab_transform.bias    | UNEXPECTED | 
+vocab_layer_norm.bias   | UNEXPECTED | 
+vocab_projector.bias    | UNEXPECTED | 
+classifier.bias         | MISSING    | 
+pre_classifier.bias     | MISSING    | 
+classifier.weight       | MISSING    | 
+pre_classifier.weight   | MISSING    | 
+
+Notes:
+- UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+- MISSING:	those params were newly initialized because missing from the checkpoint. Consider training on your downstream task.
+  distilbert-base-uncased seed=43 epoch 1  loss=1.2417  val_acc=0.5568
+  distilbert-base-uncased seed=43 epoch 2  loss=0.8250  val_acc=0.7045
+  distilbert-base-uncased seed=43 epoch 3  loss=0.5814  val_acc=0.6932
+  distilbert-base-uncased seed=43 epoch 4  loss=0.3480  val_acc=0.7273
+  distilbert-base-uncased seed=43 epoch 5  loss=0.2620  val_acc=0.7273
+  distilbert-base-uncased seed=43 epoch 6  loss=0.1644  val_acc=0.7386
+  distilbert-base-uncased seed=43 epoch 7  loss=0.1302  val_acc=0.7500
+  distilbert-base-uncased seed=43 epoch 8  loss=0.1001  val_acc=0.7500
+  distilbert-base-uncased seed=43 epoch 9  loss=0.0825  val_acc=0.7500
+  distilbert-base-uncased seed=43 epoch 10  loss=0.0783  val_acc=0.7500
+Loading weights:   0%|          | 0/100 [00:00<?, ?it/s]Loading weights: 100%|██████████| 100/100 [00:00<00:00, 3746.39it/s]
+[transformers] [1mDistilBertForSequenceClassification LOAD REPORT[0m from: distilbert-base-uncased
+Key                     | Status     | 
+------------------------+------------+-
+vocab_transform.weight  | UNEXPECTED | 
+vocab_layer_norm.weight | UNEXPECTED | 
+vocab_transform.bias    | UNEXPECTED | 
+vocab_layer_norm.bias   | UNEXPECTED | 
+vocab_projector.bias    | UNEXPECTED | 
+classifier.bias         | MISSING    | 
+pre_classifier.bias     | MISSING    | 
+classifier.weight       | MISSING    | 
+pre_classifier.weight   | MISSING    | 
+
+Notes:
+- UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+- MISSING:	those params were newly initialized because missing from the checkpoint. Consider training on your downstream task.
+  distilbert-base-uncased seed=44 epoch 1  loss=1.2243  val_acc=0.5341
+  distilbert-base-uncased seed=44 epoch 2  loss=0.7747  val_acc=0.6591
+  distilbert-base-uncased seed=44 epoch 3  loss=0.5584  val_acc=0.7159
+  distilbert-base-uncased seed=44 epoch 4  loss=0.4304  val_acc=0.7500
+  distilbert-base-uncased seed=44 epoch 5  loss=0.2876  val_acc=0.7500
+  distilbert-base-uncased seed=44 epoch 6  loss=0.1888  val_acc=0.7386
+  distilbert-base-uncased seed=44 epoch 7  loss=0.1321  val_acc=0.7386
+  distilbert-base-uncased seed=44 epoch 8  loss=0.1042  val_acc=0.7386
+  distilbert-base-uncased seed=44 epoch 9  loss=0.0967  val_acc=0.7386
+  distilbert-base-uncased seed=44 epoch 10  loss=0.0941  val_acc=0.7386
+  -> stored distilbert_finetuned: accuracy=0.6889, balanced_acc=0.6709, macro_f1=0.6585, weighted_f1=0.6747, macro_precision=0.6668, macro_recall=0.6709, top3_accuracy=1.0000, accuracy_std=0.0741, macro_f1_std=0.1348
+                      model  macro_f1  accuracy  infer_ms        source
+     tfidf_word+char+linsvc  0.999136  0.999168   1.43775   notebook 01
+            xlnet_finetuned  0.997377  0.997503  20.40105 this notebook
+           minilm_finetuned  0.996642  0.996948   8.28180   notebook 01
+       distilbert_finetuned  0.995578  0.996115   8.18640   notebook 01
+              minilm+logreg  0.992268  0.993063   9.85145   notebook 01
+        laya_encoder+logreg  0.974196  0.976693  26.73050 this notebook
+              laya_zeroshot  0.907283  0.914539  78.18485 this notebook
+   laya_zeroshot_shortlist8  0.895738  0.905383  55.74550 this notebook
+minilm_zeroshot_label_match  0.728071  0.738624   9.75145   notebook 01
+
+               model  macro_f1  accuracy  infer_ms           source
+     xlnet_finetuned  0.755709  0.746667  20.39465    this notebook
+ distilled_multitask  0.724400  0.726700   0.08000 score_table.json
+ laya_encoder+logreg  0.706308  0.693333  28.12980    this notebook
+       minilm+logreg  0.700600  0.680000   0.13100 score_table.json
+        tfidf+logreg  0.686100  0.666700   0.61400 score_table.json
+distilbert_finetuned  0.658493  0.688889   7.70365    this notebook
+       laya_zeroshot  0.294575  0.366667  44.16220    this notebook

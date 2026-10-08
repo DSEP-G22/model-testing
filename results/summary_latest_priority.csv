@@ -1,0 +1,9 @@
+model,macro_f1,accuracy,infer_ms,source
+xlnet_finetuned,0.7557093093665243,0.7466666666666667,19.390649998968,this notebook
+distilled_multitask,0.7244,0.7267,0.08,score_table.json
+laya_encoder+logreg,0.7063080522382847,0.6933333333333334,29.00210000188963,this notebook
+minilm+logreg,0.7006,0.68,0.131,score_table.json
+tfidf+logreg,0.6861,0.6667,0.614,score_table.json
+distilbert_finetuned,0.6584933366511169,0.6888888888888888,8.055600001171115,this notebook
+setfit_minilm,0.6561493880215541,0.6644444444444445,8.430150001004222,this notebook
+laya_zeroshot,0.29457484838753734,0.36666666666666664,46.337849998963065,this notebook

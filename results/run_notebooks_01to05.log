@@ -1,0 +1,95 @@
+D:\DSEP22\model testing\.venv\Lib\site-packages\nbformat\validator.py:434: MissingIDFieldWarning: Cell is missing an id field, this will become a hard error in future nbformat versions. You may want to use `normalize()` on your notebooks before validations (available since nbformat 5.1.4). Previous versions of nbformat are fixing this issue transparently, and will stop doing so in the future.
+  _validate(nbdict, ref, version, version_minor, relax_add_props)
+
+=== executing 01_intent_classification.ipynb ===
+D:\DSEP22\model testing\.venv\Lib\site-packages\zmq\_future.py:718: RuntimeWarning: Proactor event loop does not implement add_reader family of methods required for zmq. Registering an additional selector thread for add_reader support via tornado. Use `asyncio.set_event_loop_policy(WindowsSelectorEventLoopPolicy())` to avoid this warning.
+  self._get_loop()
+[IPKernelApp] WARNING | Kernel is running over TCP without encryption. All communication (including code and outputs) is sent in plain text and is susceptible to eavesdropping. Use IPC transport or launch with kernel manager-provisioned CurveZMQ keys to enable transport encryption.
+=== 01_intent_classification.ipynb finished in 6.0 min ===
+D:\DSEP22\model testing\.venv\Lib\site-packages\nbformat\validator.py:434: MissingIDFieldWarning: Cell is missing an id field, this will become a hard error in future nbformat versions. You may want to use `normalize()` on your notebooks before validations (available since nbformat 5.1.4). Previous versions of nbformat are fixing this issue transparently, and will stop doing so in the future.
+  _validate(nbdict, ref, version, version_minor, relax_add_props)
+
+=== executing 02_router_image_classification.ipynb ===
+[IPKernelApp] WARNING | Kernel is running over TCP without encryption. All communication (including code and outputs) is sent in plain text and is susceptible to eavesdropping. Use IPC transport or launch with kernel manager-provisioned CurveZMQ keys to enable transport encryption.
+=== 02_router_image_classification.ipynb finished in 22.7 min ===
+
+=== executing 03_voice_transcription_benchmark.ipynb ===
+[IPKernelApp] WARNING | Kernel is running over TCP without encryption. All communication (including code and outputs) is sent in plain text and is susceptible to eavesdropping. Use IPC transport or launch with kernel manager-provisioned CurveZMQ keys to enable transport encryption.
+=== 03_voice_transcription_benchmark.ipynb finished in 0.3 min ===
+
+=== executing 04_benchmark_summary.ipynb ===
+[IPKernelApp] WARNING | Kernel is running over TCP without encryption. All communication (including code and outputs) is sent in plain text and is susceptible to eavesdropping. Use IPC transport or launch with kernel manager-provisioned CurveZMQ keys to enable transport encryption.
+!!! 04_benchmark_summary.ipynb failed: CellExecutionError: An error occurred while executing the following cell:
+------------------
+import sys, json
+from pathlib import Path
+
+sys.path.insert(0, str(Path.cwd().parent / "src"))
+
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+
+import common
+from common import RESULTS, FAMILY_COLORS, env_info
+
+pd.set_option("display.width", 220)
+pd.set_option("display.max_columns", 40)
+
+tasks = {}
+for p in sorted(RESULTS.glob("*.json")):
+    rows = json.loads(p.read_text())
+    recs = []
+    for r in rows:
+        rec = {"task": r["task"], "model": r["model"], "family": r["family"]}
+        rec.update(r["metrics"])
+        rec["train_s"] = r.get("train_seconds")
+        rec["infer_ms"] = r.get("infer_ms_per_item")
+        rec["size_mb"] = r.get("model_size_mb")
+        rec["n_params"] = r.get("n_params")
+        rec["notes"] = r.get("notes", "")
+        recs.append(rec)
+    tasks[p.stem] = pd.DataFrame(recs)
+    print(f"{p.stem}: {len(recs)} models")
+------------------
+
+----- stdout -----
+intent_classification: 28 models
+intent_latest_models: 4 models
+intent_robustness_shift: 5 models
+------------------
+
+[31m---------------------------------------------------------------------------[39m
+[31mTypeError[39m                                 Traceback (most recent call last)
+[36mCell[39m[36m [39m[32mIn[1][39m[32m, line 21[39m
+[32m     17[39m [38;5;28;01mfor[39;00m p [38;5;28;01min[39;00m sorted(RESULTS.glob([33m"*.json"[39m)):
+[32m     18[39m     rows = json.loads(p.read_text())
+[32m     19[39m     recs = []
+[32m     20[39m     [38;5;28;01mfor[39;00m r [38;5;28;01min[39;00m rows:
+[32m---> [39m[32m21[39m         rec = {[33m"task"[39m: r[[33m"task"[39m], [33m"model"[39m: r[[33m"model"[39m], [33m"family"[39m: r[[33m"family"[39m]}
+[32m     22[39m         rec.update(r[[33m"metrics"[39m])
+[32m     23[39m         rec[[33m"train_s"[39m] = r.get([33m"train_seconds"[39m)
+[32m     24[39m         rec[[33m"infer_ms"[39m] = r.get([33m"infer_ms_per_item"[39m)
+
+[31mTypeError[39m: string indices must be integers, not 'str'
+
+=== 04_benchmark_summary.ipynb FAILED in 0.0 min ===
+
+=== executing 05_intent_robustness_shift.ipynb ===
+[IPKernelApp] WARNING | Kernel is running over TCP without encryption. All communication (including code and outputs) is sent in plain text and is susceptible to eavesdropping. Use IPC transport or launch with kernel manager-provisioned CurveZMQ keys to enable transport encryption.
+=== 05_intent_robustness_shift.ipynb finished in 1.4 min ===
+
+--- summary ---
+  OK   01_intent_classification.ipynb
+  OK   02_router_image_classification.ipynb
+  OK   03_voice_transcription_benchmark.ipynb
+  FAIL 04_benchmark_summary.ipynb
+  OK   05_intent_robustness_shift.ipynb
+01_intent_classification.ipynb: dropped 0 widget/progress outputs, kept 89
+02_router_image_classification.ipynb: dropped 0 widget/progress outputs, kept 70
+03_voice_transcription_benchmark.ipynb: dropped 0 widget/progress outputs, kept 22
+04_benchmark_summary.ipynb: dropped 0 widget/progress outputs, kept 2
+05_intent_robustness_shift.ipynb: dropped 0 widget/progress outputs, kept 26
+06_latest_models.ipynb: dropped 0 widget/progress outputs, kept 100
+07_generalization_hand_written.ipynb: dropped 0 widget/progress outputs, kept 23
+exit=0
